@@ -1,0 +1,6 @@
+(set-option :produce-models true)
+(declare-fun f (Int) Int)
+(assert (= (f 1) 5))
+(assert (= (f 2) 10))
+(check-sat)
+(get-model)

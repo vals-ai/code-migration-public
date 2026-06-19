@@ -1,0 +1,7 @@
+(declare-const x Bool)
+(declare-const y Bool)
+(declare-const z Bool)
+(assert (or x y z))
+(assert (or (not x) (not y)))
+(check-sat)
+(get-model)

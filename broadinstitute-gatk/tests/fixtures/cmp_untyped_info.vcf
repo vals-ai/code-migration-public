@@ -1,0 +1,7 @@
+##fileformat=VCFv4.2
+##FILTER=<ID=PASS,Description="All filters passed">
+##contig=<ID=1,length=249250621>
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO
+1	10000	.	A	T	50.0	PASS	RankSumP=1.00000
+1	20000	.	G	C	30.0	PASS	RankSumP=0.200390
+1	30000	.	AT	A	40.0	PASS	RankSumP=0.500000

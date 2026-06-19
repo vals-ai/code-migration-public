@@ -1,0 +1,7 @@
+; Model gen edge case: get-proof when produce-proofs is not enabled (error)
+(set-logic QF_LIA)
+(declare-const x Int)
+(assert (> x 5))
+(assert (< x 3))
+(check-sat)
+(get-proof)

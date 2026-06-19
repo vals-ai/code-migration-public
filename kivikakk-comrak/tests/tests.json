@@ -1,0 +1,625 @@
+{
+  "timeout": 30,
+  "tests": [
+    {
+      "name": "GFM table with column alignment (left/center/right)",
+      "category": "behavior"
+    },
+    {
+      "name": "footnotes extension: numbering and backreference unicode arrow",
+      "category": "behavior"
+    },
+    {
+      "name": "smart punctuation: curly quotes, em-dash, ellipsis",
+      "category": "behavior"
+    },
+    {
+      "name": "GFM full mode: strikethrough + tasklist + autolink + table",
+      "category": "behavior"
+    },
+    {
+      "name": "github-pre-lang changes code block tag structure",
+      "category": "behavior"
+    },
+    {
+      "name": "CommonMark output format preserves structure",
+      "category": "behavior"
+    },
+    {
+      "name": "XML output format with full document tree",
+      "category": "behavior"
+    },
+    {
+      "name": "sourcepos attributes in HTML output",
+      "category": "behavior"
+    },
+    {
+      "name": "unsafe flag allows raw HTML passthrough",
+      "category": "behavior"
+    },
+    {
+      "name": "front-matter-delimiter strips YAML front matter",
+      "category": "behavior"
+    },
+    {
+      "name": "header-id-prefix generates prefixed anchor IDs",
+      "category": "behavior"
+    },
+    {
+      "name": "unicode content: CJK, Arabic, emoji round-trip",
+      "category": "behavior"
+    },
+    {
+      "name": "description-lists extension",
+      "category": "behavior"
+    },
+    {
+      "name": "multiple extensions via comma separation",
+      "category": "behavior"
+    },
+    {
+      "name": "full-info-string includes extra words as data-meta attribute",
+      "category": "behavior"
+    },
+    {
+      "name": "spoiler extension: ||text|| wraps in span.spoiler",
+      "category": "behavior"
+    },
+    {
+      "name": "subtext extension: -# text produces sub element",
+      "category": "behavior"
+    },
+    {
+      "name": "highlight extension: ==text== wraps in mark element",
+      "category": "behavior"
+    },
+    {
+      "name": "insert extension: ++text++ wraps in ins element",
+      "category": "behavior"
+    },
+    {
+      "name": "math-dollars: inline $expr$ and display $$expr$$ with currency heuristic",
+      "category": "behavior"
+    },
+    {
+      "name": "math-code: $`expr`$ inline and ```math block",
+      "category": "behavior"
+    },
+    {
+      "name": "multiline-block-quotes: >>> opens/closes blockquote spanning paragraphs",
+      "category": "behavior"
+    },
+    {
+      "name": "wikilinks-title-after-pipe: [[url|label]] href and data-wikilink attribute",
+      "category": "behavior"
+    },
+    {
+      "name": "wikilinks-title-before-pipe: [[label|url]] href and data-wikilink attribute",
+      "category": "behavior"
+    },
+    {
+      "name": "underline extension repurposes _ delimiter to u element",
+      "category": "behavior"
+    },
+    {
+      "name": "subscript extension: ~text~ produces sub element",
+      "category": "behavior"
+    },
+    {
+      "name": "cjk-friendly-emphasis: ** emphasis adjacent to CJK characters",
+      "category": "behavior"
+    },
+    {
+      "name": "inline-footnotes combined with block footnotes: ^[...] syntax",
+      "category": "behavior"
+    },
+    {
+      "name": "alerts extension: GitHub-style > [!TYPE] blocks with class names",
+      "category": "behavior"
+    },
+    {
+      "name": "block-directive extension: :::class blocks produce div.class",
+      "category": "behavior"
+    },
+    {
+      "name": "greentext extension with hardbreaks: > lines become blockquotes",
+      "category": "behavior"
+    },
+    {
+      "name": "compact mode removes newlines between block-level HTML elements",
+      "category": "behavior"
+    },
+    {
+      "name": "tasklist with tasklist-classes: adds contains-task-list and task-list-item classes",
+      "category": "behavior"
+    },
+    {
+      "name": "tasklist with relaxed-tasklist-character: any char inside [] marks as checked",
+      "category": "behavior"
+    },
+    {
+      "name": "escaped-char-spans wraps backslash-escaped chars in span[data-escaped-char]",
+      "category": "behavior"
+    },
+    {
+      "name": "tagfilter with unsafe: specific tags filtered even with --unsafe",
+      "category": "behavior"
+    },
+    {
+      "name": "gfm-quirks: suppresses nested strong tags for GFM compatibility",
+      "category": "behavior"
+    },
+    {
+      "name": "gemoji: :name: shortcodes converted to Unicode emoji",
+      "category": "behavior"
+    },
+    {
+      "name": "commonmark list-style plus: output uses + bullets",
+      "category": "behavior"
+    },
+    {
+      "name": "commonmark list-style star: output uses * bullets",
+      "category": "behavior"
+    },
+    {
+      "name": "commonmark width 40: long lines wrapped at column boundary",
+      "category": "behavior"
+    },
+    {
+      "name": "ignore-setext: setext-style headings treated as paragraphs",
+      "category": "behavior"
+    },
+    {
+      "name": "ignore-empty-links: [text]() not parsed as link",
+      "category": "behavior"
+    },
+    {
+      "name": "relaxed-autolinks: bare localhost URL with no TLD becomes link",
+      "category": "behavior"
+    },
+    {
+      "name": "default-info-string applies language class to unlabeled fenced blocks",
+      "category": "behavior"
+    },
+    {
+      "name": "sourcepos-chars reports Unicode character offsets not byte offsets",
+      "category": "behavior"
+    },
+    {
+      "name": "header-id-prefix-in-href applies prefix to both id and href anchor",
+      "category": "behavior"
+    },
+    {
+      "name": "multiple file args concatenated at string level before parsing",
+      "category": "behavior"
+    },
+    {
+      "name": "hardbreaks only applies within paragraphs, not across block boundaries",
+      "category": "behavior"
+    },
+    {
+      "name": "hardbreaks inserts br in list item continuation lines",
+      "category": "behavior"
+    },
+    {
+      "name": "commonmark output normalizes all thematic break styles to five dashes",
+      "category": "behavior"
+    },
+    {
+      "name": "commonmark output renumbers ordered lists sequentially from 1",
+      "category": "behavior"
+    },
+    {
+      "name": "escape flag takes precedence over unsafe flag",
+      "category": "behavior"
+    },
+    {
+      "name": "gfm-quirks suppresses nested strong tags in double-strong input",
+      "category": "behavior"
+    },
+    {
+      "name": "xml table uses table_row and table_cell node names",
+      "category": "behavior"
+    },
+    {
+      "name": "xml alert includes lowercase type attribute from [!NOTE] syntax",
+      "category": "behavior"
+    },
+    {
+      "name": "xml footnote uses label attribute on footnote_reference and footnote_definition",
+      "category": "behavior"
+    },
+    {
+      "name": "xml block-directive has info attribute with class string",
+      "category": "behavior"
+    },
+    {
+      "name": "xml wikilinks uses wikilink element with destination attribute",
+      "category": "behavior"
+    },
+    {
+      "name": "xml with sourcepos includes sourcepos attribute on document and all nodes",
+      "category": "behavior"
+    },
+    {
+      "name": "xml math-dollars: math_style attribute distinguishes inline vs display",
+      "category": "behavior"
+    },
+    {
+      "name": "xml six inline extensions produce exact node names: strikethrough superscript subscript highlight insert spoiler",
+      "category": "behavior"
+    },
+    {
+      "name": "math-dollars + strikethrough + footnotes work together without interference",
+      "category": "behavior"
+    },
+    {
+      "name": "autolink extension converts plain URLs and emails to anchor tags",
+      "category": "behavior"
+    },
+    {
+      "name": "autolink in commonmark output uses angle-bracket notation",
+      "category": "behavior"
+    },
+    {
+      "name": "commonmark table output preserves alignment markers",
+      "category": "behavior"
+    },
+    {
+      "name": "commonmark alerts output preserves [!TYPE] block quote syntax",
+      "category": "behavior"
+    },
+    {
+      "name": "commonmark strikethrough and footnotes preserved in output",
+      "category": "behavior"
+    },
+    {
+      "name": "experimental-minimize-commonmark reduces redundant backslash escapes",
+      "category": "behavior"
+    },
+    {
+      "name": "sourcepos byte offsets: Chinese chars use UTF-8 byte count not character count",
+      "category": "behavior"
+    },
+    {
+      "name": "sourcepos on table and footnote extension elements",
+      "category": "behavior"
+    },
+    {
+      "name": "special html characters encoded as entities in HTML output",
+      "category": "behavior"
+    },
+    {
+      "name": "phoenix-heex extension passes through dot-component syntax",
+      "category": "behavior"
+    },
+    {
+      "name": "xml output preserves unicode CJK arabic emoji content verbatim",
+      "category": "behavior"
+    },
+    {
+      "name": "xml output on deeply nested block structures",
+      "category": "behavior"
+    },
+    {
+      "name": "xml --unsafe lets raw HTML through as html_block / html_inline nodes",
+      "category": "behavior"
+    },
+    {
+      "name": "xml alerts combined with multiline-block-quotes extension",
+      "category": "behavior"
+    },
+    {
+      "name": "xml table with full-info-string preserves alignment and meta",
+      "category": "behavior"
+    },
+    {
+      "name": "xml with sourcepos and alerts extension emits sourcepos on alert nodes",
+      "category": "behavior"
+    },
+    {
+      "name": "xml mega combo: 15 extensions + sourcepos + smart + hardbreaks + tasklist-classes",
+      "category": "behavior"
+    },
+    {
+      "name": "commonmark list-style dash: bullets normalized to -",
+      "category": "behavior"
+    },
+    {
+      "name": "commonmark width 0 disables wrapping (long lines stay intact)",
+      "category": "behavior"
+    },
+    {
+      "name": "commonmark output on deeply nested block structures",
+      "category": "behavior"
+    },
+    {
+      "name": "commonmark width 50 with strikethrough+superscript inline extensions",
+      "category": "behavior"
+    },
+    {
+      "name": "math-dollars and math-code extensions enabled together",
+      "category": "behavior"
+    },
+    {
+      "name": "gfm + tasklist-classes + full-info-string flag combo",
+      "category": "behavior"
+    },
+    {
+      "name": "wikilinks both modes simultaneously: last-specified mode wins",
+      "category": "behavior"
+    },
+    {
+      "name": "html mega combo: 8 inline/block extensions interact without breakage",
+      "category": "behavior"
+    },
+    {
+      "name": "commonmark serializer: footnote definition indent and blank-line layout",
+      "category": "behavior"
+    },
+    {
+      "name": "commonmark serializer: description-list term/definition blank line",
+      "category": "behavior"
+    },
+    {
+      "name": "commonmark serializer: multiline-block-quotes preserves >>> fences",
+      "category": "behavior"
+    },
+    {
+      "name": "commonmark serializer: block-directive preserves ::: fences",
+      "category": "behavior"
+    },
+    {
+      "name": "commonmark serializer: fenced code block preserves indented body lines",
+      "category": "behavior"
+    },
+    {
+      "name": "commonmark serializer: link title with embedded escaped quotes",
+      "category": "behavior"
+    },
+    {
+      "name": "commonmark serializer: blockquote internal blank-line markers preserved",
+      "category": "behavior"
+    },
+    {
+      "name": "math-code,math-dollars precedence: math-code wins on $...$ when both enabled",
+      "category": "behavior"
+    },
+    {
+      "name": "sourcepos attribute applied to strikethrough <del> inline element",
+      "category": "behavior"
+    },
+    {
+      "name": "null bytes in input are replaced with U+FFFD replacement char",
+      "category": "behavior"
+    },
+    {
+      "name": "dangerous url scanner: javascript:, vbscript:, data:text/html blocked, data:image/* allowed",
+      "category": "behavior"
+    },
+    {
+      "name": "commonmark width-wrap: CJK chars count as 2 columns, emoji measured by display width",
+      "category": "behavior"
+    },
+    {
+      "name": "url ampersand escaping: & \u2192 &amp; in href and src attributes including refs and images",
+      "category": "behavior"
+    },
+    {
+      "name": "html entity decoding: named, numeric decimal, and hex entities decoded to unicode",
+      "category": "behavior"
+    },
+    {
+      "name": "header-id-prefix on empty/non-alphanumeric heading slugs",
+      "category": "behavior"
+    },
+    {
+      "name": "footnote rendering: same footnote referenced 3 times gets superscript backrefs \u21a9\u00b2\u21a9\u00b3",
+      "category": "behavior"
+    },
+    {
+      "name": "multi-file: inline emphasis construct spans across file boundary",
+      "category": "behavior"
+    },
+    {
+      "name": "lazy continuation in list items: unindented continuation lines stay in item",
+      "category": "behavior"
+    },
+    {
+      "name": "lazy continuation in blockquote: line without > continues paragraph",
+      "category": "behavior"
+    },
+    {
+      "name": "lazy continuation in nested blockquotes",
+      "category": "behavior"
+    },
+    {
+      "name": "lazy continuation in blockquote containing a list",
+      "category": "behavior"
+    },
+    {
+      "name": "tab-indented code block: default syntax-highlighting wraps in span",
+      "category": "behavior"
+    },
+    {
+      "name": "ordered list: 9-digit start ok, 10-digit overflow rejected per CommonMark",
+      "category": "behavior"
+    },
+    {
+      "name": "commonmark serializer: blank lines between list-item paragraphs preserved",
+      "category": "behavior"
+    },
+    {
+      "name": "list item with blank line before code block: text wrapped in <p>",
+      "category": "behavior"
+    },
+    {
+      "name": "image alt text strips inline markdown to plain text",
+      "category": "behavior"
+    },
+    {
+      "name": "commonmark serializer: trailing-2-space hard break round-trips as backslash",
+      "category": "behavior"
+    },
+    {
+      "name": "[[foo]]: bar is a paragraph not a link reference definition",
+      "category": "behavior"
+    },
+    {
+      "name": "reference link matching: unicode case folding (German \u00df\u2194\u1e9e, Greek \u03a3, Turkish \u0130)",
+      "category": "behavior"
+    },
+    {
+      "name": "shortcut [foo], collapsed [foo][], full [foo][bar] reference forms",
+      "category": "behavior"
+    },
+    {
+      "name": "autolink: localhost without port-style TLD requires --relaxed-autolinks",
+      "category": "behavior"
+    },
+    {
+      "name": "autolink bracket-form schemes: irc://, xmpp:, news:, ftp:// inside <...>",
+      "category": "behavior"
+    },
+    {
+      "name": "footnotes: unreferenced [^name]: definitions omitted from output",
+      "category": "behavior"
+    },
+    {
+      "name": "underscore intraword does not emphasize: foo_bar_baz, 5_6_7",
+      "category": "behavior"
+    },
+    {
+      "name": "setext heading: 0-3 leading spaces accepted, 4 spaces becomes code block",
+      "category": "behavior"
+    },
+    {
+      "name": "atx heading: trailing closing # requires preceding space to be stripped",
+      "category": "behavior"
+    },
+    {
+      "name": "thematic break recognized with tab-separated markers (*\\t*\\t*)",
+      "category": "behavior"
+    },
+    {
+      "name": "code span: one space stripped each end, internal multi-space preserved, newline\u2192space",
+      "category": "behavior"
+    },
+    {
+      "name": "commonmark serializer: defensively escapes leading # to prevent re-parse as heading",
+      "category": "behavior"
+    },
+    {
+      "name": "xml output: ordered list delim attribute distinguishes period vs paren",
+      "category": "behavior"
+    },
+    {
+      "name": "numeric entity overflow: above U+10FFFF clamps to U+FFFD; null \u2192 U+FFFD",
+      "category": "behavior"
+    },
+    {
+      "name": "named entity matching is case-insensitive: &lt; == &LT; == &Lt;",
+      "category": "behavior"
+    },
+    {
+      "name": "list looseness: a single blank line between items makes the entire list loose",
+      "category": "behavior"
+    },
+    {
+      "name": "fenced code: closing fence requires >= opening backtick count, not ==",
+      "category": "behavior"
+    },
+    {
+      "name": "fenced and indented code: tabs preserved verbatim, paragraph tabs expanded",
+      "category": "behavior"
+    },
+    {
+      "name": "info string with unicode/emoji unescaped in HTML class attribute",
+      "category": "behavior"
+    },
+    {
+      "name": "link text whitespace: newlines preserved verbatim, tabs converted to spaces",
+      "category": "behavior"
+    },
+    {
+      "name": "url apostrophe encoded as hex &#x27; (not &apos; or &#39;) in href",
+      "category": "behavior"
+    },
+    {
+      "name": "emphasis left-flanking: letter+punct boundaries fail intra-word emphasis",
+      "category": "behavior"
+    },
+    {
+      "name": "reference label whitespace collapses (multi-space, newline, tab \u2192 single space)",
+      "category": "behavior"
+    },
+    {
+      "name": "angle bracket URL: first > closes, no escape mechanism inside",
+      "category": "behavior"
+    },
+    {
+      "name": "autolink extension produces mailto: links for plain email and explicit scheme",
+      "category": "behavior"
+    },
+    {
+      "name": "commonmark serializer: table alignment markers minimum length (:--)",
+      "category": "behavior"
+    },
+    {
+      "name": "setext heading rejected when underline is tab-prefixed (not 0-3 spaces)",
+      "category": "behavior"
+    },
+    {
+      "name": "emphasis delimiter mismatch *a**b* and asymmetric ** runs",
+      "category": "behavior"
+    },
+    {
+      "name": "xml tasklist node naming and completed attribute (case-insensitive [x]/[X])",
+      "category": "behavior"
+    },
+    {
+      "name": "thematic break vs setext underline interaction with paragraphs",
+      "category": "behavior"
+    },
+    {
+      "name": "nested links rejected: [outer [inner](u)](u) does not produce nested <a>",
+      "category": "behavior"
+    },
+    {
+      "name": "strikethrough requires double tilde: ~text~ literal, ~~text~~ struck",
+      "category": "behavior"
+    },
+    {
+      "name": "header-id-prefix with cyrillic, CJK, emoji: lowercased and emoji stripped",
+      "category": "behavior"
+    },
+    {
+      "name": "url percent-encoding lookahead: %GG \u2192 %25GG, %2 \u2192 %252, %20 preserved",
+      "category": "behavior"
+    },
+    {
+      "name": "data:image/ scheme allowlist: png/gif/webp/jpeg/svg pass, bmp blocked",
+      "category": "behavior"
+    },
+    {
+      "name": "numeric entity digit limits: 7 decimal max, 6 hex max",
+      "category": "behavior"
+    },
+    {
+      "name": "IPv6 brackets in URL: http/https preserve, ftp/ws encode brackets",
+      "category": "behavior"
+    },
+    {
+      "name": "commonmark serializer: tilde fences ~~~ converted to backtick fences",
+      "category": "behavior"
+    },
+    {
+      "name": "heading id collision: duplicates get -1, -2 suffixes",
+      "category": "behavior"
+    },
+    {
+      "name": "commonmark backslash escape: ASCII punctuation escaped, non-ASCII left literal",
+      "category": "behavior"
+    }
+  ]
+}

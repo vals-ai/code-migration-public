@@ -1,0 +1,946 @@
+{
+  "reference_command": "__eval_gatk-java",
+  "test_command": "__eval_gatk-python",
+  "timeout": 240,
+  "tests": [
+    {
+      "name": "ViewSam dumps SAM header and records",
+      "args": "ViewSam -I /tmp/small.bam --ALIGNMENT_STATUS All --PF_STATUS All 2>/dev/null"
+    },
+    {
+      "name": "CountReads count on tiny indexed BAM",
+      "args": "CountReads -I /tmp/small.bam 2>/tmp/log; grep -A1 \"^Tool returned:\" /tmp/log | tail -1"
+    },
+    {
+      "name": "CountBases count on tiny indexed BAM",
+      "args": "CountBases -I /tmp/small.bam 2>/tmp/log; grep -A1 \"^Tool returned:\" /tmp/log | tail -1"
+    },
+    {
+      "name": "CountVariants count on multi-record VCF",
+      "args": "CountVariants -V /tmp/variants.vcf 2>/tmp/log; grep -A1 \"^Tool returned:\" /tmp/log | tail -1"
+    },
+    {
+      "name": "IndexFeatureFile produces deterministic .idx",
+      "args": "IndexFeatureFile -I /tmp/variants.vcf -O /tmp/variants.vcf.idx 2>/dev/null",
+      "output_files": [
+        "/tmp/variants.vcf.idx"
+      ]
+    },
+    {
+      "name": "IndexFeatureFile on header-only VCF",
+      "args": "IndexFeatureFile -I /tmp/header_only.vcf -O /tmp/header_only.vcf.idx 2>/dev/null",
+      "output_files": [
+        "/tmp/header_only.vcf.idx"
+      ]
+    },
+    {
+      "name": "SelectVariants keep only SNPs",
+      "args": "SelectVariants -V /tmp/variants.vcf --select-type-to-include SNP -O /tmp/snps.vcf 2>/dev/null; grep -vE \"^##(GATKCommandLine|source|fileDate)\" /tmp/snps.vcf"
+    },
+    {
+      "name": "SelectVariants keep only INDELs",
+      "args": "SelectVariants -V /tmp/variants.vcf --select-type-to-include INDEL -O /tmp/indels.vcf 2>/dev/null; grep -vE \"^##(GATKCommandLine|source|fileDate)\" /tmp/indels.vcf"
+    },
+    {
+      "name": "SelectVariants restricted to interval contig 1",
+      "args": "SelectVariants -V /tmp/variants.vcf -L 1 -O /tmp/chr1.vcf 2>/dev/null; grep -vE \"^##(GATKCommandLine|source|fileDate)\" /tmp/chr1.vcf"
+    },
+    {
+      "name": "SelectVariants exclude-non-variants on all-variant input",
+      "args": "SelectVariants -V /tmp/variants.vcf --exclude-non-variants -O /tmp/exnv.vcf 2>/dev/null; grep -vE \"^##(GATKCommandLine|source|fileDate)\" /tmp/exnv.vcf"
+    },
+    {
+      "name": "VariantsToTable basic CHROM POS REF ALT",
+      "args": "VariantsToTable -V /tmp/variants.vcf -F CHROM -F POS -F REF -F ALT -O /tmp/t1.tsv 2>/dev/null; cat /tmp/t1.tsv"
+    },
+    {
+      "name": "VariantsToTable with QUAL column",
+      "args": "VariantsToTable -V /tmp/variants.vcf -F CHROM -F POS -F QUAL -O /tmp/t2.tsv 2>/dev/null; cat /tmp/t2.tsv"
+    },
+    {
+      "name": "VariantsToTable with TYPE column",
+      "args": "VariantsToTable -V /tmp/variants.vcf -F CHROM -F POS -F TYPE -O /tmp/t3.tsv 2>/dev/null; cat /tmp/t3.tsv"
+    },
+    {
+      "name": "missing required input flag fails",
+      "args": "SelectVariants 2>/dev/null; echo exit:$?"
+    },
+    {
+      "name": "unknown tool name fails",
+      "args": "ThisToolDoesNotExist 2>/dev/null; echo exit:$?"
+    },
+    {
+      "name": "FlagStat full counter output with percentages",
+      "args": "FlagStat -I /tmp/small.bam 2>/dev/null"
+    },
+    {
+      "name": "FlagStat writes summary to file via -O",
+      "args": "FlagStat -I /tmp/small.bam -O /tmp/flagstat_out.txt 2>/dev/null; cat /tmp/flagstat_out.txt"
+    },
+    {
+      "name": "ViewSam ALIGNMENT_STATUS Aligned filters to mapped reads",
+      "args": "ViewSam -I /tmp/small.bam --ALIGNMENT_STATUS Aligned --PF_STATUS All 2>/dev/null"
+    },
+    {
+      "name": "ViewSam ALIGNMENT_STATUS Unaligned produces only header",
+      "args": "ViewSam -I /tmp/small.bam --ALIGNMENT_STATUS Unaligned --PF_STATUS All 2>/dev/null"
+    },
+    {
+      "name": "ViewSam PF_STATUS NonPassing on all-passing BAM",
+      "args": "ViewSam -I /tmp/small.bam --ALIGNMENT_STATUS All --PF_STATUS NonPassing 2>/dev/null"
+    },
+    {
+      "name": "ViewSam HEADER_ONLY emits only header lines",
+      "args": "ViewSam -I /tmp/small.bam --HEADER_ONLY --ALIGNMENT_STATUS All --PF_STATUS All 2>/dev/null"
+    },
+    {
+      "name": "ViewSam RECORDS_ONLY emits only records",
+      "args": "ViewSam -I /tmp/small.bam --RECORDS_ONLY --ALIGNMENT_STATUS All --PF_STATUS All 2>/dev/null"
+    },
+    {
+      "name": "ViewSam with interval -L 1 keeps only chr1 records",
+      "args": "ViewSam -I /tmp/small.bam --ALIGNMENT_STATUS All --PF_STATUS All -L 1 2>/dev/null"
+    },
+    {
+      "name": "CountReads with -L 1 counts only chr1 reads",
+      "args": "CountReads -I /tmp/small.bam -L 1 2>/tmp/log; grep -A1 \"^Tool returned:\" /tmp/log | tail -1"
+    },
+    {
+      "name": "CountBases with -L 1 counts only chr1 bases",
+      "args": "CountBases -I /tmp/small.bam -L 1 2>/tmp/log; grep -A1 \"^Tool returned:\" /tmp/log | tail -1"
+    },
+    {
+      "name": "CountVariants on header-only VCF returns 0",
+      "args": "CountVariants -V /tmp/header_only.vcf 2>/tmp/log; grep -A1 \"^Tool returned:\" /tmp/log | tail -1"
+    },
+    {
+      "name": "CountVariants with -L 1 interval filter",
+      "args": "CountVariants -V /tmp/variants.vcf -L 1 2>/tmp/log; grep -A1 \"^Tool returned:\" /tmp/log | tail -1"
+    },
+    {
+      "name": "CountVariants with -XL 1 excludes chr1",
+      "args": "CountVariants -V /tmp/variants.vcf -XL 1 2>/tmp/log; grep -A1 \"^Tool returned:\" /tmp/log | tail -1"
+    },
+    {
+      "name": "CountVariants counts filtered records too",
+      "args": "CountVariants -V /tmp/sites_only.vcf 2>/tmp/log; grep -A1 \"^Tool returned:\" /tmp/log | tail -1"
+    },
+    {
+      "name": "CountVariants on single-record VCF returns 1",
+      "args": "CountVariants -V /tmp/single_record.vcf 2>/tmp/log; grep -A1 \"^Tool returned:\" /tmp/log | tail -1"
+    },
+    {
+      "name": "CountVariants -O writes count to file",
+      "args": "CountVariants -V /tmp/with_ids.vcf -O /tmp/cv_count.txt 2>/dev/null; cat /tmp/cv_count.txt"
+    },
+    {
+      "name": "CountBases -O writes count to file",
+      "args": "CountBases -I /tmp/small.bam -O /tmp/base_count.txt 2>/dev/null; cat /tmp/base_count.txt"
+    },
+    {
+      "name": "CountReads with MappedReadFilter",
+      "args": "CountReads -I /tmp/small.bam --read-filter MappedReadFilter 2>/tmp/log; grep -A1 \"^Tool returned:\" /tmp/log | tail -1"
+    },
+    {
+      "name": "CountReads with NotDuplicateReadFilter disabled",
+      "args": "CountReads -I /tmp/small.bam --disable-read-filter NotDuplicateReadFilter 2>/tmp/log; grep -A1 \"^Tool returned:\" /tmp/log | tail -1"
+    },
+    {
+      "name": "SelectVariants upgrades VCFv4.1 input to VCFv4.2 output",
+      "args": "SelectVariants -V /tmp/variants.vcf -O /tmp/sv_fmt.vcf 2>/dev/null; grep \"^##fileformat\" /tmp/sv_fmt.vcf"
+    },
+    {
+      "name": "SelectVariants select-type-to-exclude SNP keeps only INDELs",
+      "args": "SelectVariants -V /tmp/variants.vcf --select-type-to-exclude SNP -O /tmp/sv_excl_snp.vcf 2>/dev/null; grep -v \"^#\" /tmp/sv_excl_snp.vcf | awk \"{print \\$1,\\$2,\\$4,\\$5}\""
+    },
+    {
+      "name": "SelectVariants restrict-alleles-to BIALLELIC",
+      "args": "SelectVariants -V /tmp/multiallelic.vcf --restrict-alleles-to BIALLELIC -O /tmp/sv_bi.vcf 2>/dev/null; grep -v \"^#\" /tmp/sv_bi.vcf | awk \"{print \\$1,\\$2,\\$4,\\$5}\""
+    },
+    {
+      "name": "SelectVariants restrict-alleles-to MULTIALLELIC",
+      "args": "SelectVariants -V /tmp/multiallelic.vcf --restrict-alleles-to MULTIALLELIC -O /tmp/sv_multi.vcf 2>/dev/null; grep -v \"^#\" /tmp/sv_multi.vcf | awk \"{print \\$1,\\$2,\\$5}\""
+    },
+    {
+      "name": "SelectVariants max-indel-size 2 excludes 3+ bp indels",
+      "args": "SelectVariants -V /tmp/variants.vcf --max-indel-size 2 -O /tmp/sv_maxi.vcf 2>/dev/null; grep -v \"^#\" /tmp/sv_maxi.vcf | awk \"{print \\$1,\\$2,\\$4,\\$5}\""
+    },
+    {
+      "name": "SelectVariants min-indel-size 3 keeps only 3+ bp indels and SNPs",
+      "args": "SelectVariants -V /tmp/variants.vcf --min-indel-size 3 -O /tmp/sv_mini.vcf 2>/dev/null; grep -v \"^#\" /tmp/sv_mini.vcf | awk \"{print \\$1,\\$2,\\$4,\\$5}\""
+    },
+    {
+      "name": "SelectVariants exclude-filtered keeps only PASS",
+      "args": "SelectVariants -V /tmp/filtered.vcf --exclude-filtered -O /tmp/sv_excl_filt.vcf 2>/dev/null; grep -v \"^#\" /tmp/sv_excl_filt.vcf | awk \"{print \\$1,\\$2,\\$3}\""
+    },
+    {
+      "name": "SelectVariants keep-ids retains only specified rsIDs",
+      "args": "SelectVariants -V /tmp/filtered.vcf --keep-ids rs1 --keep-ids rs4 -O /tmp/sv_keep.vcf 2>/dev/null; grep -v \"^#\" /tmp/sv_keep.vcf | awk \"{print \\$1,\\$2,\\$3}\""
+    },
+    {
+      "name": "SelectVariants exclude-ids removes specified rsIDs",
+      "args": "SelectVariants -V /tmp/filtered.vcf --exclude-ids rs1 --exclude-ids rs4 -O /tmp/sv_excl_id.vcf 2>/dev/null; grep -v \"^#\" /tmp/sv_excl_id.vcf | awk \"{print \\$1,\\$2,\\$3}\""
+    },
+    {
+      "name": "SelectVariants JEXL filter QUAL > 100",
+      "args": "SelectVariants -V /tmp/filtered.vcf --select \"QUAL > 100.0\" -O /tmp/sv_jexl.vcf 2>/dev/null; grep -v \"^#\" /tmp/sv_jexl.vcf | awk \"{print \\$1,\\$2,\\$3,\\$6}\""
+    },
+    {
+      "name": "SelectVariants invert-select reverses JEXL result",
+      "args": "SelectVariants -V /tmp/filtered.vcf --select \"QUAL > 100.0\" --invert-select -O /tmp/sv_inv.vcf 2>/dev/null; grep -v \"^#\" /tmp/sv_inv.vcf | awk \"{print \\$1,\\$2,\\$3}\""
+    },
+    {
+      "name": "SelectVariants sample-name SAMPLE2 recalculates AC/AF/AN",
+      "args": "SelectVariants -V /tmp/withgt.vcf -sn SAMPLE2 -O /tmp/sv_s2.vcf 2>/dev/null; grep -v \"^#\" /tmp/sv_s2.vcf | awk \"{print \\$8}\""
+    },
+    {
+      "name": "SelectVariants keep-original-ac annotates AC_Orig/AF_Orig/AN_Orig",
+      "args": "SelectVariants -V /tmp/withgt.vcf -sn SAMPLE2 --keep-original-ac -O /tmp/sv_kac.vcf 2>/dev/null; grep -v \"^#\" /tmp/sv_kac.vcf | awk \"{print \\$8}\""
+    },
+    {
+      "name": "SelectVariants -DA drops AC and AF INFO annotations",
+      "args": "SelectVariants -V /tmp/withgt.vcf -DA AC -DA AF -O /tmp/sv_da.vcf 2>/dev/null; grep -v \"^#\" /tmp/sv_da.vcf | awk \"{print \\$8}\""
+    },
+    {
+      "name": "SelectVariants contradictory include/exclude same type yields empty",
+      "args": "SelectVariants -V /tmp/snps_only.vcf --select-type-to-include SNP --select-type-to-exclude SNP -O /tmp/sv_contra.vcf 2>/dev/null; grep -vc \"^#\" /tmp/sv_contra.vcf"
+    },
+    {
+      "name": "SelectVariants on header-only VCF preserves header",
+      "args": "SelectVariants -V /tmp/header_only_norecords.vcf --select-type-to-include SNP -O /tmp/sv_empty.vcf 2>/dev/null; grep -vE \"^##(GATKCommandLine|source|fileDate)\" /tmp/sv_empty.vcf"
+    },
+    {
+      "name": "SelectVariants max-nocall-number 1 excludes high-nocall sites",
+      "args": "SelectVariants -V /tmp/nocall.vcf --max-nocall-number 1 -O /tmp/sv_nc.vcf 2>/dev/null; grep -v \"^#\" /tmp/sv_nc.vcf | awk \"{print \\$1,\\$2}\""
+    },
+    {
+      "name": "SelectVariants set-filtered-gt-to-nocall on filtered genotypes",
+      "args": "SelectVariants -V /tmp/with_samples.vcf --set-filtered-gt-to-nocall -O /tmp/sv_fgt.vcf 2>/dev/null; grep -vE \"^##(GATKCommandLine|source|fileDate)\" /tmp/sv_fgt.vcf"
+    },
+    {
+      "name": "SelectVariants drop-info-annotation DP",
+      "args": "SelectVariants -V /tmp/select_jexl.vcf --drop-info-annotation DP -O /tmp/sv_dropdp.vcf 2>/dev/null; grep -v \"^#\" /tmp/sv_dropdp.vcf | awk \"{print \\$8}\""
+    },
+    {
+      "name": "SelectVariants sample-name with remove-unused-alternates",
+      "args": "SelectVariants -V /tmp/with_samples.vcf --sample-name SAMPLE1 --remove-unused-alternates -O /tmp/sv_rua.vcf 2>/dev/null; grep -v \"^#\" /tmp/sv_rua.vcf | awk \"{print \\$1,\\$2,\\$4,\\$5}\""
+    },
+    {
+      "name": "SelectVariants sample-name with preserve-alleles",
+      "args": "SelectVariants -V /tmp/two_sample.vcf --sample-name SampleA --preserve-alleles -O /tmp/sv_pa.vcf 2>/dev/null; grep -v \"^#\" /tmp/sv_pa.vcf | awk \"{print \\$1,\\$2,\\$4,\\$5}\""
+    },
+    {
+      "name": "SelectVariants interval contig 2 only",
+      "args": "SelectVariants -V /tmp/sites_only.vcf -L 2 -O /tmp/sv_c2.vcf 2>/dev/null; grep -v \"^#\" /tmp/sv_c2.vcf | awk \"{print \\$1,\\$2}\""
+    },
+    {
+      "name": "SelectVariants JEXL QD > 10 on INFO field",
+      "args": "SelectVariants -V /tmp/select_jexl.vcf --select \"QD > 10.0\" -O /tmp/sv_qd.vcf 2>/dev/null; grep -v \"^#\" /tmp/sv_qd.vcf | awk \"{print \\$1,\\$2}\""
+    },
+    {
+      "name": "SelectVariants combined SNP type and chr1 interval",
+      "args": "SelectVariants -V /tmp/sites_only.vcf --select-type-to-include SNP -L 1 -O /tmp/sv_sc1.vcf 2>/dev/null; grep -v \"^#\" /tmp/sv_sc1.vcf | awk \"{print \\$1,\\$2,\\$4,\\$5}\""
+    },
+    {
+      "name": "SelectVariants with -XL 1 excludes chr1",
+      "args": "SelectVariants -V /tmp/variants.vcf -XL 1 -O /tmp/sv_xl.vcf 2>/dev/null; grep -v \"^#\" /tmp/sv_xl.vcf | awk \"{print \\$1,\\$2}\""
+    },
+    {
+      "name": "SelectVariants with range interval 1:100-300",
+      "args": "SelectVariants -V /tmp/variants.vcf -L 1:100-300 -O /tmp/sv_rng.vcf 2>/dev/null; grep -v \"^#\" /tmp/sv_rng.vcf | awk \"{print \\$1,\\$2}\""
+    },
+    {
+      "name": "VariantsToTable AC multi-allele INFO field",
+      "args": "VariantsToTable -V /tmp/multiallelic.vcf -F CHROM -F POS -F AC -O /tmp/t_ac.tsv 2>/dev/null; cat /tmp/t_ac.tsv"
+    },
+    {
+      "name": "VariantsToTable TRANSITION field on biallelic vs INDEL",
+      "args": "VariantsToTable -V /tmp/variants.vcf -F CHROM -F POS -F TRANSITION -O /tmp/t_tr.tsv 2>/dev/null; cat /tmp/t_tr.tsv"
+    },
+    {
+      "name": "VariantsToTable EVENTLENGTH preserves sign",
+      "args": "VariantsToTable -V /tmp/variants.vcf -F CHROM -F POS -F EVENTLENGTH -O /tmp/t_ev.tsv 2>/dev/null; cat /tmp/t_ev.tsv"
+    },
+    {
+      "name": "VariantsToTable MULTI-ALLELIC lowercase boolean",
+      "args": "VariantsToTable -V /tmp/multiallelic.vcf -F CHROM -F POS -F MULTI-ALLELIC -O /tmp/t_ma.tsv 2>/dev/null; cat /tmp/t_ma.tsv"
+    },
+    {
+      "name": "VariantsToTable FILTER comma-joined with show-filtered",
+      "args": "VariantsToTable -V /tmp/filtered.vcf -F CHROM -F POS -F FILTER --show-filtered -O /tmp/t_f.tsv 2>/dev/null; cat /tmp/t_f.tsv"
+    },
+    {
+      "name": "VariantsToTable missing field outputs NA",
+      "args": "VariantsToTable -V /tmp/variants.vcf -F CHROM -F NONEXISTENT -O /tmp/t_na.tsv 2>/dev/null; head -3 /tmp/t_na.tsv"
+    },
+    {
+      "name": "VariantsToTable moltenize long-format output",
+      "args": "VariantsToTable -V /tmp/variants.vcf -F CHROM -F POS --moltenize -O /tmp/t_mt.tsv 2>/dev/null; head -5 /tmp/t_mt.tsv"
+    },
+    {
+      "name": "VariantsToTable split-multi-allelic emits one row per ALT",
+      "args": "VariantsToTable -V /tmp/multiallelic.vcf -F CHROM -F POS -F ALT --split-multi-allelic -O /tmp/t_sma.tsv 2>/dev/null; cat /tmp/t_sma.tsv"
+    },
+    {
+      "name": "VariantsToTable -GF GT decoded as allele bases",
+      "args": "VariantsToTable -V /tmp/withgt.vcf -F CHROM -F POS -GF GT -O /tmp/t_gt.tsv 2>/dev/null; cat /tmp/t_gt.tsv"
+    },
+    {
+      "name": "VariantsToTable -GF AD with no brackets or spaces",
+      "args": "VariantsToTable -V /tmp/withgt.vcf -F CHROM -F POS -GF AD -O /tmp/t_ad.tsv 2>/dev/null; cat /tmp/t_ad.tsv"
+    },
+    {
+      "name": "VariantsToTable genotype count fields HET HOM-REF HOM-VAR NO-CALL",
+      "args": "VariantsToTable -V /tmp/withgt.vcf -F CHROM -F POS -F HET -F HOM-REF -F HOM-VAR -F NO-CALL -F VAR -F NSAMPLES -F NCALLED -O /tmp/t_gc.tsv 2>/dev/null; cat /tmp/t_gc.tsv"
+    },
+    {
+      "name": "VariantsToTable extract ID field",
+      "args": "VariantsToTable -V /tmp/with_ids.vcf -F CHROM -F POS -F ID -O /tmp/t_id.tsv 2>/dev/null; cat /tmp/t_id.tsv"
+    },
+    {
+      "name": "VariantsToTable -GF GQ genotype field",
+      "args": "VariantsToTable -V /tmp/with_samples.vcf -F CHROM -F POS -GF GQ -O /tmp/t_gq.tsv 2>/dev/null; cat /tmp/t_gq.tsv"
+    },
+    {
+      "name": "VariantsToTable AC/AF/AN INFO triple",
+      "args": "VariantsToTable -V /tmp/with_samples.vcf -F CHROM -F POS -F AC -F AF -F AN -O /tmp/t_aafan.tsv 2>/dev/null; cat /tmp/t_aafan.tsv"
+    },
+    {
+      "name": "VariantsToTable missing DP field on all records emits NA",
+      "args": "VariantsToTable -V /tmp/snps_only.vcf -F CHROM -F POS -F DP -O /tmp/t_dp.tsv 2>/dev/null; cat /tmp/t_dp.tsv"
+    },
+    {
+      "name": "VariantsToTable default excludes filtered records",
+      "args": "VariantsToTable -V /tmp/sites_only.vcf -F CHROM -F POS -F FILTER -O /tmp/t_def.tsv 2>/dev/null; cat /tmp/t_def.tsv"
+    },
+    {
+      "name": "VariantsToTable TRANSITION on sites_only",
+      "args": "VariantsToTable -V /tmp/sites_only.vcf -F CHROM -F POS -F TYPE -F TRANSITION --show-filtered -O /tmp/t_tr2.tsv 2>/dev/null; cat /tmp/t_tr2.tsv"
+    },
+    {
+      "name": "VariantsToTable EVENTLENGTH on sites_only",
+      "args": "VariantsToTable -V /tmp/sites_only.vcf -F CHROM -F POS -F REF -F ALT -F EVENTLENGTH --show-filtered -O /tmp/t_ev2.tsv 2>/dev/null; cat /tmp/t_ev2.tsv"
+    },
+    {
+      "name": "VariantsToTable genotype counts on nocall.vcf",
+      "args": "VariantsToTable -V /tmp/nocall.vcf -F CHROM -F POS -F HET -F HOM-REF -F HOM-VAR -F NO-CALL -O /tmp/t_nc.tsv 2>/dev/null; cat /tmp/t_nc.tsv"
+    },
+    {
+      "name": "VariantsToTable NSAMPLES and NCALLED on nocall.vcf",
+      "args": "VariantsToTable -V /tmp/nocall.vcf -F CHROM -F POS -F NSAMPLES -F NCALLED -O /tmp/t_ns.tsv 2>/dev/null; cat /tmp/t_ns.tsv"
+    },
+    {
+      "name": "VariantsToTable moltenize on single-record VCF",
+      "args": "VariantsToTable -V /tmp/single_record.vcf -F CHROM -F POS -F REF --moltenize -O /tmp/t_m2.tsv 2>/dev/null; cat /tmp/t_m2.tsv"
+    },
+    {
+      "name": "MergeVcfs merges two non-overlapping VCFs in coordinate order",
+      "args": "MergeVcfs -I /tmp/merge_a.vcf -I /tmp/merge_b.vcf -O /tmp/merged.vcf 2>/dev/null; grep -vE \"^##(GATKCommandLine|source|fileDate)\" /tmp/merged.vcf"
+    },
+    {
+      "name": "SortVcf sorts records in an out-of-order VCF",
+      "args": "SortVcf -I /tmp/unsorted.vcf -O /tmp/sorted.vcf 2>/dev/null; grep -vE \"^##(GATKCommandLine|source|fileDate)\" /tmp/sorted.vcf"
+    },
+    {
+      "name": "RenameSampleInVcf renames sample column",
+      "args": "RenameSampleInVcf -I /tmp/rename_input.vcf --OLD_SAMPLE_NAME OldSampleName --NEW_SAMPLE_NAME NewSampleName -O /tmp/renamed.vcf 2>/dev/null; grep -vE \"^##(GATKCommandLine|source|fileDate)\" /tmp/renamed.vcf"
+    },
+    {
+      "name": "IndexFeatureFile on multi-sample VCF exits 0",
+      "args": "IndexFeatureFile -I /tmp/with_samples.vcf -O /tmp/ws.vcf.idx 2>/dev/null; echo exit:$?"
+    },
+    {
+      "name": "IndexFeatureFile auto-names index from input path",
+      "args": "cp /tmp/filtered.vcf /tmp/auto_in.vcf; IndexFeatureFile -I /tmp/auto_in.vcf 2>/tmp/log; grep -A1 \"^Tool returned:\" /tmp/log | tail -1"
+    },
+    {
+      "name": "IndexFeatureFile on .g.vcf uses linear index strategy",
+      "args": "IndexFeatureFile -I /tmp/gvcf_sample.g.vcf -O /tmp/gvcf_sample.g.vcf.idx 2>/dev/null",
+      "output_files": [
+        "/tmp/gvcf_sample.g.vcf.idx"
+      ]
+    },
+    {
+      "name": "IndexFeatureFile on filtered VCF produces deterministic index",
+      "args": "IndexFeatureFile -I /tmp/filtered.vcf -O /tmp/filtered.vcf.idx 2>/dev/null",
+      "output_files": [
+        "/tmp/filtered.vcf.idx"
+      ]
+    },
+    {
+      "name": "IndexFeatureFile fails on missing input",
+      "args": "IndexFeatureFile -I /tmp/nonexistent_file.vcf -O /tmp/dummy.idx 2>/dev/null; echo exit:$?"
+    },
+    {
+      "name": "ValidateSamFile exits 4 on Picard non-zero return",
+      "args": "ValidateSamFile -I /tmp/small.bam 2>/dev/null; echo exit:$?"
+    },
+    {
+      "name": "ValidateSamFile WARNING/ERROR line format",
+      "args": "ValidateSamFile -I /tmp/small.bam 2>/dev/null | head -5"
+    },
+    {
+      "name": "BamIndexStats formats per-contig stats",
+      "args": "BamIndexStats -I /tmp/small.bam 2>/dev/null"
+    },
+    {
+      "name": "GetSampleName extracts SM tag from BAM RG header",
+      "args": "GetSampleName -I /tmp/small.bam -O /dev/stdout 2>/dev/null"
+    },
+    {
+      "name": "DumpTabixIndex rejects non-.tbi file",
+      "args": "DumpTabixIndex -I /tmp/variants.vcf -O /tmp/dump.txt 2>/tmp/err; echo exit:$?; grep -oE \"Expected a .tbi file\" /tmp/err"
+    },
+    {
+      "name": "near-miss tool name yields Did you mean suggestion",
+      "args": "SelectVariantz 2>/tmp/err; echo exit:$?; grep -oE \"Did you mean this\\?\" /tmp/err; grep -oE \"SelectVariants$\" /tmp/err"
+    },
+    {
+      "name": "CountReads with unknown read-filter name fails",
+      "args": "CountReads -I /tmp/small.bam --read-filter ThisFilterDoesNotExist 2>/dev/null; echo exit:$?"
+    },
+    {
+      "name": "SelectVariants INFO field alpha order in output",
+      "args": "SelectVariants -V /tmp/p11_info_order_test.vcf -O /tmp/sv_io.vcf 2>/dev/null; grep -v \"^#\" /tmp/sv_io.vcf | awk \"{print \\$8}\""
+    },
+    {
+      "name": "VariantsToTable SAMPLE_NAME returns first genotype sample",
+      "args": "VariantsToTable -V /tmp/p11_multi_sample_gt.vcf -F CHROM -F POS -F SAMPLE_NAME -O /tmp/t_sn.tsv 2>/dev/null; cat /tmp/t_sn.tsv"
+    },
+    {
+      "name": "VariantsToTable EVENTLENGTH max-abs on multi-allelic",
+      "args": "VariantsToTable -V /tmp/p11_multiallelic_eventlen.vcf -F CHROM -F POS -F REF -F ALT -F EVENTLENGTH -O /tmp/t_mel.tsv 2>/dev/null; cat /tmp/t_mel.tsv"
+    },
+    {
+      "name": "VariantsToTable wildcard AS_* field",
+      "args": "VariantsToTable -V /tmp/p11_wildcard_info.vcf -F CHROM -F POS -F \"AS_*\" -O /tmp/t_wc.tsv 2>/dev/null; cat /tmp/t_wc.tsv"
+    },
+    {
+      "name": "VariantsToTable without -F flags emits all header fields",
+      "args": "VariantsToTable -V /tmp/p11_jexl_ops.vcf -O /tmp/t_noF.tsv 2>/dev/null; head -2 /tmp/t_noF.tsv"
+    },
+    {
+      "name": "SelectVariants JEXL != operator",
+      "args": "SelectVariants -V /tmp/p11_jexl_ops.vcf --select \"QD != 10.0\" -O /tmp/sv_neq.vcf 2>/dev/null; grep -v \"^#\" /tmp/sv_neq.vcf | awk \"{print \\$1,\\$2}\""
+    },
+    {
+      "name": "SelectVariants JEXL >= boundary inclusive",
+      "args": "SelectVariants -V /tmp/p11_jexl_ops.vcf --select \"QD >= 10.0\" -O /tmp/sv_geq.vcf 2>/dev/null; grep -v \"^#\" /tmp/sv_geq.vcf | awk \"{print \\$1,\\$2}\""
+    },
+    {
+      "name": "SelectVariants JEXL <= boundary inclusive",
+      "args": "SelectVariants -V /tmp/p11_jexl_ops.vcf --select \"QD <= 8.0\" -O /tmp/sv_leq.vcf 2>/dev/null; grep -v \"^#\" /tmp/sv_leq.vcf | awk \"{print \\$1,\\$2}\""
+    },
+    {
+      "name": "SelectVariants JEXL && AND semantics",
+      "args": "SelectVariants -V /tmp/p11_jexl_ops.vcf --select \"QD > 5.0 && DP > 15\" -O /tmp/sv_and.vcf 2>/dev/null; grep -v \"^#\" /tmp/sv_and.vcf | awk \"{print \\$1,\\$2}\""
+    },
+    {
+      "name": "SelectVariants JEXL || OR semantics",
+      "args": "SelectVariants -V /tmp/p11_jexl_ops.vcf --select \"QD >= 10.0 || DP < 12\" -O /tmp/sv_or.vcf 2>/dev/null; grep -v \"^#\" /tmp/sv_or.vcf | awk \"{print \\$1,\\$2}\""
+    },
+    {
+      "name": "SelectVariants multiple --select flags act as OR",
+      "args": "SelectVariants -V /tmp/p11_jexl_ops.vcf --select \"QD > 15.0\" --select \"DP < 12\" -O /tmp/sv_ormulti.vcf 2>/dev/null; grep -v \"^#\" /tmp/sv_ormulti.vcf | awk \"{print \\$1,\\$2}\""
+    },
+    {
+      "name": "SelectVariants multiple -L flags union",
+      "args": "SelectVariants -V /tmp/p11_multi_contig.vcf -L 1 -L 3 -O /tmp/sv_unionL.vcf 2>/dev/null; grep -v \"^#\" /tmp/sv_unionL.vcf | awk \"{print \\$1,\\$2}\""
+    },
+    {
+      "name": "SelectVariants -L single position chr:pos",
+      "args": "SelectVariants -V /tmp/p11_multi_contig.vcf -L 1:100 -O /tmp/sv_pos.vcf 2>/dev/null; grep -v \"^#\" /tmp/sv_pos.vcf | awk \"{print \\$1,\\$2}\""
+    },
+    {
+      "name": "SelectVariants -L include + -XL exclude subtraction",
+      "args": "SelectVariants -V /tmp/p11_multi_contig.vcf -L 1:100-300 -XL 1:200-200 -O /tmp/sv_xl.vcf 2>/dev/null; grep -v \"^#\" /tmp/sv_xl.vcf | awk \"{print \\$1,\\$2}\""
+    },
+    {
+      "name": "SelectVariants round-trip preserves variant count",
+      "args": "SelectVariants -V /tmp/p11_jexl_ops.vcf -O /tmp/rt.vcf 2>/dev/null; CountVariants -V /tmp/rt.vcf 2>/tmp/rtlog; grep -A1 \"^Tool returned:\" /tmp/rtlog | tail -1"
+    },
+    {
+      "name": "SelectVariants round-trip preserves Float INFO values",
+      "args": "SelectVariants -V /tmp/p11_jexl_ops.vcf -O /tmp/rt2.vcf 2>/dev/null; VariantsToTable -V /tmp/rt2.vcf -F CHROM -F POS -F QD -F DP -O /tmp/t_rt.tsv 2>/dev/null; cat /tmp/t_rt.tsv"
+    },
+    {
+      "name": "IndexFeatureFile two runs produce identical .idx",
+      "args": "IndexFeatureFile -I /tmp/p11_jexl_ops.vcf -O /tmp/j1.idx 2>/dev/null; IndexFeatureFile -I /tmp/p11_jexl_ops.vcf -O /tmp/j2.idx 2>/dev/null; cmp -s /tmp/j1.idx /tmp/j2.idx && echo MATCH || echo DIFF"
+    },
+    {
+      "name": "SortVcf uses contig dictionary order not lexicographic",
+      "args": "SortVcf -I /tmp/p11_dict_order_test.vcf -O /tmp/sv_sorted.vcf 2>/dev/null; grep -v \"^#\" /tmp/sv_sorted.vcf | awk \"{print \\$1,\\$2}\""
+    },
+    {
+      "name": "SortVcf idempotent on already-sorted input",
+      "args": "SortVcf -I /tmp/p11_already_sorted.vcf -O /tmp/sorted_id.vcf 2>/dev/null; grep -vE \"^##(GATKCommandLine|source|fileDate)\" /tmp/sorted_id.vcf"
+    },
+    {
+      "name": "SelectVariants --select-genotype-expressions OR over samples",
+      "args": "SelectVariants -V /tmp/p11_multi_sample_gt.vcf --select-genotype-expressions \"GQ > 85\" -O /tmp/sv_gqge.vcf 2>/dev/null; grep -v \"^#\" /tmp/sv_gqge.vcf | awk \"{print \\$1,\\$2}\""
+    },
+    {
+      "name": "SelectVariants --sample-expressions regex matches and recalculates",
+      "args": "SelectVariants -V /tmp/p11_multi_sample_gt.vcf --sample-expressions \"SAMPLE_[AB]\" -O /tmp/sv_regex.vcf 2>/dev/null; grep -v \"^#\" /tmp/sv_regex.vcf | awk \"{print \\$1,\\$2,\\$8}\""
+    },
+    {
+      "name": "SelectVariants --keep-original-dp saves DP_Orig",
+      "args": "SelectVariants -V /tmp/p11_dp_orig_test.vcf --sample-name SAMPLE1 --keep-original-dp -O /tmp/sv_dpo.vcf 2>/dev/null; grep -v \"^#\" /tmp/sv_dpo.vcf | awk \"{print \\$1,\\$2,\\$8}\""
+    },
+    {
+      "name": "SelectVariants JEXL vc.isSNP method call",
+      "args": "SelectVariants -V /tmp/p11_mixed_variants.vcf --select \"vc.isSNP()\" -O /tmp/sv_issnp.vcf 2>/dev/null; grep -v \"^#\" /tmp/sv_issnp.vcf | awk \"{print \\$1,\\$2,\\$3,\\$4,\\$5}\""
+    },
+    {
+      "name": "SelectVariants JEXL vc.getGenotype isHet chained call",
+      "args": "SelectVariants -V /tmp/p11_dp_orig_test.vcf --select \"vc.getGenotype('SAMPLE1').isHet()\" -O /tmp/sv_vcgt.vcf 2>/dev/null; grep -v \"^#\" /tmp/sv_vcgt.vcf | awk \"{print \\$1,\\$2}\""
+    },
+    {
+      "name": "SelectVariants type INDEL with min-indel-size 4",
+      "args": "SelectVariants -V /tmp/p11_mixed_variants.vcf --select-type-to-include INDEL --min-indel-size 4 -O /tmp/sv_iml.vcf 2>/dev/null; grep -v \"^#\" /tmp/sv_iml.vcf | awk \"{print \\$1,\\$2,\\$3,\\$4,\\$5}\""
+    },
+    {
+      "name": "SelectVariants exclude-filtered with QUAL JEXL",
+      "args": "SelectVariants -V /tmp/p11_mixed_variants.vcf --exclude-filtered --select \"QUAL >= 70.0\" -O /tmp/sv_exfs.vcf 2>/dev/null; grep -v \"^#\" /tmp/sv_exfs.vcf | awk \"{print \\$1,\\$2,\\$3,\\$6,\\$7}\""
+    },
+    {
+      "name": "SelectVariants keep-ids AND type-include SNP",
+      "args": "SelectVariants -V /tmp/p11_mixed_variants.vcf --keep-ids rs100 --keep-ids rs300 --select-type-to-include SNP -O /tmp/sv_kist.vcf 2>/dev/null; grep -v \"^#\" /tmp/sv_kist.vcf | awk \"{print \\$1,\\$2,\\$3,\\$4,\\$5}\""
+    },
+    {
+      "name": "SelectVariants sample-name AND restrict-alleles BIALLELIC",
+      "args": "SelectVariants -V /tmp/p11_multiallelic_biallelic.vcf --sample-name SAMPLE1 --restrict-alleles-to BIALLELIC -O /tmp/sv_sb.vcf 2>/dev/null; grep -v \"^#\" /tmp/sv_sb.vcf | awk \"{print \\$1,\\$2,\\$4,\\$5}\""
+    },
+    {
+      "name": "SelectVariants max-nocall-fraction 0.5",
+      "args": "SelectVariants -V /tmp/nocall.vcf --max-nocall-fraction 0.5 -O /tmp/sv_ncf.vcf 2>/dev/null; grep -v \"^#\" /tmp/sv_ncf.vcf | awk \"{print \\$1,\\$2}\""
+    },
+    {
+      "name": "MergeVcfs VCFv4.1 + VCFv4.2 upgrades to VCFv4.2",
+      "args": "MergeVcfs -I /tmp/p11_merge_a2.vcf -I /tmp/p11_merge_b2.vcf -O /tmp/mergedv.vcf 2>/dev/null; grep \"^##fileformat\" /tmp/mergedv.vcf; grep -v \"^#\" /tmp/mergedv.vcf | awk \"{print \\$1,\\$2}\""
+    },
+    {
+      "name": "VariantsToTable -GF columns sorted alphabetically by sample",
+      "args": "VariantsToTable -V /tmp/p11_sample_order_test.vcf -F CHROM -F POS -GF GQ -O /tmp/t_so.tsv 2>/dev/null; cat /tmp/t_so.tsv"
+    },
+    {
+      "name": "VariantsToTable missing QUAL renders as -10.0 sentinel",
+      "args": "VariantsToTable -V /tmp/cmp_qual_missing.vcf -F CHROM -F POS -F QUAL -O /tmp/t_qm.tsv 2>/dev/null; cat /tmp/t_qm.tsv"
+    },
+    {
+      "name": "VariantsToTable QUAL keeps Java Double.toString precision",
+      "args": "VariantsToTable -V /tmp/cmp_float_qual.vcf -F CHROM -F POS -F QUAL -O /tmp/t_fq.tsv 2>/dev/null; cat /tmp/t_fq.tsv"
+    },
+    {
+      "name": "VariantsToTable untyped INFO preserves trailing zeros",
+      "args": "VariantsToTable -V /tmp/cmp_untyped_info.vcf -F CHROM -F POS -F RankSumP -O /tmp/t_rs.tsv 2>/dev/null; cat /tmp/t_rs.tsv"
+    },
+    {
+      "name": "VariantsToTable Float INFO preserves trailing zeros",
+      "args": "VariantsToTable -V /tmp/cmp_trailing_zero.vcf -F CHROM -F POS -F SB -F QD -O /tmp/t_sbqd.tsv 2>/dev/null; cat /tmp/t_sbqd.tsv"
+    },
+    {
+      "name": "VariantsToTable wildcard collects equal values into a TreeSet",
+      "args": "VariantsToTable -V /tmp/cmp_wildcard_test.vcf -F CHROM -F POS -F \"func*\" -O /tmp/t_wc2.tsv 2>/dev/null; cat /tmp/t_wc2.tsv"
+    },
+    {
+      "name": "VariantsToTable header ignores trailing tab on",
+      "args": "VariantsToTable -V /tmp/cmp_trailing_tab.vcf -GF GT 2>/dev/null | head -1"
+    },
+    {
+      "name": "VariantsToTable Flag INFO emits lowercase true",
+      "args": "VariantsToTable -V /tmp/cmp_flag_info.vcf -F CHROM -F POS -F DB -O /tmp/t_db.tsv 2>/dev/null; cat /tmp/t_db.tsv"
+    },
+    {
+      "name": "SelectVariants JEXL != without spaces parses correctly",
+      "args": "SelectVariants -V /tmp/cmp_jexl_ne.vcf --select \"QUAL!=30.0\" -O /tmp/sv_jne.vcf 2>/dev/null; grep -v \"^#\" /tmp/sv_jne.vcf | wc -l"
+    },
+    {
+      "name": "VariantsToTable SAMPLE_NAME on sites-only VCF fails",
+      "args": "VariantsToTable -V /tmp/cmp_qual_missing.vcf -F CHROM -F POS -F SAMPLE_NAME 2>/dev/null; echo \"exit:$?\""
+    },
+    {
+      "name": "VariantsToTable --arguments_file expands extra -F flags",
+      "args": "VariantsToTable -V /tmp/variants.vcf --arguments_file /tmp/cmp_args.txt -O /tmp/t_af.tsv 2>/dev/null; head -1 /tmp/t_af.tsv"
+    },
+    {
+      "name": "MergeVcfs preserves quotes on simple Description values",
+      "args": "MergeVcfs -I /tmp/variants.vcf -I /tmp/variants.vcf -O /tmp/mg_q.vcf 2>/dev/null; grep \"FORMAT.*GT\" /tmp/mg_q.vcf | head -1"
+    },
+    {
+      "name": "SelectVariants strips trailing-tab phantom from",
+      "args": "SelectVariants -V /tmp/cmp_trailing_tab.vcf --select-type-to-include SNP -O /tmp/sv_ttab.vcf 2>/dev/null; grep \"^#CHROM\" /tmp/sv_ttab.vcf | tr \"\\t\" \"\\n\" | tail -1"
+    },
+    {
+      "name": "SelectVariants --max-filtered-genotypes excludes high-FT records",
+      "args": "SelectVariants -V /tmp/cmp_filtered_geno.vcf --max-filtered-genotypes 1 -O /tmp/sv_mfg.vcf 2>/dev/null; grep -vc \"^#\" /tmp/sv_mfg.vcf"
+    },
+    {
+      "name": "SelectVariants --drop-genotypes is rejected by argument parser",
+      "args": "SelectVariants -V /tmp/variants.vcf --drop-genotypes -O /tmp/sv_dg.vcf 2>/dev/null; echo \"exit:$?\""
+    },
+    {
+      "name": "SelectVariants malformed interval positions fail validation",
+      "args": "SelectVariants -V /tmp/variants.vcf -L \"1:abc-def\" -O /tmp/sv_bi.vcf 2>/dev/null; echo \"exit:$?\""
+    },
+    {
+      "name": "VariantFiltration applies named filter expression",
+      "args": "VariantFiltration -V /tmp/variants.vcf --filter-expression \"QUAL < 30.0\" --filter-name \"LowQual\" -O /tmp/vf.vcf 2>/dev/null; echo \"exit:$?\""
+    },
+    {
+      "name": "ValidateVariants exits 0 on a well-formed VCF",
+      "args": "ValidateVariants -V /tmp/variants.vcf 2>/dev/null; echo \"exit:$?\""
+    },
+    {
+      "name": "VcfToIntervalList converts VCF to interval list",
+      "args": "VcfToIntervalList -I /tmp/variants.vcf -O /tmp/vil.interval_list 2>/dev/null; echo \"exit:$?\""
+    },
+    {
+      "name": "VCFComparator on identical inputs exits 0",
+      "args": "VCFComparator -comp /tmp/variants.vcf -V /tmp/variants.vcf -O /tmp/vcfc 2>/dev/null; echo \"exit:$?\""
+    },
+    {
+      "name": "VariantFiltration basic filter labels failing records",
+      "args": "VariantFiltration -V /tmp/variants.vcf --filter-expression \"QUAL < 30.0\" --filter-name \"LowQual\" -O /tmp/vf_lq.vcf 2>/dev/null; grep -vE \"^##(GATKCommandLine|source|fileDate)\" /tmp/vf_lq.vcf"
+    },
+    {
+      "name": "VariantFiltration invert-filter-expression flips PASS membership",
+      "args": "VariantFiltration -V /tmp/p11_jexl_ops.vcf --filter-expression \"QD < 8.0\" --filter-name \"LowQD\" --invert-filter-expression -O /tmp/vf_inv.vcf 2>/dev/null; grep -v \"^#\" /tmp/vf_inv.vcf | awk \"{print \\$1,\\$2,\\$7}\""
+    },
+    {
+      "name": "VariantFiltration missing-values-evaluate-as-failing",
+      "args": "VariantFiltration -V /tmp/variants.vcf --filter-expression \"QD < 5.0\" --filter-name \"LowQD\" --missing-values-evaluate-as-failing -O /tmp/vf_mvef.vcf 2>/dev/null; grep -v \"^#\" /tmp/vf_mvef.vcf | awk \"{print \\$1,\\$2,\\$7}\""
+    },
+    {
+      "name": "VariantFiltration genotype-filter-expression writes FT field",
+      "args": "VariantFiltration -V /tmp/with_samples.vcf --genotype-filter-expression \"GQ < 30\" --genotype-filter-name \"LowGQ\" -O /tmp/vf_gf.vcf 2>/dev/null; grep -vE \"^##(GATKCommandLine|source|fileDate)\" /tmp/vf_gf.vcf"
+    },
+    {
+      "name": "VariantFiltration set-filtered-genotype-to-no-call rewrites GT",
+      "args": "VariantFiltration -V /tmp/with_samples.vcf --genotype-filter-expression \"GQ < 35\" --genotype-filter-name \"LowGQ\" --set-filtered-genotype-to-no-call -O /tmp/vf_nc.vcf 2>/dev/null; grep -v \"^#\" /tmp/vf_nc.vcf | awk \"{print \\$1,\\$2,\\$10,\\$11,\\$12}\""
+    },
+    {
+      "name": "VariantFiltration invalidate-previous-filters clears prior FILTER",
+      "args": "VariantFiltration -V /tmp/filtered.vcf --filter-expression \"QUAL < 100.0\" --filter-name \"LowQual100\" --invalidate-previous-filters -O /tmp/vf_inv2.vcf 2>/dev/null; grep -v \"^#\" /tmp/vf_inv2.vcf | awk \"{print \\$1,\\$2,\\$3,\\$7}\""
+    },
+    {
+      "name": "VariantFiltration multiple filter-expression pairs join with semicolon",
+      "args": "VariantFiltration -V /tmp/p11_jexl_ops.vcf --filter-expression \"QD < 8.0\" --filter-name \"LowQD\" --filter-expression \"DP < 15\" --filter-name \"LowDP\" -O /tmp/vf_multi.vcf 2>/dev/null; grep -v \"^#\" /tmp/vf_multi.vcf | awk \"{print \\$1,\\$2,\\$7}\""
+    },
+    {
+      "name": "VariantFiltration cluster-size and cluster-window-size detect SnpCluster",
+      "args": "IndexFeatureFile -I /tmp/cluster_snps.vcf -O /tmp/cluster_snps.vcf.idx 2>/dev/null; VariantFiltration -V /tmp/cluster_snps.vcf --cluster-size 3 --cluster-window-size 20 -O /tmp/vf_cl.vcf 2>/dev/null; grep -v \"^#\" /tmp/vf_cl.vcf | awk \"{print \\$1,\\$2,\\$3,\\$7}\""
+    },
+    {
+      "name": "ValidateVariants validation-type-to-exclude ALL succeeds on any VCF",
+      "args": "ValidateVariants -V /tmp/with_samples.vcf --validation-type-to-exclude ALL 2>/dev/null; echo \"exit:$?\""
+    },
+    {
+      "name": "ValidateVariants validation-type-to-exclude REF on multi-sample VCF",
+      "args": "ValidateVariants -V /tmp/with_samples.vcf --validation-type-to-exclude REF --validation-type-to-exclude CHR_COUNTS 2>/dev/null; echo \"exit:$?\""
+    },
+    {
+      "name": "ValidateVariants validate-GVCF on g.vcf",
+      "args": "ValidateVariants -V /tmp/gvcf_sample.g.vcf --validate-GVCF --validation-type-to-exclude REF 2>/dev/null; echo \"exit:$?\""
+    },
+    {
+      "name": "ValidateVariants warn-on-errors downgrades failures",
+      "args": "ValidateVariants -V /tmp/with_samples.vcf --warn-on-errors 2>/dev/null; echo \"exit:$?\""
+    },
+    {
+      "name": "ValidateVariants do-not-validate-filtered-records",
+      "args": "ValidateVariants -V /tmp/filtered.vcf --do-not-validate-filtered-records --validation-type-to-exclude REF 2>/dev/null; echo \"exit:$?\""
+    },
+    {
+      "name": "VcfToIntervalList writes Picard interval list with SQ header",
+      "args": "VcfToIntervalList -I /tmp/variants.vcf -O /tmp/vil.interval_list 2>/dev/null; grep -E \"^(@HD|@SQ|[0-9])\" /tmp/vil.interval_list"
+    },
+    {
+      "name": "VcfToIntervalList INCLUDE_FILTERED retains filtered records",
+      "args": "VcfToIntervalList -I /tmp/filtered.vcf -O /tmp/vil_inc.interval_list --INCLUDE_FILTERED true 2>/dev/null; grep -E \"^(@HD|@SQ|[0-9])\" /tmp/vil_inc.interval_list"
+    },
+    {
+      "name": "SplitVcfs partitions records into SNP and INDEL outputs",
+      "args": "SplitVcfs -I /tmp/variants.vcf --SNP_OUTPUT /tmp/sv_snp.vcf --INDEL_OUTPUT /tmp/sv_indel.vcf --STRICT false 2>/dev/null; echo \"=SNP=\"; grep -v \"^#\" /tmp/sv_snp.vcf | awk \"{print \\$1,\\$2,\\$4,\\$5}\"; echo \"=INDEL=\"; grep -v \"^#\" /tmp/sv_indel.vcf | awk \"{print \\$1,\\$2,\\$4,\\$5}\""
+    },
+    {
+      "name": "Pileup over chr1 produces tab-separated rows",
+      "args": "Pileup -I /tmp/small.bam -L 1 -O /tmp/pileup.txt 2>/dev/null; head -10 /tmp/pileup.txt"
+    },
+    {
+      "name": "PrintReadsHeader prints just the SAM header to stdout",
+      "args": "PrintReadsHeader -I /tmp/small.bam -O /dev/stdout 2>/dev/null | grep \"^@\""
+    },
+    {
+      "name": "CompareIntervalLists identical inputs exits 0",
+      "args": "VcfToIntervalList -I /tmp/variants.vcf -O /tmp/cil_a.interval_list 2>/dev/null; CompareIntervalLists -I /tmp/cil_a.interval_list -SI /tmp/cil_a.interval_list 2>/dev/null; echo \"exit:$?\""
+    },
+    {
+      "name": "UpdateVCFSequenceDictionary replace contigs from BAM dictionary",
+      "args": "UpdateVCFSequenceDictionary -V /tmp/variants.vcf --source-dictionary /tmp/small.bam --replace true -O /tmp/upd.vcf 2>/dev/null; grep \"^##contig\" /tmp/upd.vcf | head -3"
+    },
+    {
+      "name": "LeftAlignAndTrimVariants without reference fails",
+      "args": "LeftAlignAndTrimVariants -V /tmp/variants.vcf -O /tmp/latv.vcf 2>/dev/null; echo \"exit:$?\""
+    },
+    {
+      "name": "VCFComparator with named V:actual V:expected inputs",
+      "args": "VCFComparator -V:actual /tmp/variants.vcf -V:expected /tmp/variants.vcf -O /tmp/vcfc2 2>/dev/null; echo \"exit:$?\""
+    },
+    {
+      "name": "VariantsToTable phased GT decoded as allele bases",
+      "args": "VariantsToTable -V /tmp/i2_phased_gt.vcf -F CHROM -F POS -GF GT -O /tmp/i2_t_phgt.tsv 2>/dev/null; cat /tmp/i2_t_phgt.tsv"
+    },
+    {
+      "name": "VariantsToTable EVENTLENGTH on symbolic DEL is signed",
+      "args": "VariantsToTable -V /tmp/i2_symbolic.vcf -F CHROM -F POS -F ALT -F TYPE -F EVENTLENGTH -O /tmp/i2_t_sym.tsv 2>/dev/null; cat /tmp/i2_t_sym.tsv"
+    },
+    {
+      "name": "VariantsToTable genotype FT renders unfiltered as NA",
+      "args": "VariantsToTable -V /tmp/i2_filtered_gt.vcf -F CHROM -F POS -GF FT -O /tmp/i2_t_ft.tsv 2>/dev/null; cat /tmp/i2_t_ft.tsv"
+    },
+    {
+      "name": "VariantsToTable split-multi-allelic EVENTLENGTH per ALT",
+      "args": "VariantsToTable -V /tmp/multiallelic.vcf -F CHROM -F POS -F ALT -F EVENTLENGTH --split-multi-allelic -O /tmp/i2_t_smel.tsv 2>/dev/null; cat /tmp/i2_t_smel.tsv"
+    },
+    {
+      "name": "VariantsToTable split-multi-allelic TRANSITION per ALT",
+      "args": "VariantsToTable -V /tmp/multiallelic.vcf -F CHROM -F POS -F ALT -F TRANSITION --split-multi-allelic -O /tmp/i2_t_str.tsv 2>/dev/null; cat /tmp/i2_t_str.tsv"
+    },
+    {
+      "name": "VariantsToTable EMD aborts on missing FT data",
+      "args": "VariantsToTable -V /tmp/with_samples.vcf -F CHROM -GF FT -EMD -O /tmp/i2_t_emd.tsv 2>/dev/null; echo \"exit:$?\""
+    },
+    {
+      "name": "VariantsToTable -GF GT on sites-only VCF fails",
+      "args": "VariantsToTable -V /tmp/sites_only.vcf -GF GT -O /tmp/i2_t_gtso.tsv 2>/dev/null; echo \"exit:$?\""
+    },
+    {
+      "name": "VariantsToTable split-multi-allelic GT keeps allele bases",
+      "args": "VariantsToTable -V /tmp/i2_vtt_multi.vcf -F CHROM -F POS -GF GT --split-multi-allelic -O /tmp/i2_t_smgt.tsv 2>/dev/null; cat /tmp/i2_t_smgt.tsv"
+    },
+    {
+      "name": "VariantsToTable -ASGF AD split-multi-allelic pairs ref with each alt",
+      "args": "VariantsToTable -V /tmp/i2_vtt_multi.vcf -F CHROM -F POS -ASGF AD --split-multi-allelic -O /tmp/i2_t_asgf.tsv 2>/dev/null; cat /tmp/i2_t_asgf.tsv"
+    },
+    {
+      "name": "VariantsToTable -ASF wildcard pattern emits literal column with NA",
+      "args": "VariantsToTable -V /tmp/i2_vtt_multi.vcf -F CHROM -F POS -ASF \"AS_*\" --split-multi-allelic -O /tmp/i2_t_asf.tsv 2>/dev/null; cat /tmp/i2_t_asf.tsv"
+    },
+    {
+      "name": "CountReads point interval -L 1:250-250 counts overlaps",
+      "args": "CountReads -I /tmp/small.bam -L 1:250-250 2>/tmp/i2_log; grep -A1 \"^Tool returned:\" /tmp/i2_log | tail -1"
+    },
+    {
+      "name": "CountBases point interval -L 1:250-250 counts overlap bases",
+      "args": "CountBases -I /tmp/small.bam -L 1:250-250 2>/tmp/i2_log; grep -A1 \"^Tool returned:\" /tmp/i2_log | tail -1"
+    },
+    {
+      "name": "CountVariants --interval-padding on dictless VCF fails",
+      "args": "CountVariants -V /tmp/variants.vcf -L 1:301-301 --interval-padding 5 2>/dev/null; echo \"exit:$?\""
+    },
+    {
+      "name": "SelectVariants sample include + exclude recomputes AC/AF/AN",
+      "args": "SelectVariants -V /tmp/i2_multi_sample_gt.vcf --sample-name SAMPLE_A --exclude-sample-name SAMPLE_B -O /tmp/i2_sv_iex.vcf 2>/dev/null; grep -v \"^#\" /tmp/i2_sv_iex.vcf | awk \"{print \\$8,\\$9,\\$10}\""
+    },
+    {
+      "name": "SelectVariants --max-nocall-fraction 0.0 strict",
+      "args": "SelectVariants -V /tmp/i2_nocall_frac.vcf --max-nocall-fraction 0.0 -O /tmp/i2_sv_ncf0.vcf 2>/dev/null; grep -v \"^#\" /tmp/i2_sv_ncf0.vcf | awk \"{print \\$1,\\$2}\""
+    },
+    {
+      "name": "SelectVariants --max-filtered-genotypes 0 excludes all FT",
+      "args": "SelectVariants -V /tmp/i2_filtered_geno.vcf --max-filtered-genotypes 0 -O /tmp/i2_sv_mfg0.vcf 2>/dev/null; grep -vc \"^#\" /tmp/i2_sv_mfg0.vcf"
+    },
+    {
+      "name": "SelectVariants set-filtered-gt-to-nocall on FT-tagged GTs",
+      "args": "SelectVariants -V /tmp/i2_filtered_gt.vcf --set-filtered-gt-to-nocall -O /tmp/i2_sv_sftnc.vcf 2>/dev/null; grep -v \"^#\" /tmp/i2_sv_sftnc.vcf | awk \"{print \\$9,\\$10}\""
+    },
+    {
+      "name": "SelectVariants remove-unused-alternates trims ALT and recomputes INFO",
+      "args": "SelectVariants -V /tmp/i2_unused_alts.vcf --sample-name SAMPLE1 --remove-unused-alternates -O /tmp/i2_sv_rua.vcf 2>/dev/null; grep -v \"^#\" /tmp/i2_sv_rua.vcf | awk \"{print \\$4,\\$5,\\$8,\\$10}\""
+    },
+    {
+      "name": "SelectVariants JEXL vc.isSymbolic matches only symbolic records",
+      "args": "SelectVariants -V /tmp/i2_symbolic.vcf --select \"vc.isSymbolic()\" -O /tmp/i2_sv_sym.vcf 2>/dev/null; grep -v \"^#\" /tmp/i2_sv_sym.vcf | awk \"{print \\$1,\\$2,\\$5}\""
+    },
+    {
+      "name": "SelectVariants --exclude-sample-name on multi-sample VCF",
+      "args": "SelectVariants -V /tmp/with_samples.vcf --exclude-sample-name SAMPLE1 -O /tmp/i2_sv_xsn.vcf 2>/dev/null; grep \"^#CHROM\" /tmp/i2_sv_xsn.vcf"
+    },
+    {
+      "name": "SelectVariants --select-random-fraction 1.0 keeps all records",
+      "args": "SelectVariants -V /tmp/variants.vcf --select-random-fraction 1.0 -O /tmp/i2_sv_srf1.vcf 2>/dev/null; grep -vc \"^#\" /tmp/i2_sv_srf1.vcf"
+    },
+    {
+      "name": "SelectVariants multiple --sample-name flags keep all listed",
+      "args": "SelectVariants -V /tmp/with_samples.vcf --sample-name SAMPLE1 --sample-name SAMPLE2 -O /tmp/i2_sv_msn.vcf 2>/dev/null; grep \"^#CHROM\" /tmp/i2_sv_msn.vcf"
+    },
+    {
+      "name": "SelectVariants JEXL vc.hasAttribute counts DP-bearing records",
+      "args": "SelectVariants -V /tmp/select_jexl.vcf --select \"vc.hasAttribute('DP')\" -O /tmp/i2_sv_hat.vcf 2>/dev/null; grep -vc \"^#\" /tmp/i2_sv_hat.vcf"
+    },
+    {
+      "name": "SelectVariants --discordance no-sample site-only ignores ALT",
+      "args": "SelectVariants -V /tmp/i2_sv_siteA.vcf --discordance /tmp/i2_sv_siteB_altdiff.vcf -O /tmp/i2_sv_disc.vcf 2>/dev/null; grep -vc \"^#\" /tmp/i2_sv_disc.vcf"
+    },
+    {
+      "name": "SelectVariants --concordance no-sample site-only accepts ALT diffs",
+      "args": "SelectVariants -V /tmp/i2_sv_siteA.vcf --concordance /tmp/i2_sv_siteB_altdiff.vcf -O /tmp/i2_sv_conc.vcf 2>/dev/null; grep -v \"^#\" /tmp/i2_sv_conc.vcf | awk \"{print \\$1,\\$2,\\$4,\\$5}\""
+    },
+    {
+      "name": "SelectVariants --concordance with -sn genotype-level filter",
+      "args": "SelectVariants -V /tmp/i2_sv_gtA.vcf --concordance /tmp/i2_sv_gtB.vcf -sn S1 -O /tmp/i2_sv_concsn.vcf 2>/dev/null; grep -vc \"^#\" /tmp/i2_sv_concsn.vcf"
+    },
+    {
+      "name": "SelectVariants --discordance with -sn keeps genotype-diff records",
+      "args": "SelectVariants -V /tmp/i2_sv_gtA.vcf --discordance /tmp/i2_sv_gtB.vcf -sn S1 -O /tmp/i2_sv_discsn.vcf 2>/dev/null; grep -v \"^#\" /tmp/i2_sv_discsn.vcf | awk \"{print \\$1,\\$2,\\$4,\\$5,\\$10}\""
+    },
+    {
+      "name": "SelectVariants --remove-fraction-genotypes noop without subsetting",
+      "args": "SelectVariants -V /tmp/i2_sv_rfg.vcf --remove-fraction-genotypes 1.0 -O /tmp/i2_sv_rfg1.vcf 2>/dev/null; grep -v \"^#\" /tmp/i2_sv_rfg1.vcf | awk \"{print \\$8,\\$9,\\$10,\\$11}\""
+    },
+    {
+      "name": "SelectVariants --remove-fraction-genotypes 1.0 after sample subset",
+      "args": "SelectVariants -V /tmp/i2_sv_rfg.vcf --sample-name S1 --remove-fraction-genotypes 1.0 -O /tmp/i2_sv_rfg2.vcf 2>/dev/null; grep -v \"^#\" /tmp/i2_sv_rfg2.vcf | awk \"{print \\$8,\\$9,\\$10}\""
+    },
+    {
+      "name": "SelectVariants remove-fraction + exclude-non-variants drops site",
+      "args": "SelectVariants -V /tmp/i2_sv_rfg.vcf --sample-name S1 --remove-fraction-genotypes 1.0 --exclude-non-variants -O /tmp/i2_sv_rfg3.vcf 2>/dev/null; grep -vc \"^#\" /tmp/i2_sv_rfg3.vcf"
+    },
+    {
+      "name": "SelectVariants --interval-set-rule INTERSECTION",
+      "args": "SelectVariants -V /tmp/i2_sv_intervals.vcf -L 1:100-105 -L 1:105-110 --interval-set-rule INTERSECTION -O /tmp/i2_sv_isr.vcf 2>/dev/null; grep -v \"^#\" /tmp/i2_sv_isr.vcf | awk \"{print \\$1,\\$2,\\$3}\""
+    },
+    {
+      "name": "SelectVariants empty interval intersection raises user error",
+      "args": "SelectVariants -V /tmp/i2_sv_intervals.vcf -L 1:100-100 -L 1:106-106 --interval-set-rule INTERSECTION -O /tmp/i2_sv_eii.vcf 2>/tmp/i2_err; echo \"exit:$?\"; grep -oE \"empty intersection\" /tmp/i2_err"
+    },
+    {
+      "name": "SelectVariants --interval-padding 1 expands inclusion",
+      "args": "SelectVariants -V /tmp/i2_sv_intervals.vcf -L 1:101-104 --interval-padding 1 -O /tmp/i2_sv_ip1.vcf 2>/dev/null; grep -v \"^#\" /tmp/i2_sv_ip1.vcf | awk \"{print \\$1,\\$2,\\$3}\""
+    },
+    {
+      "name": "SelectVariants --interval-exclusion-padding 1 widens XL",
+      "args": "SelectVariants -V /tmp/i2_sv_intervals.vcf -L 1:100-106 -XL 1:101-104 --interval-exclusion-padding 1 -O /tmp/i2_sv_iep1.vcf 2>/dev/null; grep -v \"^#\" /tmp/i2_sv_iep1.vcf | awk \"{print \\$1,\\$2,\\$3}\""
+    },
+    {
+      "name": "SelectVariants --lenient JEXL on undeclared INFO",
+      "args": "SelectVariants -V /tmp/i2_sv_malformed_info.vcf --lenient --select \"UNDECL > 0\" -O /tmp/i2_sv_len.vcf 2>/dev/null; grep -v \"^#\" /tmp/i2_sv_len.vcf | awk \"{print \\$1,\\$2,\\$8}\""
+    },
+    {
+      "name": "MergeVcfs coordinate-sorts interleaved inputs",
+      "args": "MergeVcfs -I /tmp/i2_merge_interleave_a.vcf -I /tmp/i2_merge_interleave_b.vcf -O /tmp/i2_mvi.vcf 2>/dev/null; grep -v \"^#\" /tmp/i2_mvi.vcf | awk \"{print \\$1,\\$2}\""
+    },
+    {
+      "name": "MergeVcfs preserves ALT Description quotes",
+      "args": "MergeVcfs -I /tmp/i2_merge_symbolic_a.vcf -I /tmp/i2_merge_symbolic_b.vcf -O /tmp/i2_mvs.vcf 2>/dev/null; grep \"^##ALT\" /tmp/i2_mvs.vcf"
+    },
+    {
+      "name": "RenameSampleInVcf duplicate target rejected",
+      "args": "RenameSampleInVcf -I /tmp/i2_rename_dupe.vcf --OLD_SAMPLE_NAME SAMPLE1 --NEW_SAMPLE_NAME SAMPLE2 -O /tmp/i2_rd.vcf 2>/dev/null; echo \"exit:$?\""
+    },
+    {
+      "name": "MergeVcfs across mismatched-schema inputs keeps sample columns",
+      "args": "MergeVcfs -I /tmp/merge_a.vcf -I /tmp/with_samples.vcf -O /tmp/i2_mvms.vcf 2>/dev/null; grep \"^#CHROM\" /tmp/i2_mvms.vcf"
+    },
+    {
+      "name": "SortVcf across mismatched-schema inputs keeps sample columns",
+      "args": "SortVcf -I /tmp/merge_a.vcf -I /tmp/with_samples.vcf -O /tmp/i2_sortms.vcf 2>/dev/null; grep \"^#CHROM\" /tmp/i2_sortms.vcf"
+    },
+    {
+      "name": "RenameSampleInVcf onto existing sample rejected",
+      "args": "RenameSampleInVcf -I /tmp/with_samples.vcf --OLD_SAMPLE_NAME SAMPLE1 --NEW_SAMPLE_NAME SAMPLE2 -O /tmp/i2_rne.vcf 2>/dev/null; echo \"exit:$?\""
+    },
+    {
+      "name": "IndexFeatureFile deterministic bytes on sites_only.vcf",
+      "args": "IndexFeatureFile -I /tmp/sites_only.vcf -O /tmp/i2_sites.idx 2>/dev/null",
+      "output_files": [
+        "/tmp/i2_sites.idx"
+      ]
+    },
+    {
+      "name": "VariantFiltration QUAL expression on symbolic VCF",
+      "args": "VariantFiltration -V /tmp/i2_symbolic.vcf --filter-expression \"QUAL < 40.0\" --filter-name \"LowQual\" -O /tmp/i2_vfs.vcf 2>/dev/null; grep -v \"^#\" /tmp/i2_vfs.vcf | awk \"{print \\$2,\\$7}\""
+    },
+    {
+      "name": "VariantFiltration genotype-filter cascades onto pre-filtered FT",
+      "args": "VariantFiltration -V /tmp/i2_filtered_gt.vcf --genotype-filter-expression \"GQ < 50\" --genotype-filter-name \"LowGQ\" -O /tmp/i2_vfg.vcf 2>/dev/null; grep -v \"^#\" /tmp/i2_vfg.vcf | awk \"{print \\$9,\\$10}\""
+    },
+    {
+      "name": "VariantFiltration --mask tags only exact overlaps",
+      "args": "VariantFiltration -V /tmp/i2_vf_mask_input.vcf --mask /tmp/i2_vf_mask.vcf --mask-name \"InMask\" -O /tmp/i2_vfm.vcf 2>/dev/null; grep -v \"^#\" /tmp/i2_vfm.vcf | awk \"{print \\$3,\\$7}\""
+    },
+    {
+      "name": "VariantFiltration --mask-extension 2 widens to neighbours",
+      "args": "VariantFiltration -V /tmp/i2_vf_mask_input.vcf --mask /tmp/i2_vf_mask.vcf --mask-name \"NearMask\" --mask-extension 2 -O /tmp/i2_vfme.vcf 2>/dev/null; grep -v \"^#\" /tmp/i2_vfme.vcf | awk \"{print \\$3,\\$7}\""
+    },
+    {
+      "name": "VariantFiltration --filter-not-in-mask inverts mask logic",
+      "args": "VariantFiltration -V /tmp/i2_vf_mask_input.vcf --mask /tmp/i2_vf_mask.vcf --mask-name \"OutsideMask\" --filter-not-in-mask -O /tmp/i2_vfnm.vcf 2>/dev/null; grep -v \"^#\" /tmp/i2_vfnm.vcf | awk \"{print \\$3,\\$7}\""
+    },
+    {
+      "name": "VariantFiltration --invert-genotype-filter-expression writes PASS",
+      "args": "VariantFiltration -V /tmp/i2_vf_gt.vcf --genotype-filter-expression \"GQ < 30\" --genotype-filter-name \"LowGQ\" --invert-genotype-filter-expression -O /tmp/i2_vfig.vcf 2>/dev/null; grep -v \"^#\" /tmp/i2_vfig.vcf | awk \"{print \\$3,\\$9,\\$10,\\$11}\""
+    },
+    {
+      "name": "VariantFiltration missing-values genotype-level",
+      "args": "VariantFiltration -V /tmp/i2_vf_gt.vcf --genotype-filter-expression \"GQ < 30\" --genotype-filter-name \"LowGQ\" --missing-values-evaluate-as-failing -O /tmp/i2_vfmv.vcf 2>/dev/null; grep -v \"^#\" /tmp/i2_vfmv.vcf | awk \"{print \\$3,\\$9,\\$10,\\$11}\""
+    },
+    {
+      "name": "SplitVcfs --STRICT true partitions mixed variants",
+      "args": "SplitVcfs -I /tmp/i2_mixed_variants_full.vcf --SNP_OUTPUT /tmp/i2_sps.vcf --INDEL_OUTPUT /tmp/i2_spi.vcf --STRICT true 2>/dev/null; echo \"=SNP=\"; grep -v \"^#\" /tmp/i2_sps.vcf | awk \"{print \\$1,\\$2,\\$4,\\$5}\"; echo \"=INDEL=\"; grep -v \"^#\" /tmp/i2_spi.vcf | awk \"{print \\$1,\\$2,\\$4,\\$5}\""
+    },
+    {
+      "name": "PrintReadsHeader emits exact HD VN line",
+      "args": "PrintReadsHeader -I /tmp/small.bam -O /dev/stdout 2>/dev/null | grep \"^@HD\""
+    },
+    {
+      "name": "VcfToIntervalList on symbolic VCF emits intervals",
+      "args": "VcfToIntervalList -I /tmp/i2_symbolic.vcf -O /tmp/i2_vils.interval_list 2>/dev/null; grep -E \"^(1|@SQ)\" /tmp/i2_vils.interval_list | head -4"
+    },
+    {
+      "name": "UpdateVCFSequenceDictionary refuses without --replace",
+      "args": "UpdateVCFSequenceDictionary -V /tmp/i2_uvd_hasdict.vcf --source-dictionary /tmp/i2_uvd_same.dict -O /tmp/i2_uvd1.vcf 2>/tmp/i2_uvderr; echo \"exit:$?\"; grep -oE \"already contains a sequence dictionary\" /tmp/i2_uvderr"
+    },
+    {
+      "name": "UpdateVCFSequenceDictionary per-record length check still runs",
+      "args": "UpdateVCFSequenceDictionary -V /tmp/i2_uvd_hasdict.vcf --source-dictionary /tmp/i2_uvd_short.dict --replace true --disable-sequence-dictionary-validation true -O /tmp/i2_uvd2.vcf 2>/tmp/i2_uvderr2; echo \"exit:$?\"; grep -oE \"exceeds the length of that sequence\" /tmp/i2_uvderr2"
+    },
+    {
+      "name": "VCFComparator --positions-only ignores ALT mismatches",
+      "args": "VCFComparator -R /tmp/i2_vcfc_ref.fasta -V:actual /tmp/i2_vcfc_altm_actual.vcf -V:expected /tmp/i2_vcfc_altm_expected.vcf --positions-only 2>/dev/null; echo \"exit:$?\""
+    },
+    {
+      "name": "VCFComparator default flags genotype DP mismatch exit 2",
+      "args": "VCFComparator -R /tmp/i2_vcfc_ref.fasta -V:actual /tmp/i2_vcfc_dpm_actual.vcf -V:expected /tmp/i2_vcfc_dpm_expected.vcf 2>/tmp/i2_vcfcerr; echo \"exit:$?\"; grep -oE \"Genotypes have different DP value\" /tmp/i2_vcfcerr"
+    },
+    {
+      "name": "VCFComparator --ignore-genotype-annotations suppresses DP diff",
+      "args": "VCFComparator -R /tmp/i2_vcfc_ref.fasta -V:actual /tmp/i2_vcfc_dpm_actual.vcf -V:expected /tmp/i2_vcfc_dpm_expected.vcf --ignore-genotype-annotations 2>/dev/null; echo \"exit:$?\""
+    },
+    {
+      "name": "DumpTabixIndex renders tabix binned and linear sections",
+      "args": "DumpTabixIndex -I /tmp/i2_dti_test.vcf.gz.tbi -O /tmp/i2_dti.txt 2>/dev/null; head -n 12 /tmp/i2_dti.txt"
+    },
+    {
+      "name": "CompareBaseQualities identical inputs exit 0",
+      "args": "CompareBaseQualities /tmp/i2_cbq_a.sam /tmp/i2_cbq_a.sam 2>/dev/null; echo \"exit:$?\""
+    },
+    {
+      "name": "CompareBaseQualities differing quals exit 0 without throw",
+      "args": "CompareBaseQualities /tmp/i2_cbq_a.sam /tmp/i2_cbq_b.sam 2>/dev/null; echo \"exit:$?\""
+    },
+    {
+      "name": "CompareBaseQualities --throw-on-diff raises on quality mismatch",
+      "args": "CompareBaseQualities /tmp/i2_cbq_a.sam /tmp/i2_cbq_b.sam --throw-on-diff true 2>/tmp/i2_cbqerr >/dev/null; echo \"exit:$?\"; grep -oE \"Quality scores from the two BAMs do not match\" /tmp/i2_cbqerr"
+    },
+    {
+      "name": "CompareBaseQualities read-order mismatch reports r1 vs r2",
+      "args": "CompareBaseQualities /tmp/i2_cbq_a.sam /tmp/i2_cbq_order.sam 2>/tmp/i2_cbqerr2 >/dev/null; echo \"exit:$?\"; grep -oE \"files do not have the same exact order of reads:r1 vs r2\" /tmp/i2_cbqerr2"
+    },
+    {
+      "name": "CompareBaseQualities read-count mismatch",
+      "args": "CompareBaseQualities /tmp/i2_cbq_a.sam /tmp/i2_cbq_one.sam 2>/tmp/i2_cbqerr3 >/dev/null; echo \"exit:$?\"; grep -oE \"files do not have the same exact number of reads\" /tmp/i2_cbqerr3"
+    }
+  ]
+}

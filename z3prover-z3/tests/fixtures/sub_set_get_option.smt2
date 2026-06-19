@@ -1,0 +1,11 @@
+; Parser/Command-Context: set-option / get-option round-trip
+(set-option :produce-models true)
+(get-option :produce-models)
+(set-option :produce-unsat-cores true)
+(get-option :produce-unsat-cores)
+(set-option :random-seed 42)
+(get-option :random-seed)
+(set-option :verbosity 0)
+(get-option :verbosity)
+(set-option :print-success false)
+(get-option :print-success)

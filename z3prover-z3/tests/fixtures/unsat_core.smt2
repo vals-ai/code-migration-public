@@ -1,0 +1,8 @@
+(set-option :produce-unsat-cores true)
+(set-logic QF_LIA)
+(declare-const x Int)
+(assert (! (>= x 10) :named a1))
+(assert (! (<= x 5)  :named a2))
+(assert (! (>= x 0)  :named a3))
+(check-sat)
+(get-unsat-core)

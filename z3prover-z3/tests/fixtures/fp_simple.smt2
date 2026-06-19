@@ -1,0 +1,8 @@
+(set-logic QF_FP)
+(set-option :produce-models true)
+(declare-const x (_ FloatingPoint 8 24))
+(declare-const y (_ FloatingPoint 8 24))
+(assert (fp.eq (fp.add RNE x y) ((_ to_fp 8 24) RNE 1.5)))
+(assert (fp.eq x ((_ to_fp 8 24) RNE 0.5)))
+(check-sat)
+(get-value (x y))

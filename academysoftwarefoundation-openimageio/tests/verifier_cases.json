@@ -1,0 +1,1128 @@
+{
+  "reference_command": "__eval_iinfo-cpp",
+  "test_command": "__eval_iinfo-python",
+  "timeout": 60,
+  "match_nonzero_output": false,
+  "tests": [
+    {
+      "name": "header line \u2014 single PNG",
+      "args": [
+        "/tmp/bayer.png"
+      ]
+    },
+    {
+      "name": "header line \u2014 TIFF tahoe-tiny",
+      "args": [
+        "/tmp/tahoe-tiny.tif"
+      ]
+    },
+    {
+      "name": "header line \u2014 EXR checker_with_alpha",
+      "args": [
+        "/tmp/checker.exr"
+      ]
+    },
+    {
+      "name": "verbose \u2014 TIFF metadata dump",
+      "args": [
+        "-v",
+        "/tmp/tahoe-small.tif"
+      ]
+    },
+    {
+      "name": "verbose \u2014 EXR metadata dump",
+      "args": [
+        "-v",
+        "/tmp/grid-small.exr"
+      ]
+    },
+    {
+      "name": "regex filter \u2014 Software/DateTime",
+      "args": [
+        "-v",
+        "-m",
+        "Software|DateTime|Description",
+        "/tmp/tahoe-small.tif"
+      ]
+    },
+    {
+      "name": "filename prefix \u2014 verbose multi-file",
+      "args": [
+        "-f",
+        "-v",
+        "/tmp/bayer.png",
+        "/tmp/tahoe-tiny.tif"
+      ]
+    },
+    {
+      "name": "sum sizes \u2014 multiple files",
+      "args": [
+        "-s",
+        "/tmp/bayer.png",
+        "/tmp/tahoe-small.tif",
+        "/tmp/checker.exr"
+      ]
+    },
+    {
+      "name": "sha-1 hash \u2014 EXR pixels",
+      "args": [
+        "-v",
+        "--hash",
+        "/tmp/grid-small.exr"
+      ]
+    },
+    {
+      "name": "stats \u2014 TIFF unpremult",
+      "args": [
+        "--stats",
+        "/tmp/unpremult.tif"
+      ]
+    },
+    {
+      "name": "combo \u2014 verbose+prefix+sum",
+      "args": [
+        "-v",
+        "-f",
+        "-s",
+        "/tmp/bayer.png",
+        "/tmp/grid-small.exr"
+      ]
+    },
+    {
+      "name": "error \u2014 missing file",
+      "args": [
+        "/tmp/does-not-exist.png"
+      ]
+    },
+    {
+      "name": "error \u2014 non-image file",
+      "args": [
+        "/tmp/not-an-image.txt"
+      ]
+    },
+    {
+      "name": "verbose \u2014 BMP metadata",
+      "args": [
+        "-v",
+        "/tmp/printer.bmp"
+      ]
+    },
+    {
+      "name": "verbose \u2014 GIF metadata",
+      "args": [
+        "-v",
+        "/tmp/tahoe-tiny.gif"
+      ]
+    },
+    {
+      "name": "header line \u2014 EXR grid-small (half format)",
+      "args": [
+        "/tmp/grid-small.exr"
+      ]
+    },
+    {
+      "name": "verbose \u2014 TIFF unpremult (alpha attribs)",
+      "args": [
+        "-v",
+        "/tmp/unpremult.tif"
+      ]
+    },
+    {
+      "name": "verbose \u2014 TIFF grid",
+      "args": [
+        "-v",
+        "/tmp/grid.tif"
+      ]
+    },
+    {
+      "name": "header line \u2014 tiled MIP .tx",
+      "args": [
+        "/tmp/grid.tx"
+      ]
+    },
+    {
+      "name": "verbose \u2014 tiled MIP .tx",
+      "args": [
+        "-v",
+        "/tmp/grid.tx"
+      ]
+    },
+    {
+      "name": "sha-1 hash \u2014 tiled MIP .tx",
+      "args": [
+        "-v",
+        "--hash",
+        "/tmp/grid.tx"
+      ]
+    },
+    {
+      "name": "stats \u2014 TIFF with NaNs (counts)",
+      "args": [
+        "--stats",
+        "/tmp/with_nans.tif"
+      ]
+    },
+    {
+      "name": "header line \u2014 float TIFF with NaNs",
+      "args": [
+        "/tmp/with_nans.tif"
+      ]
+    },
+    {
+      "name": "regex filter \u2014 anchored namespace produces empty",
+      "args": [
+        "-v",
+        "-m",
+        "^oiio:",
+        "/tmp/grid.tx"
+      ]
+    },
+    {
+      "name": "regex filter \u2014 channels|Software",
+      "args": [
+        "-v",
+        "-m",
+        "channel|Software",
+        "/tmp/tahoe-small.tif"
+      ]
+    },
+    {
+      "name": "multi-file mixed \u2014 error in middle continues",
+      "args": [
+        "/tmp/bayer.png",
+        "/tmp/missing.png",
+        "/tmp/checker.exr"
+      ]
+    },
+    {
+      "name": "sum sizes \u2014 small single file",
+      "args": [
+        "-s",
+        "/tmp/bayer.png"
+      ]
+    },
+    {
+      "name": "sum sizes \u2014 TIFF pair MB",
+      "args": [
+        "-s",
+        "/tmp/grid.tif",
+        "/tmp/tahoe-small.tif"
+      ]
+    },
+    {
+      "name": "verbose + sha-1 \u2014 EXR checker",
+      "args": [
+        "-v",
+        "--hash",
+        "/tmp/checker.exr"
+      ]
+    },
+    {
+      "name": "stats \u2014 uint8 TIFF maxval suffix",
+      "args": [
+        "--stats",
+        "/tmp/grid.tif"
+      ]
+    },
+    {
+      "name": "stats \u2014 uint16 PNG monochrome",
+      "args": [
+        "--stats",
+        "/tmp/bayer.png"
+      ]
+    },
+    {
+      "name": "verbose + stats \u2014 EXR multi-channel",
+      "args": [
+        "-v",
+        "--stats",
+        "/tmp/checker.exr"
+      ]
+    },
+    {
+      "name": "verbose + hash + stats \u2014 EXR full",
+      "args": [
+        "-v",
+        "--hash",
+        "--stats",
+        "/tmp/checker.exr"
+      ]
+    },
+    {
+      "name": "sha-1 hash \u2014 uint8 TIFF",
+      "args": [
+        "-v",
+        "--hash",
+        "/tmp/tahoe-tiny.tif"
+      ]
+    },
+    {
+      "name": "regex filter \u2014 channels matches gate",
+      "args": [
+        "-v",
+        "-m",
+        "channels",
+        "/tmp/grid.tx"
+      ]
+    },
+    {
+      "name": "regex filter \u2014 DateTime suppresses everything",
+      "args": [
+        "-v",
+        "-m",
+        "DateTime",
+        "/tmp/grid.tx"
+      ]
+    },
+    {
+      "name": "regex filter \u2014 anchored ^channel",
+      "args": [
+        "-v",
+        "-m",
+        "^channel",
+        "/tmp/grid.tx"
+      ]
+    },
+    {
+      "name": "verbose + all subimages + sum \u2014 MIP .tx",
+      "args": [
+        "-v",
+        "-a",
+        "-s",
+        "/tmp/grid.tx"
+      ]
+    },
+    {
+      "name": "filename prefix \u2014 error in middle",
+      "args": [
+        "-f",
+        "/tmp/bayer.png",
+        "/tmp/missing.png",
+        "/tmp/grid.tif"
+      ]
+    },
+    {
+      "name": "verbose \u2014 PNG bayer",
+      "args": [
+        "-v",
+        "/tmp/bayer.png"
+      ]
+    },
+    {
+      "name": "verbose \u2014 TIFF tahoe-tiny",
+      "args": [
+        "-v",
+        "/tmp/tahoe-tiny.tif"
+      ]
+    },
+    {
+      "name": "regex filter \u2014 nonexistent matches nothing",
+      "args": [
+        "-v",
+        "-m",
+        "nonexistent",
+        "/tmp/bayer.png"
+      ]
+    },
+    {
+      "name": "regex filter \u2014 width|height alternation",
+      "args": [
+        "-v",
+        "-m",
+        "width|height",
+        "/tmp/grid-small.exr"
+      ]
+    },
+    {
+      "name": "regex filter \u2014 compression case-insensitive",
+      "args": [
+        "-v",
+        "-m",
+        "compression",
+        "/tmp/grid.tif"
+      ]
+    },
+    {
+      "name": "hash \u2014 bare PNG (no verbose)",
+      "args": [
+        "--hash",
+        "/tmp/bayer.png"
+      ]
+    },
+    {
+      "name": "hash \u2014 bare EXR (no verbose)",
+      "args": [
+        "--hash",
+        "/tmp/grid-small.exr"
+      ]
+    },
+    {
+      "name": "hash + regex sha-1 \u2014 EXR",
+      "args": [
+        "--hash",
+        "-m",
+        "sha-1",
+        "/tmp/grid-small.exr"
+      ]
+    },
+    {
+      "name": "stats \u2014 tiled MIP .tx",
+      "args": [
+        "--stats",
+        "/tmp/grid.tx"
+      ]
+    },
+    {
+      "name": "stats + regex stats \u2014 PNG",
+      "args": [
+        "--stats",
+        "-m",
+        "stats",
+        "/tmp/bayer.png"
+      ]
+    },
+    {
+      "name": "verbose + sum \u2014 single EXR",
+      "args": [
+        "-v",
+        "-s",
+        "/tmp/checker.exr"
+      ]
+    },
+    {
+      "name": "palette PNG \u2014 channel count",
+      "args": [
+        "/tmp/palette.png"
+      ]
+    },
+    {
+      "name": "stats \u2014 bare EXR checker (half precision)",
+      "args": [
+        "--stats",
+        "/tmp/checker.exr"
+      ]
+    },
+    {
+      "name": "sum sizes \u2014 single EXR (half precision)",
+      "args": [
+        "-s",
+        "/tmp/checker.exr"
+      ]
+    },
+    {
+      "name": "regex filter \u2014 sha-1 gate without --hash (unknown fallback)",
+      "args": [
+        "-v",
+        "-m",
+        "sha-1",
+        "/tmp/bayer.png"
+      ]
+    },
+    {
+      "name": "stats \u2014 palette PNG (3-channel monochrome)",
+      "args": [
+        "--stats",
+        "/tmp/palette.png"
+      ]
+    },
+    {
+      "name": "verbose \u2014 EXR checker",
+      "args": [
+        "-v",
+        "/tmp/checker.exr"
+      ]
+    },
+    {
+      "name": "regex filter \u2014 resolution on EXR",
+      "args": [
+        "-v",
+        "-m",
+        "resolution",
+        "/tmp/grid-small.exr"
+      ]
+    },
+    {
+      "name": "hash \u2014 bare TIFF unpremult (FP predictor)",
+      "args": [
+        "--hash",
+        "/tmp/unpremult.tif"
+      ]
+    },
+    {
+      "name": "stats + regex stats \u2014 EXR (header suppressed)",
+      "args": [
+        "--stats",
+        "-m",
+        "stats",
+        "/tmp/checker.exr"
+      ]
+    },
+    {
+      "name": "verbose \u2014 float TIFF with NaNs",
+      "args": [
+        "-v",
+        "/tmp/with_nans.tif"
+      ]
+    },
+    {
+      "name": "verbose + stats \u2014 EXR grid-small",
+      "args": [
+        "-v",
+        "--stats",
+        "/tmp/grid-small.exr"
+      ]
+    },
+    {
+      "name": "verbose + all subimages + stats \u2014 MIP .tx",
+      "args": [
+        "-v",
+        "-a",
+        "--stats",
+        "/tmp/grid.tx"
+      ]
+    },
+    {
+      "name": "regex filter \u2014 POSIX [[:alpha:]] class",
+      "args": [
+        "-v",
+        "-m",
+        "[[:alpha:]]",
+        "/tmp/bayer.png"
+      ]
+    },
+    {
+      "name": "regex filter \u2014 POSIX [[:digit:]] class with sha-1 gate",
+      "args": [
+        "-v",
+        "-m",
+        "[[:digit:]]",
+        "/tmp/bayer.png"
+      ]
+    },
+    {
+      "name": "verbose + hash \u2014 TIFF unpremult",
+      "args": [
+        "-v",
+        "--hash",
+        "/tmp/unpremult.tif"
+      ]
+    },
+    {
+      "name": "hash \u2014 bare LZW TIFF tahoe-small",
+      "args": [
+        "--hash",
+        "/tmp/tahoe-small.tif"
+      ]
+    },
+    {
+      "name": "regex filter \u2014 UnassociatedAlpha|channel",
+      "args": [
+        "-v",
+        "-m",
+        "UnassociatedAlpha|channel",
+        "/tmp/unpremult.tif"
+      ]
+    },
+    {
+      "name": "deep \u2014 header line (deep float)",
+      "args": [
+        "/tmp/tinydeep.exr"
+      ]
+    },
+    {
+      "name": "deep \u2014 SHA-1 hash (samples + data)",
+      "args": [
+        "--hash",
+        "/tmp/tinydeep.exr"
+      ]
+    },
+    {
+      "name": "deep \u2014 stats (depth histogram)",
+      "args": [
+        "--stats",
+        "/tmp/tinydeep.exr"
+      ]
+    },
+    {
+      "name": "verbose \u2014 pixel data origin (tiny-az.exr)",
+      "args": [
+        "-v",
+        "/tmp/tiny-az.exr"
+      ]
+    },
+    {
+      "name": "sum sizes \u2014 sub-MB total prints in KB",
+      "args": [
+        "-s",
+        "/tmp/tahoe-tiny.tif"
+      ]
+    },
+    {
+      "name": "multi-subimage \u2014 header suffix (N subimages)",
+      "args": [
+        "/tmp/subimage.tif"
+      ]
+    },
+    {
+      "name": "multi-subimage \u2014 verbose [u8,u8,u8] summary",
+      "args": [
+        "-v",
+        "/tmp/subimage.tif"
+      ]
+    },
+    {
+      "name": "multi-subimage \u2014 verbose -a with subimage headers",
+      "args": [
+        "-v",
+        "-a",
+        "/tmp/subimage.tif"
+      ]
+    },
+    {
+      "name": "multi-subimage \u2014 stats -a no separators",
+      "args": [
+        "--stats",
+        "-a",
+        "/tmp/subimage.tif"
+      ]
+    },
+    {
+      "name": "MIP tif \u2014 stats -a (6-space indent per level)",
+      "args": [
+        "--stats",
+        "-a",
+        "/tmp/mip.tif"
+      ]
+    },
+    {
+      "name": "MIP tif \u2014 verbose (2-level MIP-map line)",
+      "args": [
+        "-v",
+        "/tmp/mip.tif"
+      ]
+    },
+    {
+      "name": "filename prefix \u2014 verbose tiny-az.exr",
+      "args": [
+        "-f",
+        "-v",
+        "/tmp/tiny-az.exr"
+      ]
+    },
+    {
+      "name": "filename prefix \u2014 stats tiny-az.exr (join first line)",
+      "args": [
+        "-f",
+        "--stats",
+        "/tmp/tiny-az.exr"
+      ]
+    },
+    {
+      "name": "filename prefix \u2014 stats MIP tif",
+      "args": [
+        "-f",
+        "--stats",
+        "/tmp/mip.tif"
+      ]
+    },
+    {
+      "name": "column padding \u2014 40-char cap with long filename",
+      "args": [
+        "/tmp/tiny-az.exr",
+        "/tmp/a_very_long_filename_that_exceeds_40_characters.exr"
+      ]
+    },
+    {
+      "name": "regex filter \u2014 resolution on MIP .tx",
+      "args": [
+        "-v",
+        "-m",
+        "resolution",
+        "/tmp/grid.tx"
+      ]
+    },
+    {
+      "name": "regex filter \u2014 DateTime on multi-subimage TIFF (summary only)",
+      "args": [
+        "-v",
+        "-m",
+        "DateTime",
+        "/tmp/subimage.tif"
+      ]
+    },
+    {
+      "name": "all subimages + hash \u2014 3-subimage TIFF (3 SHA-1 lines)",
+      "args": [
+        "-a",
+        "--hash",
+        "/tmp/subimage.tif"
+      ]
+    },
+    {
+      "name": "header line \u2014 EXR mixed channel formats (half/half/half/float)",
+      "args": [
+        "/tmp/mixed_channels.exr"
+      ]
+    },
+    {
+      "name": "verbose \u2014 EXR mixed channel formats (channel list with types)",
+      "args": [
+        "-v",
+        "/tmp/mixed_channels.exr"
+      ]
+    },
+    {
+      "name": "verbose \u2014 multi-part EXR ([h,h,h,h] brief format)",
+      "args": [
+        "-v",
+        "/tmp/multipart.exr"
+      ]
+    },
+    {
+      "name": "sum sizes \u2014 1-byte PNG (Total: 1 B)",
+      "args": [
+        "-s",
+        "/tmp/tiny1x1.png"
+      ]
+    },
+    {
+      "name": "regex filter \u2014 tile suppressed on tiled .tx (empty stdout)",
+      "args": [
+        "-v",
+        "-m",
+        "tile",
+        "/tmp/grid.tx"
+      ]
+    },
+    {
+      "name": "regex filter \u2014 depth on PNG (header + <unknown> fallback)",
+      "args": [
+        "-v",
+        "-m",
+        "depth",
+        "/tmp/bayer.png"
+      ]
+    },
+    {
+      "name": "regex filter \u2014 resolution on multi-subimage (3 sections fire)",
+      "args": [
+        "-v",
+        "-m",
+        "resolution",
+        "/tmp/subimage.tif"
+      ]
+    },
+    {
+      "name": "verbose + all subimages \u2014 multi-part EXR",
+      "args": [
+        "-v",
+        "-a",
+        "/tmp/multipart.exr"
+      ]
+    },
+    {
+      "name": "verbose \u2014 multiview EXR (string-array attribute)",
+      "args": [
+        "-v",
+        "/tmp/multiview.exr"
+      ]
+    },
+    {
+      "name": "verbose + all subimages + hash \u2014 3-subimage TIFF",
+      "args": [
+        "-v",
+        "-a",
+        "--hash",
+        "/tmp/subimage.tif"
+      ]
+    },
+    {
+      "name": "sum sizes \u2014 multi-part EXR (only subimage 0 counted)",
+      "args": [
+        "-s",
+        "/tmp/multipart.exr"
+      ]
+    },
+    {
+      "name": "hash \u2014 multi-subimage TIFF (only one hash printed)",
+      "args": [
+        "--hash",
+        "/tmp/subimage.tif"
+      ]
+    },
+    {
+      "name": "verbose \u2014 heterogeneous 3-subimage TIFF (mixed brief codes)",
+      "args": [
+        "-v",
+        "/tmp/multi3.tif"
+      ]
+    },
+    {
+      "name": "filename prefix \u2014 verbose -m channels on multi-subimage",
+      "args": [
+        "-f",
+        "-v",
+        "-m",
+        "channels",
+        "/tmp/subimage.tif"
+      ]
+    },
+    {
+      "name": "stats \u2014 1\u00d71 PNG (FiniteCount 1, Constant Yes, Constant Color)",
+      "args": [
+        "--stats",
+        "/tmp/tiny1x1.png"
+      ]
+    },
+    {
+      "name": "verbose + all subimages \u2014 heterogeneous 3-subimage TIFF",
+      "args": [
+        "-v",
+        "-a",
+        "/tmp/multi3.tif"
+      ]
+    },
+    {
+      "name": "all subimages + hash \u2014 MIP TIFF (1 hash, +mipmap header)",
+      "args": [
+        "-a",
+        "--hash",
+        "/tmp/mip.tif"
+      ]
+    },
+    {
+      "name": "stats + all subimages \u2014 multi-part half EXR (float footers)",
+      "args": [
+        "--stats",
+        "-a",
+        "/tmp/multipart.exr"
+      ]
+    },
+    {
+      "name": "rational attr \u2014 captureRate N/M (decimal) format",
+      "args": [
+        "-v",
+        "-m",
+        "captureRate|channels",
+        "/tmp/rational_test.exr"
+      ]
+    },
+    {
+      "name": "smpte timecode \u2014 hh:mm:ss:ff formatting",
+      "args": [
+        "-v",
+        "-m",
+        "smpte|channels",
+        "/tmp/rational_test.exr"
+      ]
+    },
+    {
+      "name": "matrix attr \u2014 4x4 worldToCamera with {:g}",
+      "args": [
+        "-v",
+        "-m",
+        "worldToCamera|channels",
+        "/tmp/with_matrix.exr"
+      ]
+    },
+    {
+      "name": "stats \u2014 int16 TIFF (of 32767) footer",
+      "args": [
+        "--stats",
+        "/tmp/int16_test.tif"
+      ]
+    },
+    {
+      "name": "stats \u2014 uint32 TIFF signed-overflow negative values",
+      "args": [
+        "--stats",
+        "/tmp/uint32_test.tif"
+      ]
+    },
+    {
+      "name": "verbose + stats + regex stats \u2014 <unknown> before stats block",
+      "args": [
+        "-v",
+        "--stats",
+        "-m",
+        "stats",
+        "/tmp/checker.exr"
+      ]
+    },
+    {
+      "name": "verbose \u2014 int16 brief format [i16]",
+      "args": [
+        "-v",
+        "/tmp/signed_int_test.tif"
+      ]
+    },
+    {
+      "name": "verbose \u2014 double TIFF (header 'double', brief [f64,f64,f64])",
+      "args": [
+        "-v",
+        "/tmp/double_test.tif"
+      ]
+    },
+    {
+      "name": "ICCProfile array \u2014 16-element truncation with [N x uint8] suffix",
+      "args": [
+        "-v",
+        "-m",
+        "ICCProfile|channels",
+        "/tmp/icc_test.jpg"
+      ]
+    },
+    {
+      "name": "verbose \u2014 two-tier sort (non-namespaced before namespaced)",
+      "args": [
+        "-v",
+        "/tmp/rational_test.exr"
+      ]
+    },
+    {
+      "name": "header line \u2014 uint4 TIFF (BitsPerSample=4 over uint8 storage)",
+      "args": [
+        "/tmp/uint4_test.tif"
+      ]
+    },
+    {
+      "name": "float array attr \u2014 chromaticities with {:g}",
+      "args": [
+        "-v",
+        "-m",
+        "chromaticities|channels",
+        "/tmp/rational_test.exr"
+      ]
+    },
+    {
+      "name": "stats \u2014 int8 TIFF (of 127) monochrome yes",
+      "args": [
+        "--stats",
+        "/tmp/int8_test.tif"
+      ]
+    },
+    {
+      "name": "stats \u2014 double TIFF prints (float) footer not (double)",
+      "args": [
+        "--stats",
+        "/tmp/double_test.tif"
+      ]
+    },
+    {
+      "name": "deep stats \u2014 depth histogram with power-of-2 binning",
+      "args": [
+        "--stats",
+        "/tmp/deepalpha.exr"
+      ]
+    },
+    {
+      "name": "deep \u2014 mixed channel formats (deep half/float + matrix {:g})",
+      "args": [
+        "-v",
+        "-m",
+        "worldToNDC|channels",
+        "/tmp/deepalpha.exr"
+      ]
+    },
+    {
+      "name": "scalar float attr \u2014 ExposureTime 0.02 ({:g} no trailing zeros)",
+      "args": [
+        "-v",
+        "-m",
+        "ExposureTime|channels",
+        "/tmp/rational_test.exr"
+      ]
+    },
+    {
+      "name": "verbose \u2014 JPEG blender-render (uint8 jpeg + jpeg:subsampling)",
+      "args": [
+        "-v",
+        "/tmp/blender-render.jpg"
+      ]
+    },
+    {
+      "name": "sum sizes \u2014 uint4 image (0.00 MB / Total: 128 B)",
+      "args": [
+        "-s",
+        "/tmp/uint4_test.tif"
+      ]
+    },
+    {
+      "name": "stats \u2014 float EXR ({:f} 6-decimal, (float) footer)",
+      "args": [
+        "--stats",
+        "/tmp/const_float.exr"
+      ]
+    },
+    {
+      "name": "stats \u2014 all-infinity EXR (Stats Min 0, Constant Color inf)",
+      "args": [
+        "--stats",
+        "/tmp/all_inf.exr"
+      ]
+    },
+    {
+      "name": "MIP tif \u2014 stats without -a (header only on level 0)",
+      "args": [
+        "--stats",
+        "/tmp/mip.tif"
+      ]
+    },
+    {
+      "name": "verbose \u2014 display_window EXR (full/display size + origin 0,0)",
+      "args": [
+        "-v",
+        "/tmp/display_window.exr"
+      ]
+    },
+    {
+      "name": "verbose \u2014 origin_only EXR (full/display dims == data dims)",
+      "args": [
+        "-v",
+        "/tmp/origin_only.exr"
+      ]
+    },
+    {
+      "name": "verbose \u2014 y_offset EXR (pixel data origin x=0, y=4)",
+      "args": [
+        "-v",
+        "/tmp/y_offset.exr"
+      ]
+    },
+    {
+      "name": "verbose \u2014 offset_window EXR (origin + full/display together)",
+      "args": [
+        "-v",
+        "/tmp/offset_window.exr"
+      ]
+    },
+    {
+      "name": "regex filter \u2014 depth|display shows only full/display lines",
+      "args": [
+        "-v",
+        "-m",
+        "depth|display",
+        "/tmp/display_window.exr"
+      ]
+    },
+    {
+      "name": "filename prefix \u2014 verbose offset_window (all 3 special lines)",
+      "args": [
+        "-f",
+        "-v",
+        "/tmp/offset_window.exr"
+      ]
+    },
+    {
+      "name": "sum sizes \u2014 same file twice (6 B total, no dedup)",
+      "args": [
+        "-s",
+        "/tmp/tiny1x1.png",
+        "/tmp/tiny1x1.png"
+      ]
+    },
+    {
+      "name": "hash + regex channels \u2014 SHA-1 suppressed (negative gate match)",
+      "args": [
+        "--hash",
+        "-m",
+        "channels",
+        "/tmp/checker.exr"
+      ]
+    },
+    {
+      "name": "regex filter \u2014 channels suppresses full/display lines",
+      "args": [
+        "-v",
+        "-m",
+        "channels",
+        "/tmp/display_window.exr"
+      ]
+    },
+    {
+      "name": "stats + regex channels \u2014 stats suppressed (negative gate match)",
+      "args": [
+        "--stats",
+        "-m",
+        "channels",
+        "/tmp/const_float.exr"
+      ]
+    },
+    {
+      "name": "stats \u2014 multi-subimage TIFF without -a (suffix + 1 stats block)",
+      "args": [
+        "--stats",
+        "/tmp/subimage.tif"
+      ]
+    },
+    {
+      "name": "verbose + stats \u2014 all-infinity EXR (Y channel + inf constant)",
+      "args": [
+        "-v",
+        "--stats",
+        "/tmp/all_inf.exr"
+      ]
+    },
+    {
+      "name": "hash \u2014 all-infinity EXR (uppercase hex of 0x7F800000 bytes)",
+      "args": [
+        "--hash",
+        "/tmp/all_inf.exr"
+      ]
+    },
+    {
+      "name": "sum sizes \u2014 exactly 1024-byte EXR (Total: 1 KB)",
+      "args": [
+        "-s",
+        "/tmp/exactly_1kb.exr"
+      ]
+    },
+    {
+      "name": "stats \u2014 uint8 half_gray PNG (Min/Max int, Avg/StdDev 127.50)",
+      "args": [
+        "--stats",
+        "/tmp/half_gray.png"
+      ]
+    },
+    {
+      "name": "verbose + stats \u2014 multi-subimage TIFF without -a (summary + 1 stats)",
+      "args": [
+        "-v",
+        "--stats",
+        "/tmp/subimage.tif"
+      ]
+    },
+    {
+      "name": "error \u2014 dash as filename (two-sentence OIIO error)",
+      "args": [
+        "-"
+      ]
+    },
+    {
+      "name": "header line \u2014 PPM (pnm plugin identifier)",
+      "args": [
+        "/tmp/tiny.ppm"
+      ]
+    },
+    {
+      "name": "verbose \u2014 PPM (pnm:binary + oiio:ColorSpace)",
+      "args": [
+        "-v",
+        "/tmp/tiny.ppm"
+      ]
+    },
+    {
+      "name": "header line \u2014 TGA (targa plugin identifier)",
+      "args": [
+        "/tmp/tiny.tga"
+      ]
+    },
+    {
+      "name": "verbose \u2014 TGA (targa:version attribute)",
+      "args": [
+        "-v",
+        "/tmp/tiny.tga"
+      ]
+    }
+  ]
+}

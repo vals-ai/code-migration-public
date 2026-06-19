@@ -1,0 +1,11 @@
+##fileformat=VCFv4.2
+##FILTER=<ID=PASS,Description="All filters passed">
+##INFO=<ID=AF,Number=A,Type=Float,Description="Allele Frequency">
+##contig=<ID=chr10,length=10000>
+##contig=<ID=chr2,length=10000>
+##contig=<ID=chr1,length=10000>
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO
+chr2	100	.	A	T	50.0	PASS	AF=0.5
+chr10	100	.	G	C	60.0	PASS	AF=0.5
+chr1	100	.	C	G	80.0	PASS	AF=0.5
+chr10	200	.	T	A	70.0	PASS	AF=0.5

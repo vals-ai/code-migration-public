@@ -1,0 +1,7 @@
+repository: https://github.com/AcademySoftwareFoundation/OpenImageIO
+commit: 91ee4025b88077a40ef2d1394659997643d562a5
+target_languages:
+- Python
+- Java
+- Kotlin
+- Rust

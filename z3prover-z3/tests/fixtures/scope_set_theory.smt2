@@ -1,0 +1,6 @@
+(declare-const A (Set Int))
+(declare-const B (Set Int))
+(assert (subset B A))
+(assert (= ((as const (Set Int)) false) B))
+(assert (select A 5))
+(check-sat)

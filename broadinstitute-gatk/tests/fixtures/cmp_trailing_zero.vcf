@@ -1,0 +1,8 @@
+##fileformat=VCFv4.2
+##FILTER=<ID=PASS,Description="All filters passed">
+##INFO=<ID=SB,Number=1,Type=Float,Description="Strand Bias">
+##INFO=<ID=QD,Number=1,Type=Float,Description="Quality by depth">
+##contig=<ID=1,length=249250621>
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO
+1	10000	.	A	T	50.0	PASS	SB=-1972.80;QD=0.50
+1	20000	.	G	C	30.0	PASS	SB=-547.28;QD=1.00000

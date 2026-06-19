@@ -1,0 +1,8 @@
+(set-logic QF_UFBV)
+(set-option :produce-models true)
+(declare-const x Int)
+(assert (= ((_ int2bv 8) x) #x0a))
+(assert (>= x 0))
+(assert (<= x 255))
+(check-sat)
+(get-model)

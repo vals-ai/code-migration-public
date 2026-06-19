@@ -1,0 +1,6 @@
+(set-logic HORN)
+(declare-fun R (Int) Bool)
+(assert (R 0))
+(assert (forall ((x Int)) (=> (R x) (R (+ x 1)))))
+(assert (forall ((x Int)) (=> (R x) (>= x 0))))
+(check-sat)

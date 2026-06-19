@@ -1,0 +1,6 @@
+(declare-sort S 0)
+(declare-const a S)
+(declare-const b S)
+(assert (not (= a b)))
+(check-sat)
+(get-model)

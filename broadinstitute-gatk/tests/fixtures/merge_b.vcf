@@ -1,0 +1,7 @@
+##fileformat=VCFv4.2
+##INFO=<ID=DP,Number=1,Type=Integer,Description="Read depth">
+##contig=<ID=1,length=249250621>
+##contig=<ID=2,length=243199373>
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO
+1	200	rs3	C	G	45.00	PASS	DP=20
+2	100	rs4	T	A	55.00	PASS	DP=40

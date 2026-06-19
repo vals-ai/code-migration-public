@@ -1,0 +1,6 @@
+c DIMACS: unsat core extraction via dimacs.core
+c (p or q) and (-p) and (-q) - clearly unsat
+p cnf 2 3
+1 2 0
+-1 0
+-2 0

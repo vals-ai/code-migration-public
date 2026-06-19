@@ -1,0 +1,12 @@
+; Model gen: get-model with uninterpreted function interpretation
+(set-logic QF_UF)
+(set-option :produce-models true)
+(declare-sort A 0)
+(declare-fun f (A) A)
+(declare-const a A)
+(declare-const b A)
+(assert (not (= a b)))
+(assert (= (f a) b))
+(assert (= (f b) a))
+(check-sat)
+(get-model)

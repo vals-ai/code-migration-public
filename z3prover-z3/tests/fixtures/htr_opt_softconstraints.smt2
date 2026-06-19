@@ -1,0 +1,6 @@
+(declare-const x Bool)
+(assert-soft x :weight 3)
+(assert-soft (not x) :weight 1)
+(check-sat)
+(get-model)
+(get-objectives)

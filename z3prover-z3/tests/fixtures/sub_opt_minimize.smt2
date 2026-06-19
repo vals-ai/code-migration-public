@@ -1,0 +1,12 @@
+; Optimization: minimize integer objective
+(set-logic QF_LIA)
+(set-option :produce-models true)
+(declare-const x Int)
+(declare-const y Int)
+(assert (>= x 0))
+(assert (>= y 0))
+(assert (>= (+ x y) 10))
+(minimize (+ x y))
+(check-sat)
+(get-model)
+(get-objectives)

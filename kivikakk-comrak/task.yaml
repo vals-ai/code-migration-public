@@ -1,0 +1,7 @@
+repository: https://github.com/kivikakk/comrak
+commit: fdeaa1c90d2331d71309b6ff978bfe50694a9137
+target_languages:
+- Python
+- Java
+- Kotlin
+- C++

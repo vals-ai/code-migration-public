@@ -1,0 +1,13 @@
+; Parser/Command-Context: check-sat-assuming with Boolean literals
+(set-logic QF_LIA)
+(set-option :produce-models true)
+(declare-const x Int)
+(declare-const p Bool)
+(declare-const q Bool)
+(assert (= x 5))
+(assert (=> p (> x 3)))
+(assert (=> q (< x 3)))
+; check-sat assuming p is true (x>3 holds, so sat)
+(check-sat-assuming (p))
+; check-sat assuming both p and q true (x>3 and x<3 is unsat)
+(check-sat-assuming (p q))

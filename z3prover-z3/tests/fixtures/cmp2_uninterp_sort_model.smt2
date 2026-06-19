@@ -1,0 +1,6 @@
+(declare-sort MySort 0)
+(declare-const a MySort)
+(declare-const b MySort)
+(assert (not (= a b)))
+(check-sat)
+(get-model)

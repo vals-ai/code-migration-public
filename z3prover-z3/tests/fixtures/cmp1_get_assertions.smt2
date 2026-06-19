@@ -1,0 +1,5 @@
+(set-option :produce-assertions true)
+(set-logic QF_LIA)
+(declare-const x Int)
+(assert (= x 5))
+(get-assertions)

@@ -1,0 +1,1154 @@
+{
+  "reference_command": "__eval_droid-java",
+  "test_command": "__eval_droid-kotlin",
+  "timeout": 120,
+  "tests": [
+    {
+      "name": "identify PNG file CSV",
+      "args": [
+        "-Nr",
+        "/tmp/sample.png"
+      ]
+    },
+    {
+      "name": "identify PDF file CSV",
+      "args": [
+        "-Nr",
+        "/tmp/sample.pdf"
+      ]
+    },
+    {
+      "name": "identify ZIP file CSV",
+      "args": [
+        "-Nr",
+        "/tmp/sample.zip"
+      ]
+    },
+    {
+      "name": "identify CSV file CSV",
+      "args": [
+        "-Nr",
+        "/tmp/sample.csv"
+      ]
+    },
+    {
+      "name": "identify XML file CSV",
+      "args": [
+        "-Nr",
+        "/tmp/sample.xml"
+      ]
+    },
+    {
+      "name": "identify text file CSV",
+      "args": [
+        "-Nr",
+        "/tmp/hello.txt"
+      ]
+    },
+    {
+      "name": "identify GIF file CSV",
+      "args": [
+        "-Nr",
+        "/tmp/sample.gif"
+      ]
+    },
+    {
+      "name": "identify BMP file CSV",
+      "args": [
+        "-Nr",
+        "/tmp/sample.bmp"
+      ]
+    },
+    {
+      "name": "identify HTML file CSV",
+      "args": [
+        "-Nr",
+        "/tmp/sample.html"
+      ]
+    },
+    {
+      "name": "identify PNG content with JPG extension",
+      "args": [
+        "-Nr",
+        "/tmp/png_disguised_as.jpg"
+      ]
+    },
+    {
+      "name": "identify file with no extension CSV",
+      "args": [
+        "-Nr",
+        "/tmp/noextension"
+      ]
+    },
+    {
+      "name": "identify unrecognized bytes CSV",
+      "args": [
+        "-Nr",
+        "/tmp/no_ext_file"
+      ]
+    },
+    {
+      "name": "identify unrecognized bytes JSON",
+      "args": [
+        "-Nr",
+        "/tmp/no_ext_file",
+        "--json"
+      ]
+    },
+    {
+      "name": "identify empty file",
+      "args": [
+        "-Nr",
+        "/tmp/empty.bin"
+      ]
+    },
+    {
+      "name": "identify PNG file JSON",
+      "args": [
+        "-Nr",
+        "/tmp/sample.png",
+        "--json"
+      ]
+    },
+    {
+      "name": "identify PDF file JSON",
+      "args": [
+        "-Nr",
+        "/tmp/sample.pdf",
+        "--json"
+      ]
+    },
+    {
+      "name": "identify ZIP file JSON",
+      "args": [
+        "-Nr",
+        "/tmp/sample.zip",
+        "--json"
+      ]
+    },
+    {
+      "name": "identify GIF file JSON",
+      "args": [
+        "-Nr",
+        "/tmp/sample.gif",
+        "--json"
+      ]
+    },
+    {
+      "name": "identify BMP file JSON",
+      "args": [
+        "-Nr",
+        "/tmp/sample.bmp",
+        "--json"
+      ]
+    },
+    {
+      "name": "recursive directory walk JSON sorted",
+      "args": [
+        "-Nr",
+        "/tmp/tree",
+        "-R",
+        "--json"
+      ],
+      "compare": "droid-json-sorted"
+    },
+    {
+      "name": "recursive directory walk CSV sorted",
+      "args": "-Nr /tmp/tree -R | (head -n1; tail -n+2 | sort)"
+    },
+    {
+      "name": "testdir non-recursive scan",
+      "args": "-Nr /tmp/testdir | (head -n1; tail -n+2 | sort)"
+    },
+    {
+      "name": "testdir recursive scan CSV sorted",
+      "args": "-Nr /tmp/testdir -R | (head -n1; tail -n+2 | sort)"
+    },
+    {
+      "name": "testdir recursive scan JSON sorted",
+      "args": [
+        "-Nr",
+        "/tmp/testdir",
+        "-R",
+        "--json"
+      ],
+      "compare": "droid-json-sorted"
+    },
+    {
+      "name": "multiple input paths JSON sorted",
+      "args": [
+        "-Nr",
+        "/tmp/sample.png",
+        "/tmp/sample.pdf",
+        "/tmp/sample.zip",
+        "--json"
+      ],
+      "compare": "droid-json-sorted"
+    },
+    {
+      "name": "multiple distinct file types CSV sorted",
+      "args": "-Nr /tmp/sample.gif /tmp/sample.bmp /tmp/hello.txt | (head -n1; tail -n+2 | sort)"
+    },
+    {
+      "name": "recursive scan extension filter txt",
+      "args": "-Nr /tmp/testdir -R -Nx txt | (head -n1; tail -n+2 | sort)"
+    },
+    {
+      "name": "recursive scan extension filter multi bmp gif",
+      "args": "-Nr /tmp/testdir -R -Nx bmp gif | (head -n1; tail -n+2 | sort)"
+    },
+    {
+      "name": "extension filter gif JSON sorted",
+      "args": [
+        "-Nr",
+        "/tmp/testdir",
+        "-R",
+        "-Nx",
+        "gif",
+        "--json"
+      ],
+      "compare": "droid-json-sorted"
+    },
+    {
+      "name": "ZIP unexpanded by default CSV",
+      "args": [
+        "-Nr",
+        "/tmp/test.zip"
+      ]
+    },
+    {
+      "name": "ZIP expanded with -A JSON",
+      "args": [
+        "-Nr",
+        "/tmp/test.zip",
+        "-A",
+        "--json"
+      ],
+      "compare": "droid-json-sorted"
+    },
+    {
+      "name": "ZIP selective -At ZIP JSON",
+      "args": [
+        "-Nr",
+        "/tmp/test.zip",
+        "-At",
+        "ZIP",
+        "--json"
+      ],
+      "compare": "droid-json-sorted"
+    },
+    {
+      "name": "TAR unexpanded by default CSV",
+      "args": [
+        "-Nr",
+        "/tmp/test.tar"
+      ]
+    },
+    {
+      "name": "TAR expanded with -A JSON",
+      "args": [
+        "-Nr",
+        "/tmp/test.tar",
+        "-A",
+        "--json"
+      ],
+      "compare": "droid-json-sorted"
+    },
+    {
+      "name": "GZIP expanded with -A JSON",
+      "args": [
+        "-Nr",
+        "/tmp/test.gz",
+        "-A",
+        "--json"
+      ]
+    },
+    {
+      "name": "BZIP2 expanded with -A JSON",
+      "args": [
+        "-Nr",
+        "/tmp/testXmlFile.xml.bz2",
+        "-A",
+        "--json"
+      ]
+    },
+    {
+      "name": "7-Zip expanded with -A JSON",
+      "args": [
+        "-Nr",
+        "/tmp/saved.7z",
+        "-A",
+        "--json"
+      ]
+    },
+    {
+      "name": "RAR expanded with -A JSON sorted",
+      "args": [
+        "-Nr",
+        "/tmp/sample.rar",
+        "-A",
+        "--json"
+      ],
+      "compare": "droid-json-sorted"
+    },
+    {
+      "name": "WARC expanded with -Wt warc JSON sorted",
+      "args": [
+        "-Nr",
+        "/tmp/expanded.warc",
+        "-Wt",
+        "warc",
+        "--json"
+      ],
+      "compare": "droid-json-sorted"
+    },
+    {
+      "name": "ARC expanded with -Wt arc JSON sorted",
+      "args": [
+        "-Nr",
+        "/tmp/expanded.arc",
+        "-Wt",
+        "arc",
+        "--json"
+      ],
+      "compare": "droid-json-sorted"
+    },
+    {
+      "name": "custom binary and container signature files",
+      "args": [
+        "-Nr",
+        "/tmp/test.test",
+        "-Ns",
+        "/tmp/binary-signature.xml",
+        "-Nc",
+        "/tmp/container-signature.xml"
+      ]
+    },
+    {
+      "name": "custom binary signature only (default container)",
+      "args": [
+        "-Nr",
+        "/tmp/test.test",
+        "-Ns",
+        "/tmp/binary-signature.xml"
+      ]
+    },
+    {
+      "name": "DQL filter file_ext equals txt",
+      "args": "-Nr /tmp/testdir -R -ff file_ext=txt | (head -n1; tail -n+2 | sort)"
+    },
+    {
+      "name": "DQL filter file_ext equals PNG case insensitive",
+      "args": [
+        "-Nr",
+        "/tmp/sample.png",
+        "-ff",
+        "file_ext = PNG"
+      ]
+    },
+    {
+      "name": "DQL filter file_size greater than 30",
+      "args": "-Nr /tmp/testdir -R -ff \"file_size>30\" | (head -n1; tail -n+2 | sort)"
+    },
+    {
+      "name": "DQL filter file_size GTE 50 single file",
+      "args": [
+        "-Nr",
+        "/tmp/sample.png",
+        "-ff",
+        "file_size >= 50"
+      ]
+    },
+    {
+      "name": "DQL filter file_name starts image",
+      "args": "-Nr /tmp/testdir -R -ff \"file_name starts image\" | (head -n1; tail -n+2 | sort)"
+    },
+    {
+      "name": "DQL filter file_ext any multi-value",
+      "args": "-Nr /tmp/testdir -R -ff \"file_ext any gif txt\" | (head -n1; tail -n+2 | sort)"
+    },
+    {
+      "name": "DQL filter not contains excludes matched",
+      "args": [
+        "-Nr",
+        "/tmp/hello.txt",
+        "-ff",
+        "file_name not contains hello"
+      ]
+    },
+    {
+      "name": "DQL filter none operator excludes",
+      "args": [
+        "-Nr",
+        "/tmp/hello.txt",
+        "-ff",
+        "file_ext none txt"
+      ]
+    },
+    {
+      "name": "DQL filter combined with JSON output",
+      "args": [
+        "-Nr",
+        "/tmp/testdir",
+        "-R",
+        "-ff",
+        "file_size>30",
+        "--json"
+      ],
+      "compare": "droid-json-sorted"
+    },
+    {
+      "name": "explicit -o stdout sentinel",
+      "args": [
+        "-Nr",
+        "/tmp/sample.gif",
+        "-o",
+        "stdout"
+      ]
+    },
+    {
+      "name": "-co silently ignored in no-profile mode",
+      "args": [
+        "-Nr",
+        "/tmp/sample.gif",
+        "-co",
+        "FILE_PATH",
+        "NAME",
+        "STATUS",
+        "SIZE"
+      ]
+    },
+    {
+      "name": "-co with invalid column in no-profile mode",
+      "args": [
+        "-Nr",
+        "/tmp/sample.gif",
+        "-co",
+        "INVALID_COLUMN"
+      ]
+    },
+    {
+      "name": "-co silently ignored in no-profile JSON mode",
+      "args": [
+        "-Nr",
+        "/tmp/sample.gif",
+        "-co",
+        "FILE_PATH",
+        "NAME",
+        "STATUS",
+        "--json"
+      ]
+    },
+    {
+      "name": "-qc no-op in no-profile mode",
+      "args": [
+        "-Nr",
+        "/tmp/sample.gif",
+        "-qc"
+      ]
+    },
+    {
+      "name": "export missing profiles flag",
+      "args": "-e /tmp/out.csv 2>&1 | grep -v \"Starting DROID\" || true"
+    },
+    {
+      "name": "export-format missing profiles flag",
+      "args": "-E /tmp/out.csv 2>&1 | grep -v \"Starting DROID\" || true"
+    },
+    {
+      "name": "report missing profiles flag",
+      "args": "-r /tmp/report.txt 2>&1 | grep -v \"Starting DROID\" || true"
+    },
+    {
+      "name": "no-profile-resource missing argument",
+      "args": "-Nr 2>&1 | grep -v \"Starting DROID\" || true"
+    },
+    {
+      "name": "nonexistent path in no-profile mode",
+      "args": "-Nr /nonexistent/path.txt 2>&1 | grep -v \"Starting DROID\" || true"
+    },
+    {
+      "name": "profile and no-profile mutually exclusive",
+      "args": "-a /tmp/sample.png -Nr /tmp/sample.png 2>&1 | grep -v \"Starting DROID\" || true"
+    },
+    {
+      "name": "invalid DQL operator",
+      "args": "-Nr /tmp/sample.png -ff \"file_ext badop png\" 2>&1 | grep -v \"Starting DROID\" || true"
+    },
+    {
+      "name": "DQL empty single-value bug literal format string",
+      "args": "-Nr /tmp/sample.png -ff \"file_ext = \" 2>&1 | grep -v \"Starting DROID\" || true"
+    },
+    {
+      "name": "no actionable command line options",
+      "args": [],
+      "match_nonzero_output": true
+    },
+    {
+      "name": "profile export CSV restricted columns",
+      "args": "-p /tmp/profile_gif.droid -E /tmp/out.csv -co FILE_PATH PUID FORMAT_NAME > /dev/null 2>&1 && cat /tmp/out.csv"
+    },
+    {
+      "name": "profile export CSV quote-commas flag",
+      "args": "-p /tmp/profile_gif.droid -E /tmp/out.csv -qc -co FILE_PATH PUID FORMAT_NAME > /dev/null 2>&1 && cat /tmp/out.csv"
+    },
+    {
+      "name": "profile export CSV column reorder to schema order",
+      "args": "-p /tmp/profile_gif.droid -E /tmp/out.csv -co FILE_PATH PUID FORMAT_NAME MIME_TYPE SIZE > /dev/null 2>&1 && cat /tmp/out.csv"
+    },
+    {
+      "name": "profile export JSON honors requested column order",
+      "args": "-p /tmp/profile_gif.droid -E /tmp/out.json -co FILE_PATH PUID FORMAT_NAME --json > /dev/null 2>&1 && cat /tmp/out.json"
+    },
+    {
+      "name": "profile export UTF-8 BOM with -B",
+      "args": "-p /tmp/profile_gif.droid -E /tmp/out.csv -B -co FILE_PATH PUID > /dev/null 2>&1 && head -c3 /tmp/out.csv | od -An -tx1"
+    },
+    {
+      "name": "profile export -e one-row-per-file form",
+      "args": "-p /tmp/profile_gif.droid -e /tmp/out.csv -co FILE_PATH PUID FORMAT_NAME > /dev/null 2>&1 && cat /tmp/out.csv"
+    },
+    {
+      "name": "profile export HASH column renamed MD5_HASH",
+      "args": "-p /tmp/profile_gif_hash.droid -E /tmp/out.csv -co FILE_PATH HASH PUID > /dev/null 2>&1 && cat /tmp/out.csv"
+    },
+    {
+      "name": "profile export results filter format_count",
+      "args": "-p /tmp/profile_gif.droid -E /tmp/out.csv -f \"format_count = 1\" -co FILE_PATH PUID FORMAT_COUNT > /dev/null 2>&1 && cat /tmp/out.csv"
+    },
+    {
+      "name": "profile export full 18-column header order",
+      "args": "-p /tmp/profile_gif.droid -E /tmp/out.csv > /dev/null 2>&1 && head -1 /tmp/out.csv"
+    },
+    {
+      "name": "profile export case-insensitive format_name filter",
+      "args": "-p /tmp/profile_gif.droid -E /tmp/out.csv -f \"format_name = 'GRAPHICS INTERCHANGE FORMAT'\" -co FILE_PATH PUID FORMAT_NAME > /dev/null 2>&1 && cat /tmp/out.csv"
+    },
+    {
+      "name": "report missing name error",
+      "args": "-p /tmp/profile_gif.droid -r /tmp/report.txt 2>&1 | grep -v \"Starting DROID\" | grep \"Incorrect\\|No name\" || true"
+    },
+    {
+      "name": "report invalid name error",
+      "args": "-p /tmp/profile_gif.droid -r /tmp/report.txt -n \"Nonexistent Report\" 2>&1 | grep -v \"Starting DROID\" | grep -v \"INFO\" || true"
+    },
+    {
+      "name": "report DROID XML format prolog",
+      "args": "-p /tmp/profile_gif.droid -r /tmp/report.xml -n \"File count and sizes\" -t \"DROID Report XML\" > /dev/null 2>&1 && head -3 /tmp/report.xml"
+    },
+    {
+      "name": "report Web page format XHTML prolog",
+      "args": "-p /tmp/profile_gif.droid -r /tmp/report.html -n \"File count and sizes\" -t \"Web page\" > /dev/null 2>&1 && head -1 /tmp/report.html"
+    },
+    {
+      "name": "DQL boolean alias yes",
+      "args": [
+        "-Nr",
+        "/tmp/sample.png",
+        "-ff",
+        "extension_mismatch = yes"
+      ]
+    },
+    {
+      "name": "DQL boolean alias no",
+      "args": [
+        "-Nr",
+        "/tmp/sample.png",
+        "-ff",
+        "extension_mismatch = no"
+      ]
+    },
+    {
+      "name": "DQL operator LTE",
+      "args": "-Nr /tmp/testdir -R -ff \"file_size <= 29\" --json",
+      "compare": "droid-json-sorted"
+    },
+    {
+      "name": "DQL operator NE",
+      "args": "-Nr /tmp/testdir -R -ff \"file_size <> 58\" --json",
+      "compare": "droid-json-sorted"
+    },
+    {
+      "name": "DQL ends suffix match case-insensitive",
+      "args": "-Nr /tmp/testdir -R -ff \"file_name ends .txt\" --json",
+      "compare": "droid-json-sorted"
+    },
+    {
+      "name": "DQL not starts prefix exclude",
+      "args": "-Nr /tmp/testdir -R -ff \"file_name not starts image\" --json",
+      "compare": "droid-json-sorted"
+    },
+    {
+      "name": "DQL not ends suffix exclude",
+      "args": "-Nr /tmp/testdir -R -ff \"file_name not ends .html\" --json",
+      "compare": "droid-json-sorted"
+    },
+    {
+      "name": "DQL contains case-insensitive substring",
+      "args": [
+        "-Nr",
+        "/tmp/testdir",
+        "-R",
+        "-ff",
+        "file_name contains EAD",
+        "--json"
+      ],
+      "compare": "droid-json-sorted"
+    },
+    {
+      "name": "DQL single-quoted value case-insensitive match",
+      "args": [
+        "-Nr",
+        "/tmp/sample.pdf",
+        "-ff",
+        "file_name = 'Sample.PDF'"
+      ]
+    },
+    {
+      "name": "DQL multi-value none operator",
+      "args": "-Nr /tmp/testdir -R -ff \"file_ext none gif bmp\" --json",
+      "compare": "droid-json-sorted"
+    },
+    {
+      "name": "DQL multiple -FF flags use OR semantics",
+      "args": "-Nr /tmp/testdir -R -FF \"file_ext = gif\" -FF \"file_size < 20\" --json",
+      "compare": "droid-json-sorted"
+    },
+    {
+      "name": "CSV empty result zero bytes",
+      "args": "-Nr /tmp/testdir -R -ff \"file_size > 99999\" 2>/dev/null | wc -c"
+    },
+    {
+      "name": "JSON empty result lone close bracket",
+      "args": [
+        "-Nr",
+        "/tmp/testdir",
+        "-R",
+        "-ff",
+        "file_size > 99999",
+        "--json"
+      ]
+    },
+    {
+      "name": "-At zip lowercase normalized to Zip",
+      "args": [
+        "-Nr",
+        "/tmp/test.zip",
+        "-At",
+        "zip",
+        "--json"
+      ],
+      "compare": "droid-json-sorted"
+    },
+    {
+      "name": "-At zip mismatched against TAR silently no-op",
+      "args": [
+        "-Nr",
+        "/tmp/test.tar",
+        "-At",
+        "zip",
+        "--json"
+      ],
+      "compare": "droid-json-sorted"
+    },
+    {
+      "name": "profile multi -p values error",
+      "args": "-a /tmp/sample.gif -p /tmp/p1.droid /tmp/p2.droid 2>&1 | grep -v \"Starting DROID\" | grep -v \"INFO\" || true"
+    },
+    {
+      "name": "export nonexistent profile no prefix error",
+      "args": "-p /tmp/nonexistent.droid -E /tmp/out.csv 2>&1 | grep -v \"Starting DROID\" | grep -v \"INFO\" || true"
+    },
+    {
+      "name": "explicit --csv flag GIF",
+      "args": [
+        "-Nr",
+        "/tmp/sample.gif",
+        "--csv"
+      ]
+    },
+    {
+      "name": "explicit --csv flag BMP",
+      "args": [
+        "-Nr",
+        "/tmp/sample.bmp",
+        "--csv"
+      ]
+    },
+    {
+      "name": "--csv and --json combined",
+      "args": "-Nr /tmp/sample.gif --csv --json 2>&1 | grep -v \"Starting DROID\" || true"
+    },
+    {
+      "name": "-Nr output to file CSV",
+      "args": "-Nr /tmp/sample.gif -o /tmp/out_nr.csv > /dev/null 2>&1 && cat /tmp/out_nr.csv"
+    },
+    {
+      "name": "-Nr output to file JSON",
+      "args": "-Nr /tmp/sample.gif -o /tmp/out_nr.json --json > /dev/null 2>&1 && cat /tmp/out_nr.json"
+    },
+    {
+      "name": "-ri row per format with -A ZIP JSON sorted",
+      "args": [
+        "-Nr",
+        "/tmp/test.zip",
+        "-A",
+        "-ri",
+        "--json"
+      ],
+      "compare": "droid-json-sorted"
+    },
+    {
+      "name": "-ri row per format with -A ZIP CSV sorted",
+      "args": "-Nr /tmp/test.zip -A -ri 2>/dev/null | (head -n1; tail -n+2 | sort)"
+    },
+    {
+      "name": "WARC with -W universal flag JSON sorted",
+      "args": [
+        "-Nr",
+        "/tmp/expanded.warc",
+        "-W",
+        "--json"
+      ],
+      "compare": "droid-json-sorted"
+    },
+    {
+      "name": "ARC with -W universal flag JSON sorted",
+      "args": [
+        "-Nr",
+        "/tmp/expanded.arc",
+        "-W",
+        "--json"
+      ],
+      "compare": "droid-json-sorted"
+    },
+    {
+      "name": "DQL filter puid case-sensitive match",
+      "args": [
+        "-Nr",
+        "/tmp/sample.gif",
+        "-ff",
+        "puid = fmt/4"
+      ]
+    },
+    {
+      "name": "DQL filter mime_type case-sensitive with slash",
+      "args": [
+        "-Nr",
+        "/tmp/sample.gif",
+        "-ff",
+        "mime_type = image/gif"
+      ]
+    },
+    {
+      "name": "DQL filter format_count equals 1 in -Nr mode",
+      "args": [
+        "-Nr",
+        "/tmp/sample.gif",
+        "-ff",
+        "format_count = 1"
+      ]
+    },
+    {
+      "name": "DQL filter format_count equals 0 in -Nr mode",
+      "args": [
+        "-Nr",
+        "/tmp/sample.gif",
+        "-ff",
+        "format_count = 0"
+      ]
+    },
+    {
+      "name": "DQL filter puid starts prefix case-sensitive",
+      "args": [
+        "-Nr",
+        "/tmp/sample.gif",
+        "-ff",
+        "puid starts fmt"
+      ]
+    },
+    {
+      "name": "DQL filter mime_type any multi-value with slashes",
+      "args": [
+        "-Nr",
+        "/tmp/sample.gif",
+        "-ff",
+        "mime_type any image/gif text/plain"
+      ]
+    },
+    {
+      "name": "bare positional file argument no top-level command",
+      "args": "/tmp/sample.gif 2>&1 | grep -v \"Starting DROID\" || true"
+    },
+    {
+      "name": "DQL last_modified before 2030 accepts file",
+      "args": [
+        "-Nr",
+        "/tmp/sample.gif",
+        "-ff",
+        "last_modified < 2030-01-01"
+      ]
+    },
+    {
+      "name": "ZIP single-letter -Az expansion JSON",
+      "args": [
+        "-Nr",
+        "/tmp/test.zip",
+        "-Az",
+        "--json"
+      ],
+      "compare": "droid-json-sorted"
+    },
+    {
+      "name": "GZIP single-letter -Ag expansion JSON",
+      "args": [
+        "-Nr",
+        "/tmp/test.gz",
+        "-Ag",
+        "--json"
+      ]
+    },
+    {
+      "name": "BZIP2 single-letter -Ab expansion JSON",
+      "args": [
+        "-Nr",
+        "/tmp/testXmlFile.xml.bz2",
+        "-Ab",
+        "--json"
+      ]
+    },
+    {
+      "name": "RAR single-letter -Ar expansion JSON sorted",
+      "args": [
+        "-Nr",
+        "/tmp/sample.rar",
+        "-Ar",
+        "--json"
+      ],
+      "compare": "droid-json-sorted"
+    },
+    {
+      "name": "7-Zip single-letter -A7 expansion JSON",
+      "args": [
+        "-Nr",
+        "/tmp/saved.7z",
+        "-A7",
+        "--json"
+      ]
+    },
+    {
+      "name": "WARC single-letter -Wa expansion JSON sorted",
+      "args": [
+        "-Nr",
+        "/tmp/expanded.warc",
+        "-Wa",
+        "--json"
+      ],
+      "compare": "droid-json-sorted"
+    },
+    {
+      "name": "GZIP expanded with -A CSV",
+      "args": [
+        "-Nr",
+        "/tmp/test.gz",
+        "-A"
+      ]
+    },
+    {
+      "name": "BZIP2 expanded with -A CSV",
+      "args": [
+        "-Nr",
+        "/tmp/testXmlFile.xml.bz2",
+        "-A"
+      ]
+    },
+    {
+      "name": "RAR expanded with -A CSV sorted",
+      "args": "-Nr /tmp/sample.rar -A | (head -n1; tail -n+2 | sort)"
+    },
+    {
+      "name": "ARC expanded with -Wt arc CSV sorted",
+      "args": "-Nr /tmp/expanded.arc -Wt arc | (head -n1; tail -n+2 | sort)"
+    },
+    {
+      "name": "ARC expanded with -W universal flag CSV sorted",
+      "args": "-Nr /tmp/expanded.arc -W | (head -n1; tail -n+2 | sort)"
+    },
+    {
+      "name": "WARC expanded with -Wt warc CSV sorted",
+      "args": "-Nr /tmp/expanded.warc -Wt warc | (head -n1; tail -n+2 | sort)"
+    },
+    {
+      "name": "-At TAR uppercase normalized to Tar JSON sorted",
+      "args": [
+        "-Nr",
+        "/tmp/test.tar",
+        "-At",
+        "TAR",
+        "--json"
+      ],
+      "compare": "droid-json-sorted"
+    },
+    {
+      "name": "-At Tar mixed-case normalized JSON sorted",
+      "args": [
+        "-Nr",
+        "/tmp/test.tar",
+        "-At",
+        "Tar",
+        "--json"
+      ],
+      "compare": "droid-json-sorted"
+    },
+    {
+      "name": "-Nh hash flag rejected in -Nr mode md5",
+      "args": "-Nr /tmp/sample.gif -Nh md5 2>&1 | grep -v \"Starting DROID\" || true"
+    },
+    {
+      "name": "-Nh hash flag rejected in -Nr mode sha256 JSON",
+      "args": "-Nr /tmp/sample.gif -Nh sha256 --json 2>&1 | grep -v \"Starting DROID\" || true"
+    },
+    {
+      "name": "DQL filter file_ext gif against multi-file input sorted",
+      "args": "-Nr /tmp/sample.gif /tmp/sample.bmp -ff \"file_ext = gif\" | (head -n1; tail -n+2 | sort)"
+    },
+    {
+      "name": "DQL filter file_ext bmp against multi-file input sorted",
+      "args": "-Nr /tmp/sample.gif /tmp/sample.bmp -ff \"file_ext = bmp\" | (head -n1; tail -n+2 | sort)"
+    },
+    {
+      "name": "ZIP -A with DQL file_ext txt no match JSON",
+      "args": [
+        "-Nr",
+        "/tmp/test.zip",
+        "-A",
+        "-ff",
+        "file_ext = txt",
+        "--json"
+      ]
+    },
+    {
+      "name": "ZIP -A with DQL file_ext zip container only JSON sorted",
+      "args": [
+        "-Nr",
+        "/tmp/test.zip",
+        "-A",
+        "-ff",
+        "file_ext = zip",
+        "--json"
+      ],
+      "compare": "droid-json-sorted"
+    },
+    {
+      "name": "profile export results filter format_count GT 0",
+      "args": "-p /tmp/profile_gif.droid -E /tmp/out.csv -f \"format_count > 0\" -co FILE_PATH PUID FORMAT_COUNT > /dev/null 2>&1 && cat /tmp/out.csv"
+    },
+    {
+      "name": "profile export CSV METHOD column",
+      "args": "-p /tmp/profile_gif.droid -E /tmp/out.csv -co FILE_PATH METHOD > /dev/null 2>&1 && cat /tmp/out.csv"
+    },
+    {
+      "name": "profile export CSV STATUS column",
+      "args": "-p /tmp/profile_gif.droid -E /tmp/out.csv -co FILE_PATH STATUS > /dev/null 2>&1 && cat /tmp/out.csv"
+    },
+    {
+      "name": "profile export CSV METHOD PUID combined with hash profile",
+      "args": "-p /tmp/profile_gif_hash.droid -E /tmp/out.csv -co FILE_PATH METHOD PUID > /dev/null 2>&1 && cat /tmp/out.csv"
+    },
+    {
+      "name": "DQL compound AND returns empty result",
+      "args": [
+        "-Nr",
+        "/tmp/testdir",
+        "-R",
+        "-ff",
+        "file_ext = gif and file_size < 20",
+        "--json"
+      ]
+    },
+    {
+      "name": "DQL compound OR returns empty result",
+      "args": [
+        "-Nr",
+        "/tmp/testdir",
+        "-R",
+        "-ff",
+        "file_ext = gif or file_ext = bmp",
+        "--json"
+      ]
+    },
+    {
+      "name": "DQL parenthesized single expression returns empty",
+      "args": [
+        "-Nr",
+        "/tmp/testdir",
+        "-R",
+        "-ff",
+        "(file_ext = gif)",
+        "--json"
+      ]
+    },
+    {
+      "name": "DQL not any multi-value puid",
+      "args": [
+        "-Nr",
+        "/tmp/sample.gif",
+        "-ff",
+        "puid not any fmt/4 fmt/18"
+      ]
+    },
+    {
+      "name": "DQL filter file combined with inline -FF OR",
+      "args": [
+        "-Nr",
+        "/tmp/testdir",
+        "-R",
+        "-f",
+        "/tmp/filter1.dql",
+        "-FF",
+        "file_ext = bmp",
+        "--json"
+      ],
+      "compare": "droid-json-sorted"
+    },
+    {
+      "name": "nested ZIP-in-ZIP recursive expansion JSON sorted",
+      "args": [
+        "-Nr",
+        "/tmp/nested.zip",
+        "-A",
+        "--json"
+      ],
+      "compare": "droid-json-sorted"
+    },
+    {
+      "name": "nested ZIP-in-ZIP selective -At ZIP recursive JSON sorted",
+      "args": [
+        "-Nr",
+        "/tmp/nested.zip",
+        "-At",
+        "ZIP",
+        "--json"
+      ],
+      "compare": "droid-json-sorted"
+    },
+    {
+      "name": "TAR containing ZIP recursive expansion JSON sorted",
+      "args": [
+        "-Nr",
+        "/tmp/zip_in_tar.tar",
+        "-A",
+        "--json"
+      ],
+      "compare": "droid-json-sorted"
+    },
+    {
+      "name": "tar.gz nested expansion gzip then tar JSON sorted",
+      "args": [
+        "-Nr",
+        "/tmp/nested.tar.gz",
+        "-A",
+        "--json"
+      ],
+      "compare": "droid-json-sorted"
+    },
+    {
+      "name": "bundle tgz gzip-wrapped tar expansion JSON sorted",
+      "args": [
+        "-Nr",
+        "/tmp/bundle.tgz",
+        "-A",
+        "--json"
+      ],
+      "compare": "droid-json-sorted"
+    },
+    {
+      "name": "bundle tbz2 bzip2-wrapped tar expansion JSON sorted",
+      "args": [
+        "-Nr",
+        "/tmp/bundle.tbz2",
+        "-A",
+        "--json"
+      ],
+      "compare": "droid-json-sorted"
+    },
+    {
+      "name": "gzipped ZIP recursive descent JSON sorted",
+      "args": [
+        "-Nr",
+        "/tmp/inner.zip.gz",
+        "-A",
+        "--json"
+      ],
+      "compare": "droid-json-sorted"
+    },
+    {
+      "name": "ARC with combined -W -A flags expansion JSON sorted",
+      "args": [
+        "-Nr",
+        "/tmp/expanded.arc",
+        "-W",
+        "-A",
+        "--json"
+      ],
+      "compare": "droid-json-sorted"
+    },
+    {
+      "name": "WARC -W with DQL file_ext filter JSON",
+      "args": [
+        "-Nr",
+        "/tmp/expanded.warc",
+        "-W",
+        "-ff",
+        "file_ext = html",
+        "--json"
+      ]
+    },
+    {
+      "name": "WARC -W -ri row per format JSON sorted",
+      "args": [
+        "-Nr",
+        "/tmp/expanded.warc",
+        "-W",
+        "-ri",
+        "--json"
+      ],
+      "compare": "droid-json-sorted"
+    },
+    {
+      "name": "ARC -W -ri row per format JSON sorted",
+      "args": [
+        "-Nr",
+        "/tmp/expanded.arc",
+        "-W",
+        "-ri",
+        "--json"
+      ],
+      "compare": "droid-json-sorted"
+    },
+    {
+      "name": "empty ZIP no-expand PUID",
+      "args": [
+        "-Nr",
+        "/tmp/empty.zip",
+        "-A"
+      ]
+    },
+    {
+      "name": "profile export results filter puid equals",
+      "args": "-p /tmp/profile_gif.droid -E /tmp/out.csv -f \"puid = fmt/4\" -co FILE_PATH PUID FORMAT_NAME MIME_TYPE > /dev/null 2>&1 && cat /tmp/out.csv"
+    },
+    {
+      "name": "profile export results filter mime_type equals",
+      "args": "-p /tmp/profile_gif.droid -E /tmp/out.csv -f \"mime_type = image/gif\" -co FILE_PATH PUID FORMAT_NAME MIME_TYPE > /dev/null 2>&1 && cat /tmp/out.csv"
+    },
+    {
+      "name": "profile export results filter method Binary Signature error path",
+      "args": "-p /tmp/profile_gif.droid -E /tmp/out.csv -f \"method = Binary Signature\" -co FILE_PATH METHOD PUID 2>&1 | grep -v \"Starting DROID\" | grep -v \"INFO\" || true"
+    },
+    {
+      "name": "profile export lowercase column name file_path",
+      "args": "-p /tmp/profile_gif.droid -E /tmp/out.csv -co file_path PUID > /dev/null 2>&1 && cat /tmp/out.csv"
+    }
+  ]
+}

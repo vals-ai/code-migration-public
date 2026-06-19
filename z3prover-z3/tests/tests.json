@@ -1,0 +1,865 @@
+{
+  "timeout": 60,
+  "tests": [
+    {
+      "name": "QF_BV simple sat",
+      "category": "behavior"
+    },
+    {
+      "name": "QF_LIA simple unsat",
+      "category": "behavior"
+    },
+    {
+      "name": "QF_AUFBV array+UF unsat (extensionality)",
+      "category": "behavior"
+    },
+    {
+      "name": "QF_UF uninterpreted functions unsat (functional consistency)",
+      "category": "behavior"
+    },
+    {
+      "name": "UF quantifier sat",
+      "category": "behavior"
+    },
+    {
+      "name": "push/pop with multiple check-sat",
+      "category": "behavior"
+    },
+    {
+      "name": "get-model on QF_LIA sat",
+      "category": "behavior"
+    },
+    {
+      "name": "get-value of bit-vectors",
+      "category": "behavior"
+    },
+    {
+      "name": "declare-datatypes List with head/tail accessors",
+      "category": "behavior"
+    },
+    {
+      "name": "get-unsat-core on labeled assertions",
+      "category": "behavior"
+    },
+    {
+      "name": "QF_FP get-value floating-point triples",
+      "category": "behavior"
+    },
+    {
+      "name": "eval and simplify after check-sat",
+      "category": "behavior"
+    },
+    {
+      "name": "parser error inside (error ...) on stdout",
+      "category": "behavior"
+    },
+    {
+      "name": "DIMACS CNF unsat",
+      "category": "behavior"
+    },
+    {
+      "name": "DIMACS CNF sat",
+      "category": "behavior"
+    },
+    {
+      "name": "get-info :error-behavior continued-execution",
+      "category": "behavior"
+    },
+    {
+      "name": "set-info+get-info :status round-trip",
+      "category": "behavior"
+    },
+    {
+      "name": "get-info :assertion-stack-levels tracks push depth",
+      "category": "behavior"
+    },
+    {
+      "name": "set-info :status with invalid value (column 19 error)",
+      "category": "behavior"
+    },
+    {
+      "name": "get-info multiple keys (name version authors status stack-levels)",
+      "category": "behavior"
+    },
+    {
+      "name": "get-info :error-behavior (alt fixture)",
+      "category": "behavior"
+    },
+    {
+      "name": "get-info :parameters produces empty output",
+      "category": "behavior"
+    },
+    {
+      "name": "get-info :assertion-stack-levels (alt fixture)",
+      "category": "behavior"
+    },
+    {
+      "name": "get-info :reason-unknown after unsat is empty string",
+      "category": "behavior"
+    },
+    {
+      "name": "get-info :status before check-sat is unknown",
+      "category": "behavior"
+    },
+    {
+      "name": ":print-success true emits success per accepted command",
+      "category": "behavior"
+    },
+    {
+      "name": "echo with :smtlib2-compliant true wraps in double quotes",
+      "category": "behavior"
+    },
+    {
+      "name": "echo escapes embedded double-quotes as \"\"",
+      "category": "behavior"
+    },
+    {
+      "name": "set-option/get-option round-trip",
+      "category": "behavior"
+    },
+    {
+      "name": "echo and display commands",
+      "category": "behavior"
+    },
+    {
+      "name": "echo without smtlib2-compliant (no wrapping quotes)",
+      "category": "behavior"
+    },
+    {
+      "name": "reset-assertions retains declarations",
+      "category": "behavior"
+    },
+    {
+      "name": "set-info :status round-trip (alt fixture)",
+      "category": "behavior"
+    },
+    {
+      "name": "unknown :option in set-option produces structured error",
+      "category": "behavior"
+    },
+    {
+      "name": "get-option :produce-models returns raw value",
+      "category": "behavior"
+    },
+    {
+      "name": "get-option :verbosity numeric value",
+      "category": "behavior"
+    },
+    {
+      "name": "pp.decimal true \u2192 0.3333333333? for 1/3",
+      "category": "behavior"
+    },
+    {
+      "name": "pp.decimal ? sentinel for inexact decimal expansion",
+      "category": "behavior"
+    },
+    {
+      "name": ":smtlib2-compliant true emits success per command",
+      "category": "behavior"
+    },
+    {
+      "name": ":dump-models true displays model automatically",
+      "category": "behavior"
+    },
+    {
+      "name": "unknown set-option key emits (error ...) and exits 1",
+      "category": "behavior"
+    },
+    {
+      "name": "set-option :produce-proofs true silently accepted",
+      "category": "behavior"
+    },
+    {
+      "name": ":produce-unsat-cores then get-unsat-core",
+      "category": "behavior"
+    },
+    {
+      "name": ":produce-assignments then get-assignment",
+      "category": "behavior"
+    },
+    {
+      "name": ":interactive-mode true + get-assertions",
+      "category": "behavior"
+    },
+    {
+      "name": ":smtlib2-compliant true outputs success success success sat",
+      "category": "behavior"
+    },
+    {
+      "name": ":verbosity 10 silently accepted",
+      "category": "behavior"
+    },
+    {
+      "name": "negative integer model uses (- N) prefix",
+      "category": "behavior"
+    },
+    {
+      "name": "real ratio printed as (/ N.0 D.0)",
+      "category": "behavior"
+    },
+    {
+      "name": "negative non-integral real uses (- (/ N.0 D.0))",
+      "category": "behavior"
+    },
+    {
+      "name": "BitVec width 12 prints as #xNNN hex",
+      "category": "behavior"
+    },
+    {
+      "name": "BitVec width 5 prints as #bNNNNN binary",
+      "category": "behavior"
+    },
+    {
+      "name": "Float32 NaN prints as (_ NaN 8 24)",
+      "category": "behavior"
+    },
+    {
+      "name": "Float32 +inf prints as (_ +oo 8 24)",
+      "category": "behavior"
+    },
+    {
+      "name": "Float64 -zero prints as (_ -zero 11 53)",
+      "category": "behavior"
+    },
+    {
+      "name": "Float32 (fp #b0 #x.. #b..) mixed-base bit-encoding",
+      "category": "behavior"
+    },
+    {
+      "name": "uninterpreted sort model: universe comments + cardinality forall",
+      "category": "behavior"
+    },
+    {
+      "name": "uninterpreted sort model (alt fixture)",
+      "category": "behavior"
+    },
+    {
+      "name": "array model with single value: (as const ...)",
+      "category": "behavior"
+    },
+    {
+      "name": "array model with two points: nested store/as const",
+      "category": "behavior"
+    },
+    {
+      "name": "partial real division /0 function in model",
+      "category": "behavior"
+    },
+    {
+      "name": "algebraic real sqrt(2) as (root-obj (+ (^ x 2) (- 2)) 2)",
+      "category": "behavior"
+    },
+    {
+      "name": "string char code 10 encoded as \\u{a}",
+      "category": "behavior"
+    },
+    {
+      "name": "embedded double-quote in string model as \"\"",
+      "category": "behavior"
+    },
+    {
+      "name": "UF model: ite chain with x!0 parameter name",
+      "category": "behavior"
+    },
+    {
+      "name": "enum datatype model prints bare constructor name",
+      "category": "behavior"
+    },
+    {
+      "name": "recursive datatype model: nested constructor application",
+      "category": "behavior"
+    },
+    {
+      "name": "to_int(-3.7) = -4 via floor; real printed as fraction",
+      "category": "behavior"
+    },
+    {
+      "name": "get-model with uninterpreted function ite definition",
+      "category": "behavior"
+    },
+    {
+      "name": "get-model UF with x!0/x!1 parameters (alt fixture)",
+      "category": "behavior"
+    },
+    {
+      "name": "real model fraction formatting",
+      "category": "behavior"
+    },
+    {
+      "name": "BV zero value printed as #x00 (not boolean false)",
+      "category": "behavior"
+    },
+    {
+      "name": "algebraic Tree datatype with constructor/accessor",
+      "category": "behavior"
+    },
+    {
+      "name": "mutually recursive datatypes EvenList/OddList",
+      "category": "behavior"
+    },
+    {
+      "name": "parametric (generic) pair datatype",
+      "category": "behavior"
+    },
+    {
+      "name": "enum datatype (zero-field constructors)",
+      "category": "behavior"
+    },
+    {
+      "name": "forall over integers (negation of tautology) is unsat",
+      "category": "behavior"
+    },
+    {
+      "name": "exists with Pythagorean witness is sat",
+      "category": "behavior"
+    },
+    {
+      "name": "nested alternating forall/exists quantifiers",
+      "category": "behavior"
+    },
+    {
+      "name": "forall with :pattern trigger annotation",
+      "category": "behavior"
+    },
+    {
+      "name": "QF_NIA pythagorean triple sat+model",
+      "category": "behavior"
+    },
+    {
+      "name": "QF_LRA linear real arithmetic with exact fractions",
+      "category": "behavior"
+    },
+    {
+      "name": "QF_LIA div/mod Euclidean semantics",
+      "category": "behavior"
+    },
+    {
+      "name": "deep div/mod of negative operands (Euclidean, not C truncation)",
+      "category": "behavior"
+    },
+    {
+      "name": "very large integer literal beyond 64-bit",
+      "category": "behavior"
+    },
+    {
+      "name": "QF_LIRA mixed int/real with to_real/to_int coercions",
+      "category": "behavior"
+    },
+    {
+      "name": "integer equality combination x+y=10, x=3 \u2192 y=7",
+      "category": "behavior"
+    },
+    {
+      "name": "QF_LIA distinct with bounded domain is sat",
+      "category": "behavior"
+    },
+    {
+      "name": "QF_BV arithmetic: shifts, concat, extract",
+      "category": "behavior"
+    },
+    {
+      "name": "QF_BV bvugt of self is trivially unsat",
+      "category": "behavior"
+    },
+    {
+      "name": "QF_BV signed (#xff = -1) vs unsigned (#xff = 255) compare",
+      "category": "behavior"
+    },
+    {
+      "name": "QF_BV zero-extend and sign-extend on 4-bit -1",
+      "category": "behavior"
+    },
+    {
+      "name": "BV bvudiv/bvurem by zero: bvudiv=#xff bvurem=x",
+      "category": "behavior"
+    },
+    {
+      "name": "BV extract(7,4, concat(hi,lo)) = hi round-trip",
+      "category": "behavior"
+    },
+    {
+      "name": "QF_BV32 equality x = #x0000000a",
+      "category": "behavior"
+    },
+    {
+      "name": "BV bvugt x #x00 model (solver picks #xff)",
+      "category": "behavior"
+    },
+    {
+      "name": "QF_ALIA array store/select with integer indices",
+      "category": "behavior"
+    },
+    {
+      "name": "(as const (Array Int Int)) 0 all-zeros array",
+      "category": "behavior"
+    },
+    {
+      "name": "QF_S string concatenation and length",
+      "category": "behavior"
+    },
+    {
+      "name": "QF_S regex membership with re.++ / re.*",
+      "category": "behavior"
+    },
+    {
+      "name": "string str.from_int / str.to.int round-trip",
+      "category": "behavior"
+    },
+    {
+      "name": "string unsat: contains \"abc\" with length < 3",
+      "category": "behavior"
+    },
+    {
+      "name": "recursive function (factorial) via define-fun-rec",
+      "category": "behavior"
+    },
+    {
+      "name": "define-fun macro expansion with get-value",
+      "category": "behavior"
+    },
+    {
+      "name": "EUF congruence closure chain: f(a)=f(b), a=b in model",
+      "category": "behavior"
+    },
+    {
+      "name": "EUF unsat: f(f(f(a)))=a \u2227 f(f(a))=a \u2227 f(a)\u2260a",
+      "category": "behavior"
+    },
+    {
+      "name": "FP NaN: fp.eq NaN NaN is false",
+      "category": "behavior"
+    },
+    {
+      "name": "FP division with different rounding modes",
+      "category": "behavior"
+    },
+    {
+      "name": "quoted symbol |with spaces|",
+      "category": "behavior"
+    },
+    {
+      "name": "deeply nested let bindings",
+      "category": "behavior"
+    },
+    {
+      "name": "check-sat-assuming returns sat for consistent assumption",
+      "category": "behavior"
+    },
+    {
+      "name": "get-unsat-assumptions returns minimal conflicting assumption",
+      "category": "behavior"
+    },
+    {
+      "name": "get-unsat-assumptions (alt fixture)",
+      "category": "behavior"
+    },
+    {
+      "name": "check-sat-assuming with boolean literal list",
+      "category": "behavior"
+    },
+    {
+      "name": "check-sat-assuming sat (alt fixture)",
+      "category": "behavior"
+    },
+    {
+      "name": "get-unsat-core with two named contradictory assertions",
+      "category": "behavior"
+    },
+    {
+      "name": "get-proof for (assert false) emits (asserted false)",
+      "category": "behavior"
+    },
+    {
+      "name": "get-proof for QF_LIA unsat",
+      "category": "behavior"
+    },
+    {
+      "name": "get-proof without :produce-proofs emits remediation error",
+      "category": "behavior"
+    },
+    {
+      "name": "get-proof when state is sat (no proof) is unsupported",
+      "category": "behavior"
+    },
+    {
+      "name": "get-proof produces full proof tree for unsat QF_LIA",
+      "category": "behavior"
+    },
+    {
+      "name": "get-assertions with :produce-assertions list format",
+      "category": "behavior"
+    },
+    {
+      "name": "get-assertions in interactive mode",
+      "category": "behavior"
+    },
+    {
+      "name": "get-assertions with single assertion (alt fixture)",
+      "category": "behavior"
+    },
+    {
+      "name": "get-assertions without interactive mode emits error + exit 1",
+      "category": "behavior"
+    },
+    {
+      "name": "get-assignment on Boolean define-fun macros",
+      "category": "behavior"
+    },
+    {
+      "name": "get-consequences output format (sat + blank + (=> true (= var val)))",
+      "category": "behavior"
+    },
+    {
+      "name": "get-consequences (alt fixture)",
+      "category": "behavior"
+    },
+    {
+      "name": "get-value of Real fractions: exact (/ 1.0 3.0)",
+      "category": "behavior"
+    },
+    {
+      "name": "get-model after unsat emits (error \"model is not available\")",
+      "category": "behavior"
+    },
+    {
+      "name": "define-fun omitted/echoed in get-model output",
+      "category": "behavior"
+    },
+    {
+      "name": "real optimization strict lower bound \u2192 (+ 5.0 epsilon)",
+      "category": "behavior"
+    },
+    {
+      "name": "unbounded real maximize \u2192 oo symbol",
+      "category": "behavior"
+    },
+    {
+      "name": "real maximize strict upper bound \u2192 (+ (- 5.0) (* (- 1.0) epsilon))",
+      "category": "behavior"
+    },
+    {
+      "name": "optimization soft constraints",
+      "category": "behavior"
+    },
+    {
+      "name": "minimize integer objective",
+      "category": "behavior"
+    },
+    {
+      "name": "maximize integer objective with inequality constraints",
+      "category": "behavior"
+    },
+    {
+      "name": "MaxSAT assert-soft with weights and get-objectives",
+      "category": "behavior"
+    },
+    {
+      "name": "optimization on unsat hard constraints prints just unsat",
+      "category": "behavior"
+    },
+    {
+      "name": "minimize real-valued objective (exact rational)",
+      "category": "behavior"
+    },
+    {
+      "name": "assert-soft with :id group partitioning",
+      "category": "behavior"
+    },
+    {
+      "name": "maximize then get-objectives output format",
+      "category": "behavior"
+    },
+    {
+      "name": "minimize command on integer with positive bound",
+      "category": "behavior"
+    },
+    {
+      "name": "DIMACS unit-propagation chain forces UNSAT",
+      "category": "behavior"
+    },
+    {
+      "name": "DIMACS unsat core via sat.dimacs.core=true",
+      "category": "behavior"
+    },
+    {
+      "name": "DIMACS core (alt fixture)",
+      "category": "behavior"
+    },
+    {
+      "name": "DIMACS empty clause \u2192 trivially UNSAT",
+      "category": "behavior"
+    },
+    {
+      "name": "apply simplify outputs (goals (goal \u2026 :precision precise :depth 1))",
+      "category": "behavior"
+    },
+    {
+      "name": "simplify arithmetic identity laws and constant folding",
+      "category": "behavior"
+    },
+    {
+      "name": "simplify BV identity laws",
+      "category": "behavior"
+    },
+    {
+      "name": "apply propagate-values then check-sat",
+      "category": "behavior"
+    },
+    {
+      "name": "check-sat-using (then simplify solve-eqs lra)",
+      "category": "behavior"
+    },
+    {
+      "name": "apply quantifier elimination tactic",
+      "category": "behavior"
+    },
+    {
+      "name": "display expr command emits the expression",
+      "category": "behavior"
+    },
+    {
+      "name": "apply simplify on (= x 5)",
+      "category": "behavior"
+    },
+    {
+      "name": "check-sat-using simplify returns unknown",
+      "category": "behavior"
+    },
+    {
+      "name": "multi-level push/pop with nested scopes",
+      "category": "behavior"
+    },
+    {
+      "name": "monotone incremental assertion accumulation",
+      "category": "behavior"
+    },
+    {
+      "name": "global-decls false: declarations revoked on pop",
+      "category": "behavior"
+    },
+    {
+      "name": "pop beyond current stack depth: (error ... invalid pop ...)",
+      "category": "behavior"
+    },
+    {
+      "name": "push/pop with unconstrained variable defaults",
+      "category": "behavior"
+    },
+    {
+      "name": "reset command is silently accepted",
+      "category": "behavior"
+    },
+    {
+      "name": "unsupported logic: 'unsupported' + ;-comment + continued execution",
+      "category": "behavior"
+    },
+    {
+      "name": "define-funs-rec mutually recursive functions",
+      "category": "behavior"
+    },
+    {
+      "name": "regex membership model",
+      "category": "behavior"
+    },
+    {
+      "name": "define-sort as type alias, solves correctly",
+      "category": "behavior"
+    },
+    {
+      "name": "-model CLI flag auto-displays model after sat",
+      "category": "behavior"
+    },
+    {
+      "name": "BV bvnand #x0f #xff = #xf0 (constant check)",
+      "category": "behavior"
+    },
+    {
+      "name": "BV bvnor #x0f #xf0 = #x00 (constant check)",
+      "category": "behavior"
+    },
+    {
+      "name": "BV bvxnor #x0f #x0f = #xff (constant check)",
+      "category": "behavior"
+    },
+    {
+      "name": "BV bvcomp #x0f #x0f = #b1",
+      "category": "behavior"
+    },
+    {
+      "name": "BV bvashr #xff #x03 = #xff (sign-preserved arithmetic shift)",
+      "category": "behavior"
+    },
+    {
+      "name": "BV bvsdiv #xfd #x02 = #xff (signed division)",
+      "category": "behavior"
+    },
+    {
+      "name": "BV bvsmod #xfd #x02 = #x01",
+      "category": "behavior"
+    },
+    {
+      "name": "BV bvsrem #xfd #x03 = #x00",
+      "category": "behavior"
+    },
+    {
+      "name": "BV bvsrem #xff x = #xfd forces unique solution",
+      "category": "behavior"
+    },
+    {
+      "name": "BV bvuge #xff #x01 (unsigned comparison)",
+      "category": "behavior"
+    },
+    {
+      "name": "BV rotate_left 2 x = #x01 forces x = #x40",
+      "category": "behavior"
+    },
+    {
+      "name": "BV rotate_left 3 x = #xb8 forces x = #x17",
+      "category": "behavior"
+    },
+    {
+      "name": "BV rotate_right 2 x = #x0f forces x = #x3c",
+      "category": "behavior"
+    },
+    {
+      "name": "BV rotate_right 2 of #b00001111 = #b11000011 (constant check)",
+      "category": "behavior"
+    },
+    {
+      "name": "BV rotate_left 2 x = #x03 forces x = #xc0",
+      "category": "behavior"
+    },
+    {
+      "name": "BV rotate_right 2 x = #x40 forces x = #x01",
+      "category": "behavior"
+    },
+    {
+      "name": "BV (_ repeat 2) x = #xaa forces x = #xa",
+      "category": "behavior"
+    },
+    {
+      "name": "BV (_ sign_extend 4) x = #xf8 forces x = #xf",
+      "category": "behavior"
+    },
+    {
+      "name": "BV (_ zero_extend 4) x = bv170 unsat (170 has high nibble set)",
+      "category": "behavior"
+    },
+    {
+      "name": "int2bv 8 x = #x0a with 0 <= x <= 255 forces x = 10",
+      "category": "behavior"
+    },
+    {
+      "name": "get-value of bvnot, bvadd over BV constant",
+      "category": "behavior"
+    },
+    {
+      "name": "FP fp.abs and fp.neg identities (x = -1.0 forced)",
+      "category": "behavior"
+    },
+    {
+      "name": "FP fp.min and fp.max on 1.0 / 2.0",
+      "category": "behavior"
+    },
+    {
+      "name": "FP fp.mul 2.5 * 3.0 = 7.5 model",
+      "category": "behavior"
+    },
+    {
+      "name": "FP fp.sqrt(4.0) = 2.0 forced",
+      "category": "behavior"
+    },
+    {
+      "name": "FP fp.add x+x with x=2.0 via get-value",
+      "category": "behavior"
+    },
+    {
+      "name": "FP fp.isNaN model selects (_ NaN 8 24)",
+      "category": "behavior"
+    },
+    {
+      "name": "FP fp triple (fp #b1 #x7f #b10..0) negative literal model",
+      "category": "behavior"
+    },
+    {
+      "name": "FP fp triple (fp #b0 #x7f #b0..0) = +1.0 simple model",
+      "category": "behavior"
+    },
+    {
+      "name": "str.contains \"hello\" with length 5 forces x = \"hello\"",
+      "category": "behavior"
+    },
+    {
+      "name": "str.substr \"hello world\" 6 5 = \"world\"",
+      "category": "behavior"
+    },
+    {
+      "name": "str.indexof \"hello world\" \"world\" 0 = 6",
+      "category": "behavior"
+    },
+    {
+      "name": "Seq Int with seq.len=3, seq.nth 0/1/2 = 10/20/30",
+      "category": "behavior"
+    },
+    {
+      "name": "opt.priority box: maximize x then y independently",
+      "category": "behavior"
+    },
+    {
+      "name": "opt.priority lex: lexicographic maximize (x=10, y=0)",
+      "category": "behavior"
+    },
+    {
+      "name": "opt.priority pareto with bound 10: full pareto front",
+      "category": "behavior"
+    },
+    {
+      "name": "maximize x,y with bound 5 (default opt strategy)",
+      "category": "behavior"
+    },
+    {
+      "name": "single objective maximize x <= 5 \u2192 (x 5)",
+      "category": "behavior"
+    },
+    {
+      "name": "WCNF MaxSAT: 3-variable optimum",
+      "category": "behavior"
+    },
+    {
+      "name": "WCNF 2-variable weighted MaxSAT",
+      "category": "behavior"
+    },
+    {
+      "name": "TPTP fof axiom+conjecture emits SZS status Theorem",
+      "category": "behavior"
+    },
+    {
+      "name": "pseudo-Boolean (-pbo) input format",
+      "category": "behavior"
+    },
+    {
+      "name": "CPLEX LP subset (-lp) input format",
+      "category": "behavior"
+    },
+    {
+      "name": "SMT-LIB HORN logic invokes fixedpoint engine",
+      "category": "behavior"
+    },
+    {
+      "name": "finite Set theory via Array Int Bool encoding",
+      "category": "behavior"
+    },
+    {
+      "name": "QF_NRA sqrt(2) printed as (root-obj ...)",
+      "category": "behavior"
+    },
+    {
+      "name": "model.completion fills free variable with default",
+      "category": "behavior"
+    },
+    {
+      "name": "pp.bv-literals false prints (_ bvN k) form",
+      "category": "behavior"
+    }
+  ]
+}

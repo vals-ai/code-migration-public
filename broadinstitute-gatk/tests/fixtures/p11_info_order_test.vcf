@@ -1,0 +1,10 @@
+##fileformat=VCFv4.2
+##FILTER=<ID=PASS,Description="All filters passed">
+##INFO=<ID=ZZ,Number=1,Type=Integer,Description="ZZ field">
+##INFO=<ID=AA,Number=1,Type=Integer,Description="AA field">
+##INFO=<ID=MM,Number=1,Type=Float,Description="MM field">
+##INFO=<ID=BB,Number=1,Type=String,Description="BB field">
+##contig=<ID=1,length=10000>
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO
+1	100	.	A	T	50.0	PASS	ZZ=3;AA=1;MM=1.5;BB=hello
+1	200	.	G	C	60.0	PASS	AA=2;ZZ=4;BB=world;MM=2.5

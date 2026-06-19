@@ -1,0 +1,7 @@
+; Optimization: unsat hard constraints
+(set-logic QF_LIA)
+(declare-const x Int)
+(assert (> x 10))
+(assert (< x 5))
+(minimize x)
+(check-sat)

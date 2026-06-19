@@ -1,0 +1,8 @@
+Setext heading
+	==========
+
+Normal
+----------
+
+Another
+	-

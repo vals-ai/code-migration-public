@@ -1,0 +1,6 @@
+(declare-sort MySort 0)
+(declare-fun a () MySort)
+(declare-fun b () MySort)
+(assert (= a b))
+(check-sat)
+(get-model)

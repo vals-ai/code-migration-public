@@ -1,0 +1,11 @@
+##fileformat=VCFv4.2
+##INFO=<ID=AC,Number=A,Type=Integer,Description="Allele count">
+##INFO=<ID=AN,Number=1,Type=Integer,Description="Total alleles">
+##contig=<ID=1,length=249250621>
+##contig=<ID=2,length=243199373>
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO
+1	100	rs100	A	T	50.00	PASS	AC=1;AN=2
+1	200	rs200	G	C	40.00	PASS	AC=1;AN=2
+1	300	.	T	A	45.00	PASS	AC=1;AN=2
+2	100	rs400	C	G	55.00	PASS	AC=1;AN=2
+2	200	rs500	A	T	60.00	PASS	AC=1;AN=2

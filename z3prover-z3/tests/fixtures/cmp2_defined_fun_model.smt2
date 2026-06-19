@@ -1,0 +1,5 @@
+(define-fun f ((x Int)) Int (+ x 1))
+(declare-const a Int)
+(assert (= (f a) 5))
+(check-sat)
+(get-model)

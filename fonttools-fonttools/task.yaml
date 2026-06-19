@@ -1,0 +1,7 @@
+repository: https://github.com/fonttools/fonttools
+commit: 1419daa6680c5c899713598956caa69ad47bcd23
+target_languages:
+- Java
+- Kotlin
+- C++
+- Rust

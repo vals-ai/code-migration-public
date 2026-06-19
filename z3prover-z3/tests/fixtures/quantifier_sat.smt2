@@ -1,0 +1,8 @@
+(set-logic UF)
+(declare-sort U 0)
+(declare-fun p (U U) Bool)
+(assert (forall ((x U) (y U)) (=> (p x y) (p y x))))
+(declare-fun a () U)
+(declare-fun b () U)
+(assert (p a b))
+(check-sat)

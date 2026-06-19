@@ -1,0 +1,5 @@
+(declare-const x (_ FloatingPoint 11 53))
+(assert (fp.isZero x))
+(assert (fp.isNegative x))
+(check-sat)
+(get-model)

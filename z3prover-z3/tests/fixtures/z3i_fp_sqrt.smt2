@@ -1,0 +1,5 @@
+(set-logic QF_FP)
+(declare-const x Float32)
+(assert (= x (fp.sqrt RNE ((_ to_fp 8 24) RNE 4.0))))
+(check-sat)
+(get-model)

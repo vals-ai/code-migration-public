@@ -1,0 +1,683 @@
+{
+  "reference_command": "__eval_ttx-python",
+  "test_command": "__eval_ttx-rust",
+  "timeout": 60,
+  "tests": [
+    {
+      "name": "TTF table listing",
+      "args": "-l /tmp/TestTTF.ttf"
+    },
+    {
+      "name": "OTF table listing",
+      "args": "-l /tmp/TestOTF.otf"
+    },
+    {
+      "name": "WOFF table listing",
+      "args": "-l /tmp/TestWOFF.woff"
+    },
+    {
+      "name": "variable font table listing",
+      "args": "-l /tmp/I.ttf"
+    },
+    {
+      "name": "head table dump TTF",
+      "args": "-q -t head -o - /tmp/TestTTF.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//'"
+    },
+    {
+      "name": "hhea table dump TTF",
+      "args": "-q -t hhea -o - /tmp/TestTTF.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//'"
+    },
+    {
+      "name": "cmap table dump TTF",
+      "args": "-q -t cmap -o - /tmp/TestTTF.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//'"
+    },
+    {
+      "name": "post table dump TTF",
+      "args": "-q -t post -o - /tmp/TestTTF.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//'"
+    },
+    {
+      "name": "glyf table dump TTF with assembly instructions",
+      "args": "-q -t glyf -o - /tmp/TestTTF.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//'"
+    },
+    {
+      "name": "CFF table dump OTF",
+      "args": "-q -t CFF  -o - /tmp/TestOTF.otf | sed 's/ ttLibVersion=\"[^\"]*\"//'"
+    },
+    {
+      "name": "OS/2 table dump with bit fields",
+      "args": "-q -t OS/2 -o - /tmp/TestTTF.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//'"
+    },
+    {
+      "name": "name table dump platformID encoding",
+      "args": "-q -t name -o - /tmp/TestTTF.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//'"
+    },
+    {
+      "name": "fvar table dump variable font axes and instances",
+      "args": "-q -t fvar -o - /tmp/I.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//'"
+    },
+    {
+      "name": "CFF table dump IBM Plex Sans subset",
+      "args": "-q -t CFF  -o - /tmp/IBMPlexSans-Bold.subset.otf | sed 's/ ttLibVersion=\"[^\"]*\"//'"
+    },
+    {
+      "name": "GSUB table dump with script/feature/lookup structure",
+      "args": "-q -t GSUB -o - /tmp/I.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//'"
+    },
+    {
+      "name": "maxp table dump TrueType numGlyphs and program sizes",
+      "args": "-q -t maxp -o - /tmp/TestTTF.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//'"
+    },
+    {
+      "name": "maxp table dump CFF minimal",
+      "args": "-q -t maxp -o - /tmp/TestOTF.otf | sed 's/ ttLibVersion=\"[^\"]*\"//'"
+    },
+    {
+      "name": "multiple table selection head hhea maxp",
+      "args": "-q -t head -t hhea -t maxp -o - /tmp/TestTTF.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//'"
+    },
+    {
+      "name": "table exclusion strips named tables from full dump",
+      "args": "-q -x name -x post -x DSIG -x hmtx -o - /tmp/TestOTF.otf | sed 's/ ttLibVersion=\"[^\"]*\"//'"
+    },
+    {
+      "name": "hmtx table dump advance widths and LSBs",
+      "args": "-q -t hmtx -o - /tmp/TestTTF.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//'"
+    },
+    {
+      "name": "cvt table dump control value table",
+      "args": "-q -t cvt -o - /tmp/TestTTF.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//'"
+    },
+    {
+      "name": "gasp table grayscale rendering ranges",
+      "args": "-q -t gasp -o - /tmp/TestTTF.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//'"
+    },
+    {
+      "name": "glyf hex bytecode mode with -i flag",
+      "args": "-q -i -t glyf -o - /tmp/TestTTF.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//'"
+    },
+    {
+      "name": "STAT table dump style attributes variable font",
+      "args": "-q -t STAT -o - /tmp/I.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//'"
+    },
+    {
+      "name": "avar table dump axis variations",
+      "args": "-q -t avar -o - /tmp/I.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//'"
+    },
+    {
+      "name": "GPOS table dump kerning positioning",
+      "args": "-q -t GPOS -o - /tmp/I.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//'"
+    },
+    {
+      "name": "GDEF table dump glyph class definition",
+      "args": "-q -t GDEF -o - /tmp/I.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//'"
+    },
+    {
+      "name": "prep table font pre-program assembly",
+      "args": "-q -t prep -o - /tmp/TestTTF.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//'"
+    },
+    {
+      "name": "fpgm table function program assembly",
+      "args": "-q -t fpgm -o - /tmp/TestTTF.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//'"
+    },
+    {
+      "name": "DSIG table digital signature stub",
+      "args": "-q -t DSIG -o - /tmp/TestTTF.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//'"
+    },
+    {
+      "name": "HVAR table variable horizontal metrics",
+      "args": "-q -t HVAR -o - /tmp/I.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//'"
+    },
+    {
+      "name": "GlyphOrder explicit table dump",
+      "args": "-q -t GlyphOrder -o - /tmp/TestTTF.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//'"
+    },
+    {
+      "name": "LinLibertine table listing with FFTM GDEF GPOS GSUB",
+      "args": "-l /tmp/LinLibertine_RBI.otf"
+    },
+    {
+      "name": "LinLibertine GSUB with real lookup types",
+      "args": "-q -t GSUB -o - /tmp/LinLibertine_RBI.otf | sed 's/ ttLibVersion=\"[^\"]*\"//'"
+    },
+    {
+      "name": "LinLibertine GDEF with mark glyph classes",
+      "args": "-q -t GDEF -o - /tmp/LinLibertine_RBI.otf | sed 's/ ttLibVersion=\"[^\"]*\"//'"
+    },
+    {
+      "name": "LinLibertine name table Windows LCID langID",
+      "args": "-q -t name -o - /tmp/LinLibertine_RBI.otf | sed 's/ ttLibVersion=\"[^\"]*\"//'"
+    },
+    {
+      "name": "LinLibertine OS/2 Unicode range bitfields",
+      "args": "-q -t OS/2 -o - /tmp/LinLibertine_RBI.otf | sed 's/ ttLibVersion=\"[^\"]*\"//'"
+    },
+    {
+      "name": "full TTF dump GlyphOrder first",
+      "args": "-q -o - /tmp/TestTTF.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//'"
+    },
+    {
+      "name": "full OTF dump OTTO sfntVersion GlyphOrder first",
+      "args": "-q -o - /tmp/TestOTF.otf | sed 's/ ttLibVersion=\"[^\"]*\"//'"
+    },
+    {
+      "name": "TTC list font 0 with -y flag",
+      "args": "-l -y 0 /tmp/TestTTC.ttc"
+    },
+    {
+      "name": "TTC dump font 0 head table",
+      "args": "-q -y 0 -t head -o - /tmp/TestTTC.ttc | sed 's/ ttLibVersion=\"[^\"]*\"//'"
+    },
+    {
+      "name": "TTC full dump font 0",
+      "args": "-q -y 0 -o - /tmp/TestTTC.ttc | sed 's/ ttLibVersion=\"[^\"]*\"//'"
+    },
+    {
+      "name": "TTC -y out-of-range font index error",
+      "args": "-y 99 /tmp/TestTTC.ttc 2>&1 | grep -iE 'error|index|range' | head -1"
+    },
+    {
+      "name": "exclude multiple tables glyf and CFF",
+      "args": "-q -x glyf -x CFF -o - /tmp/TestTTF.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//'"
+    },
+    {
+      "name": "exclude non-existent table is no-op",
+      "args": "-q -x ZZZZ -o - /tmp/TestTTF.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//'"
+    },
+    {
+      "name": "exclude DSIG and gasp",
+      "args": "-q -x DSIG -x gasp -o - /tmp/TestTTF.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//'"
+    },
+    {
+      "name": "prep hex bytecode mode with -i flag",
+      "args": "-q -i -t prep -o - /tmp/TestTTF.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//'"
+    },
+    {
+      "name": "fpgm hex bytecode mode with -i flag",
+      "args": "-q -i -t fpgm -o - /tmp/TestTTF.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//'"
+    },
+    {
+      "name": "I.ttf prep hex bytecode with -i flag",
+      "args": "-q -i -t prep -o - /tmp/I.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//'"
+    },
+    {
+      "name": "gvar table dump variable font glyph variations",
+      "args": "-q -t gvar -o - /tmp/I.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//'"
+    },
+    {
+      "name": "loca table compiler-only comment",
+      "args": "-q -t loca -o - /tmp/TestTTF.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//'"
+    },
+    {
+      "name": "LinLibertine head table dump",
+      "args": "-q -t head -o - /tmp/LinLibertine_RBI.otf | sed 's/ ttLibVersion=\"[^\"]*\"//'"
+    },
+    {
+      "name": "LinLibertine cmap with Unicode comments",
+      "args": "-q -t cmap -o - /tmp/LinLibertine_RBI.otf | sed 's/ ttLibVersion=\"[^\"]*\"//'"
+    },
+    {
+      "name": "LinLibertine GPOS layout",
+      "args": "-q -t GPOS -o - /tmp/LinLibertine_RBI.otf | sed 's/ ttLibVersion=\"[^\"]*\"//'"
+    },
+    {
+      "name": "newline CR writes carriage-return line endings",
+      "args": "-q --newline CR -t maxp -o /tmp/_nl_cr.ttx /tmp/TestTTF.ttf && od -c /tmp/_nl_cr.ttx | head -5"
+    },
+    {
+      "name": "newline CRLF writes Windows line endings",
+      "args": "-q --newline CRLF -t maxp -o /tmp/_nl_crlf.ttx /tmp/TestTTF.ttf && od -c /tmp/_nl_crlf.ttx | head -5"
+    },
+    {
+      "name": "newline LF writes Unix line endings",
+      "args": "-q --newline LF -t maxp -o /tmp/_nl_lf.ttx /tmp/TestTTF.ttf && od -c /tmp/_nl_lf.ttx | head -5"
+    },
+    {
+      "name": "stdin processing with - argument",
+      "args": "-q -t maxp -o - - < /tmp/TestTTF.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//'"
+    },
+    {
+      "name": "-d directory output writes split per-table file",
+      "args": "-q -d /tmp/_ttx_d_out -t maxp /tmp/TestTTF.ttf; ls /tmp/_ttx_d_out/ 2>/dev/null; rm -rf /tmp/_ttx_d_out"
+    },
+    {
+      "name": "-s split-tables writes companion files alongside output",
+      "args": "-q -s -o /tmp/_ttx_s_out.ttx -t maxp -t head /tmp/TestTTF.ttf; ls /tmp/ 2>/dev/null | grep '^_ttx_s_out' | sort; rm -f /tmp/_ttx_s_out*.ttx"
+    },
+    {
+      "name": "-g split-glyphs flag dump succeeds",
+      "args": "-q -g -o /tmp/_ttx_g_out.ttx -t maxp /tmp/TestTTF.ttf; ls /tmp/_ttx_g_out.ttx 2>/dev/null; rm -f /tmp/_ttx_g_out.ttx"
+    },
+    {
+      "name": "post table dump variable font I.ttf format 3.0",
+      "args": "-q -t post -o - /tmp/I.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//'"
+    },
+    {
+      "name": "FFTM table dump FontForge timestamp",
+      "args": "-q -t FFTM -o - /tmp/LinLibertine_RBI.otf | sed 's/ ttLibVersion=\"[^\"]*\"//'"
+    },
+    {
+      "name": "MVAR table dump metric variations variable font",
+      "args": "-q -t MVAR -o - /tmp/Amstelvar-avar2.subset.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//'"
+    },
+    {
+      "name": "Amstelvar variable font table listing",
+      "args": "-l /tmp/Amstelvar-avar2.subset.ttf"
+    },
+    {
+      "name": "TTC list font 1 with -y flag",
+      "args": "-l -y 1 /tmp/TestTTC.ttc"
+    },
+    {
+      "name": "TTC dump font 1 head table",
+      "args": "-q -y 1 -t head -o - /tmp/TestTTC.ttc | sed 's/ ttLibVersion=\"[^\"]*\"//'"
+    },
+    {
+      "name": "TTC -y negative index error",
+      "args": "-y -1 /tmp/TestTTC.ttc 2>&1 | grep -iE 'error|index|negative' | head -1"
+    },
+    {
+      "name": "GSUB Lookup index count LinLibertine",
+      "args": "-q -t GSUB -o - /tmp/LinLibertine_RBI.otf | sed 's/ ttLibVersion=\"[^\"]*\"//' | grep -c '<Lookup index'"
+    },
+    {
+      "name": "GSUB FeatureRecord count LinLibertine",
+      "args": "-q -t GSUB -o - /tmp/LinLibertine_RBI.otf | sed 's/ ttLibVersion=\"[^\"]*\"//' | grep -c '<FeatureRecord index'"
+    },
+    {
+      "name": "GSUB Ligature components count LinLibertine",
+      "args": "-q -t GSUB -o - /tmp/LinLibertine_RBI.otf | sed 's/ ttLibVersion=\"[^\"]*\"//' | grep -c '<Ligature components'"
+    },
+    {
+      "name": "GSUB AlternateSet count LinLibertine",
+      "args": "-q -t GSUB -o - /tmp/LinLibertine_RBI.otf | sed 's/ ttLibVersion=\"[^\"]*\"//' | grep -c '<AlternateSet'"
+    },
+    {
+      "name": "GPOS Lookup index count LinLibertine",
+      "args": "-q -t GPOS -o - /tmp/LinLibertine_RBI.otf | sed 's/ ttLibVersion=\"[^\"]*\"//' | grep -c '<Lookup index'"
+    },
+    {
+      "name": "GDEF MarkAttachClass occurrence count LinLibertine",
+      "args": "-q -t GDEF -o - /tmp/LinLibertine_RBI.otf | sed 's/ ttLibVersion=\"[^\"]*\"//' | grep -c 'MarkAttachClass'"
+    },
+    {
+      "name": "cmap map entry count LinLibertine",
+      "args": "-q -t cmap -o - /tmp/LinLibertine_RBI.otf | sed 's/ ttLibVersion=\"[^\"]*\"//' | grep -c '<map code='"
+    },
+    {
+      "name": "name namerecord count LinLibertine",
+      "args": "-q -t name -o - /tmp/LinLibertine_RBI.otf | sed 's/ ttLibVersion=\"[^\"]*\"//' | grep -c '<namerecord'"
+    },
+    {
+      "name": "fvar Axis element count I.ttf",
+      "args": "-q -t fvar -o - /tmp/I.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//' | grep -c '<Axis>'"
+    },
+    {
+      "name": "fvar NamedInstance count I.ttf",
+      "args": "-q -t fvar -o - /tmp/I.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//' | grep -c '<NamedInstance'"
+    },
+    {
+      "name": "gvar tuple count I.ttf",
+      "args": "-q -t gvar -o - /tmp/I.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//' | grep -c '<tuple>'"
+    },
+    {
+      "name": "HVAR VarRegion count I.ttf",
+      "args": "-q -t HVAR -o - /tmp/I.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//' | grep -c '<VarRegion'"
+    },
+    {
+      "name": "STAT AxisValue count I.ttf",
+      "args": "-q -t STAT -o - /tmp/I.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//' | grep -c '<AxisValue'"
+    },
+    {
+      "name": "avar segment count I.ttf",
+      "args": "-q -t avar -o - /tmp/I.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//' | grep -c '<segment'"
+    },
+    {
+      "name": "MVAR ValueRecord count Amstelvar",
+      "args": "-q -t MVAR -o - /tmp/Amstelvar-avar2.subset.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//' | grep -c '<ValueRecord'"
+    },
+    {
+      "name": "GSUB FeatureList section md5 LinLibertine",
+      "args": "-q -t GSUB -o - /tmp/LinLibertine_RBI.otf | sed 's/ ttLibVersion=\"[^\"]*\"//' | sed -n '/<FeatureList>/,/<\\/FeatureList>/p' | md5sum | cut -d' ' -f1"
+    },
+    {
+      "name": "GSUB LookupList section md5 LinLibertine",
+      "args": "-q -t GSUB -o - /tmp/LinLibertine_RBI.otf | sed 's/ ttLibVersion=\"[^\"]*\"//' | sed -n '/<LookupList>/,/<\\/LookupList>/p' | md5sum | cut -d' ' -f1"
+    },
+    {
+      "name": "cmap format_4 section md5 LinLibertine",
+      "args": "-q -t cmap -o - /tmp/LinLibertine_RBI.otf | sed 's/ ttLibVersion=\"[^\"]*\"//' | sed -n '/<cmap_format_4/,/<\\/cmap_format_4>/p' | md5sum | cut -d' ' -f1"
+    },
+    {
+      "name": "glyf first 40 lines md5 TestTTF",
+      "args": "-q -t glyf -o - /tmp/TestTTF.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//' | sed -n '1,40p' | md5sum | cut -d' ' -f1"
+    },
+    {
+      "name": "gvar first 30 lines md5 I.ttf",
+      "args": "-q -t gvar -o - /tmp/I.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//' | sed -n '1,30p' | md5sum | cut -d' ' -f1"
+    },
+    {
+      "name": "TTC subfont 1 hhea byte count with -y flag",
+      "args": "-q -y 1 -t hhea -o - /tmp/TestTTC.ttc | sed 's/ ttLibVersion=\"[^\"]*\"//' | wc -c"
+    },
+    {
+      "name": "prep -i hex bytecode byte count TestTTF",
+      "args": "-q -i -t prep -o - /tmp/TestTTF.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//' | wc -c"
+    },
+    {
+      "name": "CFF Private DICT StdHW field LinLibertine",
+      "args": "-q -t CFF  -o - /tmp/LinLibertine_RBI.otf | grep StdHW"
+    },
+    {
+      "name": "CFF Private DICT StdVW field LinLibertine",
+      "args": "-q -t CFF  -o - /tmp/LinLibertine_RBI.otf | grep StdVW"
+    },
+    {
+      "name": "CFF Private DICT StemSnapH field LinLibertine",
+      "args": "-q -t CFF  -o - /tmp/LinLibertine_RBI.otf | grep StemSnapH"
+    },
+    {
+      "name": "CFF Private DICT StemSnapV field LinLibertine",
+      "args": "-q -t CFF  -o - /tmp/LinLibertine_RBI.otf | grep StemSnapV"
+    },
+    {
+      "name": "CFF Top DICT Copyright field IBMPlexSans",
+      "args": "-q -t CFF  -o - /tmp/IBMPlexSans-Bold.subset.otf | grep Copyright"
+    },
+    {
+      "name": "CFF hintmask 16-bit decoding LinLibertine",
+      "args": "-q -t CFF  -o - /tmp/LinLibertine_RBI.otf | grep -c 'hintmask 1011001010000000$'"
+    },
+    {
+      "name": "CFF T2 real-number compact format 49.9 LinLibertine",
+      "args": "-q -t CFF  -o - /tmp/LinLibertine_RBI.otf | grep -c '49\\.9 '"
+    },
+    {
+      "name": "GlyphOrder duplicate-name disambiguation LinLibertine",
+      "args": "-q -t GlyphOrder -o - /tmp/LinLibertine_RBI.otf | grep 'acute.cap.1'"
+    },
+    {
+      "name": "hmtx duplicate-name disambiguation LinLibertine",
+      "args": "-q -t hmtx -o - /tmp/LinLibertine_RBI.otf | grep -c 'name=\"acute.cap\\(.1\\)\\?\"'"
+    },
+    {
+      "name": "head fontRevision shortest-decimal Amstelvar",
+      "args": "-q -t head -o - /tmp/Amstelvar-avar2.subset.ttf | grep fontRevision"
+    },
+    {
+      "name": "head fontRevision shortest-decimal IBMPlexSans",
+      "args": "-q -t head -o - /tmp/IBMPlexSans-Bold.subset.otf | grep fontRevision"
+    },
+    {
+      "name": "glyf empty instructions element count Amstelvar",
+      "args": "-q -t glyf -o - /tmp/Amstelvar-avar2.subset.ttf | grep -c 'instructions'"
+    },
+    {
+      "name": "cmap format 0 byte-array decoded with Unicode comments",
+      "args": "-q -t cmap -o - /tmp/cmap0_font1.otf | sed 's/ ttLibVersion=\"[^\"]*\"//'"
+    },
+    {
+      "name": "cmap format 6 trimmed-table dump",
+      "args": "-q -t cmap -o - /tmp/cmap6_font1.otf | sed 's/ ttLibVersion=\"[^\"]*\"//'"
+    },
+    {
+      "name": "cmap format 12 nGroups attribute and high-plane codepoints",
+      "args": "-q -t cmap -o - /tmp/cmap12_font1.otf | sed 's/ ttLibVersion=\"[^\"]*\"//' | md5sum | cut -d' ' -f1"
+    },
+    {
+      "name": "cmap format 14 uv/uvs variation-selector attributes",
+      "args": "-q -t cmap -o - /tmp/cmap14_font1.otf | sed 's/ ttLibVersion=\"[^\"]*\"//' | md5sum | cut -d' ' -f1"
+    },
+    {
+      "name": "cmap format 8 dumphex raw fallback",
+      "args": "-q -t cmap -o - /tmp/cmap8_font1.otf | sed 's/ ttLibVersion=\"[^\"]*\"//' | md5sum | cut -d' ' -f1"
+    },
+    {
+      "name": "glyf cubic=1 attribute on off-curve points",
+      "args": "-q -t glyf -o - /tmp/dot-cubic.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//' | md5sum | cut -d' ' -f1"
+    },
+    {
+      "name": "glyf composite component flags hex serialization",
+      "args": "-q -t glyf -o - /tmp/NotoSansArabic-Regular.quadratic.subset.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//' | md5sum | cut -d' ' -f1"
+    },
+    {
+      "name": "glyf cubic attribute occurrence count",
+      "args": "-q -t glyf -o - /tmp/dot-cubic.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//' | grep -c 'cubic='"
+    },
+    {
+      "name": "CFF2 blend operator with delta values",
+      "args": "-q -t CFF2 -o - /tmp/I.otf | sed 's/ ttLibVersion=\"[^\"]*\"//' | md5sum | cut -d' ' -f1"
+    },
+    {
+      "name": "CFF2 blend element count I.otf",
+      "args": "-q -t CFF2 -o - /tmp/I.otf | sed 's/ ttLibVersion=\"[^\"]*\"//' | grep -c '<blend value='"
+    },
+    {
+      "name": "CFF Encoding StandardEncoding sentinel Lobster",
+      "args": "-q -t CFF -o - /tmp/Lobster.subset.otf | grep 'Encoding'"
+    },
+    {
+      "name": "VARC VarComponent count varc-ac00-ac01",
+      "args": "-q -t VARC -o - /tmp/varc-ac00-ac01.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//' | grep -c VarComponent"
+    },
+    {
+      "name": "VARC table md5 varc-ac00-ac01",
+      "args": "-q -t VARC -o - /tmp/varc-ac00-ac01.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//' | md5sum | cut -d' ' -f1"
+    },
+    {
+      "name": "meta table dlng/slng text element TestVGID",
+      "args": "-q -t meta -o - /tmp/TestVGID-Regular.otf | sed 's/ ttLibVersion=\"[^\"]*\"//'"
+    },
+    {
+      "name": "post format 1.0 no psNames section",
+      "args": "-q -t post -o - /tmp/bogus_post_format_1.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//'"
+    },
+    {
+      "name": "post format 2.0 psNames embedded comment block",
+      "args": "-q -t post -o - /tmp/issue2824.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//' | md5sum | cut -d' ' -f1"
+    },
+    {
+      "name": "post format 2.0 psNames comment line count",
+      "args": "-q -t post -o - /tmp/issue2824.ttf | grep -c 'unique glyph names'"
+    },
+    {
+      "name": "Silf Graphite engine table md5",
+      "args": "-q -t Silf -o - /tmp/graphite_tests.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//' | md5sum | cut -d' ' -f1"
+    },
+    {
+      "name": "Feat Graphite features fid mixed int/4-char tag",
+      "args": "-q -t Feat -o - /tmp/graphite_tests.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//'"
+    },
+    {
+      "name": "Sill Graphite language settings fid 4-char tag",
+      "args": "-q -t Sill -o - /tmp/graphite_tests.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//'"
+    },
+    {
+      "name": "Glat Graphite glyph attributes table md5",
+      "args": "-q -t Glat -o - /tmp/graphite_tests.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//' | md5sum | cut -d' ' -f1"
+    },
+    {
+      "name": "TTX compile OTX to binary then list tables",
+      "args": "-q /tmp/TestOTF.ttx -f -o /tmp/_compile_test.otf 2>/dev/null && ls -la /tmp/_compile_test.otf | awk '{print $5 > 0 ? \"ok\" : \"empty\"}'; rm -f /tmp/_compile_test.otf"
+    },
+    {
+      "name": "TTX compile OTX exit code",
+      "args": "-q /tmp/TestOTF.ttx -f -o /tmp/_compile_test2.otf 2>/dev/null; echo exit=$?; rm -f /tmp/_compile_test2.otf"
+    },
+    {
+      "name": "WOFF head sfntVersion from flavor field",
+      "args": "-q -t head -o - /tmp/TestWOFF.woff | sed 's/ ttLibVersion=\"[^\"]*\"//' | md5sum | cut -d' ' -f1"
+    },
+    {
+      "name": "WOFF top-level sfntVersion attribute",
+      "args": "-q -t head -o - /tmp/TestWOFF.woff | grep -o 'sfntVersion=\"[^\"]*\"' | head -1"
+    },
+    {
+      "name": "DSIG SignatureRecord present in issue2824",
+      "args": "-q -t DSIG -o - /tmp/issue2824.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//' | grep -c 'SignatureRecord'"
+    },
+    {
+      "name": "fvar Amstelvar parsed XML md5",
+      "args": "-q -t fvar -o - /tmp/Amstelvar-avar2.subset.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//' | md5sum | cut -d' ' -f1"
+    },
+    {
+      "name": "avar v2 Amstelvar parsed XML md5",
+      "args": "-q -t avar -o - /tmp/Amstelvar-avar2.subset.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//' | md5sum | cut -d' ' -f1"
+    },
+    {
+      "name": "STAT Amstelvar parsed XML md5",
+      "args": "-q -t STAT -o - /tmp/Amstelvar-avar2.subset.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//' | md5sum | cut -d' ' -f1"
+    },
+    {
+      "name": "GDEF Amstelvar with VarStore md5",
+      "args": "-q -t GDEF -o - /tmp/Amstelvar-avar2.subset.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//' | md5sum | cut -d' ' -f1"
+    },
+    {
+      "name": "HVAR Amstelvar parsed XML md5",
+      "args": "-q -t HVAR -o - /tmp/Amstelvar-avar2.subset.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//' | md5sum | cut -d' ' -f1"
+    },
+    {
+      "name": "GPOS Lobster CFF PairPos parsed XML md5",
+      "args": "-q -t GPOS -o - /tmp/Lobster.subset.otf | sed 's/ ttLibVersion=\"[^\"]*\"//' | md5sum | cut -d' ' -f1"
+    },
+    {
+      "name": "head fontRevision shortest-decimal I.ttf",
+      "args": "-q -t head -o - /tmp/I.ttf | grep fontRevision"
+    },
+    {
+      "name": "cmap format 10 raw-hex fallback",
+      "args": "-q -t cmap -o - /tmp/cmap10_font1.otf | sed 's/ ttLibVersion=\"[^\"]*\"//'"
+    },
+    {
+      "name": "cmap10_font1 table listing checksums",
+      "args": "-l /tmp/cmap10_font1.otf"
+    },
+    {
+      "name": "GSUB TestVGID 37-lookup parsed md5",
+      "args": "-q -t GSUB -o - /tmp/TestVGID-Regular.otf | sed 's/ ttLibVersion=\"[^\"]*\"//' | md5sum | cut -d' ' -f1"
+    },
+    {
+      "name": "GSUB ignoreMarks inline comment count TestVGID",
+      "args": "-q -t GSUB -o - /tmp/TestVGID-Regular.otf | grep -c 'ignoreMarks'"
+    },
+    {
+      "name": "GSUB UINameID cross-table name lookup comment",
+      "args": "-q -t GSUB -o - /tmp/TestVGID-Regular.otf | grep 'UINameID'"
+    },
+    {
+      "name": "GSUB MultipleSubst comma-joined out count",
+      "args": "-q -t GSUB -o - /tmp/TestVGID-Regular.otf | grep -c 'out=\"[^\"]*,[^\"]*\"'"
+    },
+    {
+      "name": "GPOS TestVGID CursivePos MarkBase MarkMark md5",
+      "args": "-q -t GPOS -o - /tmp/TestVGID-Regular.otf | sed 's/ ttLibVersion=\"[^\"]*\"//' | md5sum | cut -d' ' -f1"
+    },
+    {
+      "name": "GPOS CursivePos open-tag count TestVGID",
+      "args": "-q -t GPOS -o - /tmp/TestVGID-Regular.otf | grep -c 'CursivePos'"
+    },
+    {
+      "name": "GDEF TestVGID v1.2 MarkGlyphSetsDef LigCaretList md5",
+      "args": "-q -t GDEF -o - /tmp/TestVGID-Regular.otf | sed 's/ ttLibVersion=\"[^\"]*\"//' | md5sum | cut -d' ' -f1"
+    },
+    {
+      "name": "name TestVGID extended nameIDs Arabic langID md5",
+      "args": "-q -t name -o - /tmp/TestVGID-Regular.otf | sed 's/ ttLibVersion=\"[^\"]*\"//' | md5sum | cut -d' ' -f1"
+    },
+    {
+      "name": "STAT ElidableAxisValueName inline comment count I.ttf",
+      "args": "-q -t STAT -o - /tmp/I.ttf | grep -c 'ElidableAxisValueName'"
+    },
+    {
+      "name": "STAT AxisValue Format 3 LinkedValue I.ttf",
+      "args": "-q -t STAT -o - /tmp/I.ttf | grep 'LinkedValue'"
+    },
+    {
+      "name": "glyf cubic NotoSans-VF md5",
+      "args": "-q -t glyf -o - /tmp/NotoSans-VF-cubic.subset.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//' | md5sum | cut -d' ' -f1"
+    },
+    {
+      "name": "glyf cubic attribute count NotoSans-VF",
+      "args": "-q -t glyf -o - /tmp/NotoSans-VF-cubic.subset.ttf | grep -c 'cubic='"
+    },
+    {
+      "name": "CFF inside WOFF flavor md5",
+      "args": "-q -t CFF -o - /tmp/TestWOFF.woff | sed 's/ ttLibVersion=\"[^\"]*\"//' | md5sum | cut -d' ' -f1"
+    },
+    {
+      "name": "glyf varc-ac00-ac01 empty-glyph + outlines md5",
+      "args": "-q -t glyf -o - /tmp/varc-ac00-ac01.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//' | md5sum | cut -d' ' -f1"
+    },
+    {
+      "name": "ERROR Unknown file type on non-TTX text input",
+      "args": "/tmp/TestNoXML.ttx 2>&1 | grep '^ERROR'"
+    },
+    {
+      "name": "GPOS NotoSansArabic empty FeatureList LookupList md5",
+      "args": "-q -t GPOS -o - /tmp/NotoSansArabic-Regular.quadratic.subset.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//' | md5sum | cut -d' ' -f1"
+    },
+    {
+      "name": "HVAR I.ttf full parsed md5",
+      "args": "-q -t HVAR -o - /tmp/I.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//' | md5sum | cut -d' ' -f1"
+    },
+    {
+      "name": "kern format-0 pair dump synthetic",
+      "args": "-q -t kern -o - /tmp/kern_test.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//'"
+    },
+    {
+      "name": "LTSH yPel sorted by glyph name",
+      "args": "-q -t LTSH -o - /tmp/ltsh_test.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//'"
+    },
+    {
+      "name": "VDMX inline comment recs startsz endsz",
+      "args": "-q -t VDMX -o - /tmp/vdmx_test.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//'"
+    },
+    {
+      "name": "vhea table with caretOffset field",
+      "args": "-q -t vhea -o - /tmp/vhea_test.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//'"
+    },
+    {
+      "name": "vmtx mtx element height tsb attributes",
+      "args": "-q -t vmtx -o - /tmp/vhea_test.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//'"
+    },
+    {
+      "name": "hdmx Vera fixed-width tabular md5",
+      "args": "-q -t hdmx -o - /tmp/Vera.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//' | md5sum | cut -d' ' -f1"
+    },
+    {
+      "name": "PCLT Vera DefaultTable raw=True hexdata",
+      "args": "-q -t PCLT -o - /tmp/Vera.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//'"
+    },
+    {
+      "name": "TSIV asciiTable verbatim source block md5",
+      "args": "-q -t TSIV -o - /tmp/Nutso.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//' | md5sum | cut -d' ' -f1"
+    },
+    {
+      "name": "Gloc Graphite parsed attributes element",
+      "args": "-q -t Gloc -o - /tmp/graphite_tests.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//'"
+    },
+    {
+      "name": "ERROR --with-zopfli requires --flavor woff",
+      "args": "--with-zopfli /tmp/TestTTF.ttf 2>&1 | grep '^ERROR'"
+    },
+    {
+      "name": "VARC varc-6868 MultiVarStore md5",
+      "args": "-q -t VARC -o - /tmp/varc-6868.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//' | md5sum | cut -d' ' -f1"
+    },
+    {
+      "name": "VARC varc-6868 VarComponent count",
+      "args": "-q -t VARC -o - /tmp/varc-6868.ttf | grep -c VarComponent"
+    },
+    {
+      "name": "VARC varc-ac01-conditional HAVE_CONDITION path md5",
+      "args": "-q -t VARC -o - /tmp/varc-ac01-conditional.ttf | sed 's/ ttLibVersion=\"[^\"]*\"//' | md5sum | cut -d' ' -f1"
+    },
+    {
+      "name": "VARC varc-ac01-conditional conditionIndex element",
+      "args": "-q -t VARC -o - /tmp/varc-ac01-conditional.ttf | grep -c 'conditionIndex'"
+    },
+    {
+      "name": "TTX compile --flavor woff produces wOFF magic",
+      "args": "-q --flavor woff -o /tmp/_woff_out.woff /tmp/TestTTF.ttx 2>/dev/null && od -An -tx1 /tmp/_woff_out.woff | head -1 | awk '{print $1,$2,$3,$4}'; rm -f /tmp/_woff_out.woff"
+    }
+  ]
+}

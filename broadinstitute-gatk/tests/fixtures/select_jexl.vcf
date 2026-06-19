@@ -1,0 +1,19 @@
+##fileformat=VCFv4.2
+##FILTER=<ID=LowQual,Description="Low quality variant">
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+##FORMAT=<ID=GQ,Number=1,Type=Integer,Description="Genotype Quality">
+##FORMAT=<ID=DP,Number=1,Type=Integer,Description="Read Depth">
+##INFO=<ID=AC,Number=A,Type=Integer,Description="Allele count">
+##INFO=<ID=AF,Number=A,Type=Float,Description="Allele Frequency">
+##INFO=<ID=AN,Number=1,Type=Integer,Description="Total alleles">
+##INFO=<ID=DP,Number=1,Type=Integer,Description="Read depth">
+##INFO=<ID=QD,Number=1,Type=Float,Description="Quality by Depth">
+##contig=<ID=1,length=249250621>
+##contig=<ID=2,length=243199373>
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	SAMPLE1	SAMPLE2
+1	100	.	A	T	50.00	PASS	AC=1;AF=0.25;AN=4;DP=30;QD=8.5	GT:GQ:DP	0/1:30:15	0/0:40:15
+1	200	.	G	C	25.00	LowQual	AC=1;AF=0.25;AN=4;DP=10;QD=2.5	GT:GQ:DP	0/1:15:5	0/0:35:5
+1	300	.	T	TA	75.00	PASS	AC=2;AF=0.5;AN=4;DP=50;QD=12.0	GT:GQ:DP	0/1:50:25	1/0:40:25
+1	400	rs3	C	G	60.00	PASS	AC=3;AF=0.75;AN=4;DP=40;QD=15.0	GT:GQ:DP	1/1:60:20	0/1:35:20
+2	100	.	A	ATCG	35.00	PASS	AC=1;AF=0.25;AN=4;DP=20;QD=5.0	GT:GQ:DP	0/1:20:10	0/0:30:10
+2	200	.	G	A	55.00	PASS	AC=2;AF=0.5;AN=4;DP=45;QD=10.0	GT:GQ:DP	0/0:40:22	1/1:50:23

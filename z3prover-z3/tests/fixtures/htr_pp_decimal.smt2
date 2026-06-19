@@ -1,0 +1,5 @@
+(set-option :pp.decimal true)
+(declare-const x Real)
+(assert (= x (/ 1.0 3.0)))
+(check-sat)
+(get-model)

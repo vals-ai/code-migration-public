@@ -1,0 +1,13 @@
+; Optimization: maximize integer objective with bounded domain
+(set-logic QF_LIA)
+(set-option :produce-models true)
+(declare-const x Int)
+(declare-const y Int)
+(assert (<= x 100))
+(assert (<= y 100))
+(assert (>= x 0))
+(assert (>= y 0))
+(assert (<= (+ (* 2 x) y) 150))
+(maximize (+ x y))
+(check-sat)
+(get-objectives)

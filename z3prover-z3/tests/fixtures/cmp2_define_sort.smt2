@@ -1,0 +1,5 @@
+(define-sort MyInt () Int)
+(declare-const x MyInt)
+(assert (> x 5))
+(check-sat)
+(get-model)

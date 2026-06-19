@@ -1,0 +1,7 @@
+c DIMACS: unit propagation forces assignment
+c Variable 1 is forced to true by unit clause
+p cnf 3 4
+1 0
+-1 2 0
+-2 3 0
+-3 0

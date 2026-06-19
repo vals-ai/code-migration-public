@@ -1,0 +1,8 @@
+; Model gen edge case: get-model when last check-sat was unsat (should error)
+(set-logic QF_LIA)
+(set-option :produce-models true)
+(declare-const x Int)
+(assert (> x 10))
+(assert (< x 5))
+(check-sat)
+(get-model)

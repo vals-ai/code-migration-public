@@ -1,0 +1,9 @@
+##fileformat=VCFv4.2
+##contig=<ID=1,length=1000>
+##INFO=<ID=AS_QD,Number=A,Type=Float,Description="AS QD">
+##INFO=<ID=AS_FS,Number=A,Type=Float,Description="AS FS">
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+##FORMAT=<ID=AD,Number=R,Type=Integer,Description="Allelic depths">
+##FORMAT=<ID=FT,Number=1,Type=String,Description="Genotype-level filter">
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	S1	S2
+1	100	.	A	G,T	50	PASS	AS_QD=10.0,20.00;AS_FS=1,2	GT:AD:FT	1/2:5,7,11:LowGQ	0/1:9,13,0:.

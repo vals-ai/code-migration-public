@@ -1,0 +1,16 @@
+##fileformat=VCFv4.2
+##FILTER=<ID=LowQual,Description="Low Quality">
+##INFO=<ID=AC,Number=A,Type=Integer,Description="Allele count">
+##INFO=<ID=AF,Number=A,Type=Float,Description="Allele Frequency">
+##INFO=<ID=AN,Number=1,Type=Integer,Description="Total number of alleles">
+##INFO=<ID=DP,Number=1,Type=Integer,Description="Read depth">
+##contig=<ID=1,length=249250621>
+##contig=<ID=2,length=243199373>
+##contig=<ID=3,length=198022430>
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO
+1	100	rs1	A	T	50.00	PASS	AC=2;AF=0.5;AN=4;DP=30
+1	200	rs2	G	C	30.00	LowQual	AC=1;AF=0.25;AN=4;DP=20
+1	350	.	TACG	T	70.00	PASS	AC=1;AF=0.25;AN=4;DP=40
+2	150	rs5	T	C	45.00	PASS	AC=2;AF=0.5;AN=4;DP=35
+2	300	.	A	ATG	55.00	LowQual	AC=1;AF=0.25;AN=4;DP=25
+3	500	rs9	C	G	65.00	PASS	AC=3;AF=0.75;AN=4;DP=50

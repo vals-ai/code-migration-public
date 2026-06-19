@@ -1,0 +1,5 @@
+(set-option :pp.bv-literals false)
+(declare-const x (_ BitVec 8))
+(assert (= x #x0a))
+(check-sat)
+(get-model)

@@ -1,0 +1,11 @@
+; Quantifier edge case: forall with :pattern trigger annotation
+(set-logic ALL)
+(set-option :produce-models true)
+(declare-sort A 0)
+(declare-fun f (A) Int)
+(declare-fun g (A) Int)
+(declare-const a A)
+(assert (forall ((x A)) (! (= (f x) (g x)) :pattern ((f x)))))
+(assert (= (f a) 5))
+(check-sat)
+(get-value ((g a)))

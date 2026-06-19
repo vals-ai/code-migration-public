@@ -1,0 +1,7 @@
+(set-logic QF_S)
+(set-option :produce-models true)
+(declare-const x String)
+(assert (str.contains x "hello"))
+(assert (= (str.len x) 5))
+(check-sat)
+(get-model)

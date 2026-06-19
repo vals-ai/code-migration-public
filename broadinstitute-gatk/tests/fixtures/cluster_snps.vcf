@@ -1,0 +1,7 @@
+##fileformat=VCFv4.2
+##contig=<ID=1,length=10000>
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO
+1	100	rs1	G	A	50.0	PASS	.
+1	105	rs2	A	T	60.0	PASS	.
+1	110	rs3	C	G	70.0	PASS	.
+1	500	rs4	T	A	80.0	PASS	.

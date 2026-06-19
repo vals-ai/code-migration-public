@@ -1,0 +1,6 @@
+(declare-const x Real)
+(declare-const y Real)
+(assert (= (/ x y) 0.5))
+(assert (not (= y 0.0)))
+(check-sat)
+(get-model)

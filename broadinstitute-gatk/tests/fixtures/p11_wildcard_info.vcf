@@ -1,0 +1,9 @@
+##fileformat=VCFv4.2
+##FILTER=<ID=PASS,Description="All filters passed">
+##INFO=<ID=AS_QD,Number=A,Type=Float,Description="Allele-specific QD">
+##INFO=<ID=AS_FS,Number=A,Type=Float,Description="Allele-specific FS">
+##INFO=<ID=QD,Number=1,Type=Float,Description="Qual by Depth">
+##contig=<ID=1,length=10000>
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO
+1	100	.	A	T	50.0	PASS	AS_QD=5.5;AS_FS=3.2;QD=5.5
+1	200	.	G	C	60.0	PASS	AS_QD=12.0;AS_FS=1.1;QD=12.0

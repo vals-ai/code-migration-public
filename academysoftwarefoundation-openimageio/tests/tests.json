@@ -1,0 +1,589 @@
+{
+  "timeout": 60,
+  "tests": [
+    {
+      "name": "header line \u2014 single PNG",
+      "category": "behavior"
+    },
+    {
+      "name": "header line \u2014 TIFF tahoe-tiny",
+      "category": "behavior"
+    },
+    {
+      "name": "header line \u2014 EXR checker_with_alpha",
+      "category": "behavior"
+    },
+    {
+      "name": "verbose \u2014 TIFF metadata dump",
+      "category": "behavior"
+    },
+    {
+      "name": "verbose \u2014 EXR metadata dump",
+      "category": "behavior"
+    },
+    {
+      "name": "regex filter \u2014 Software/DateTime",
+      "category": "behavior"
+    },
+    {
+      "name": "filename prefix \u2014 verbose multi-file",
+      "category": "behavior"
+    },
+    {
+      "name": "sum sizes \u2014 multiple files",
+      "category": "behavior"
+    },
+    {
+      "name": "sha-1 hash \u2014 EXR pixels",
+      "category": "behavior"
+    },
+    {
+      "name": "stats \u2014 TIFF unpremult",
+      "category": "behavior"
+    },
+    {
+      "name": "combo \u2014 verbose+prefix+sum",
+      "category": "behavior"
+    },
+    {
+      "name": "error \u2014 missing file",
+      "category": "behavior"
+    },
+    {
+      "name": "error \u2014 non-image file",
+      "category": "behavior"
+    },
+    {
+      "name": "verbose \u2014 BMP metadata",
+      "category": "behavior"
+    },
+    {
+      "name": "verbose \u2014 GIF metadata",
+      "category": "behavior"
+    },
+    {
+      "name": "header line \u2014 EXR grid-small (half format)",
+      "category": "behavior"
+    },
+    {
+      "name": "verbose \u2014 TIFF unpremult (alpha attribs)",
+      "category": "behavior"
+    },
+    {
+      "name": "verbose \u2014 TIFF grid",
+      "category": "behavior"
+    },
+    {
+      "name": "header line \u2014 tiled MIP .tx",
+      "category": "behavior"
+    },
+    {
+      "name": "verbose \u2014 tiled MIP .tx",
+      "category": "behavior"
+    },
+    {
+      "name": "sha-1 hash \u2014 tiled MIP .tx",
+      "category": "behavior"
+    },
+    {
+      "name": "stats \u2014 TIFF with NaNs (counts)",
+      "category": "behavior"
+    },
+    {
+      "name": "header line \u2014 float TIFF with NaNs",
+      "category": "behavior"
+    },
+    {
+      "name": "regex filter \u2014 anchored namespace produces empty",
+      "category": "behavior"
+    },
+    {
+      "name": "regex filter \u2014 channels|Software",
+      "category": "behavior"
+    },
+    {
+      "name": "multi-file mixed \u2014 error in middle continues",
+      "category": "behavior"
+    },
+    {
+      "name": "sum sizes \u2014 small single file",
+      "category": "behavior"
+    },
+    {
+      "name": "sum sizes \u2014 TIFF pair MB",
+      "category": "behavior"
+    },
+    {
+      "name": "verbose + sha-1 \u2014 EXR checker",
+      "category": "behavior"
+    },
+    {
+      "name": "stats \u2014 uint8 TIFF maxval suffix",
+      "category": "behavior"
+    },
+    {
+      "name": "stats \u2014 uint16 PNG monochrome",
+      "category": "behavior"
+    },
+    {
+      "name": "verbose + stats \u2014 EXR multi-channel",
+      "category": "behavior"
+    },
+    {
+      "name": "verbose + hash + stats \u2014 EXR full",
+      "category": "behavior"
+    },
+    {
+      "name": "sha-1 hash \u2014 uint8 TIFF",
+      "category": "behavior"
+    },
+    {
+      "name": "regex filter \u2014 channels matches gate",
+      "category": "behavior"
+    },
+    {
+      "name": "regex filter \u2014 DateTime suppresses everything",
+      "category": "behavior"
+    },
+    {
+      "name": "regex filter \u2014 anchored ^channel",
+      "category": "behavior"
+    },
+    {
+      "name": "verbose + all subimages + sum \u2014 MIP .tx",
+      "category": "behavior"
+    },
+    {
+      "name": "filename prefix \u2014 error in middle",
+      "category": "behavior"
+    },
+    {
+      "name": "verbose \u2014 PNG bayer",
+      "category": "behavior"
+    },
+    {
+      "name": "verbose \u2014 TIFF tahoe-tiny",
+      "category": "behavior"
+    },
+    {
+      "name": "regex filter \u2014 nonexistent matches nothing",
+      "category": "behavior"
+    },
+    {
+      "name": "regex filter \u2014 width|height alternation",
+      "category": "behavior"
+    },
+    {
+      "name": "regex filter \u2014 compression case-insensitive",
+      "category": "behavior"
+    },
+    {
+      "name": "hash \u2014 bare PNG (no verbose)",
+      "category": "behavior"
+    },
+    {
+      "name": "hash \u2014 bare EXR (no verbose)",
+      "category": "behavior"
+    },
+    {
+      "name": "hash + regex sha-1 \u2014 EXR",
+      "category": "behavior"
+    },
+    {
+      "name": "stats \u2014 tiled MIP .tx",
+      "category": "behavior"
+    },
+    {
+      "name": "stats + regex stats \u2014 PNG",
+      "category": "behavior"
+    },
+    {
+      "name": "verbose + sum \u2014 single EXR",
+      "category": "behavior"
+    },
+    {
+      "name": "palette PNG \u2014 channel count",
+      "category": "behavior"
+    },
+    {
+      "name": "stats \u2014 bare EXR checker (half precision)",
+      "category": "behavior"
+    },
+    {
+      "name": "sum sizes \u2014 single EXR (half precision)",
+      "category": "behavior"
+    },
+    {
+      "name": "regex filter \u2014 sha-1 gate without --hash (unknown fallback)",
+      "category": "behavior"
+    },
+    {
+      "name": "stats \u2014 palette PNG (3-channel monochrome)",
+      "category": "behavior"
+    },
+    {
+      "name": "verbose \u2014 EXR checker",
+      "category": "behavior"
+    },
+    {
+      "name": "regex filter \u2014 resolution on EXR",
+      "category": "behavior"
+    },
+    {
+      "name": "hash \u2014 bare TIFF unpremult (FP predictor)",
+      "category": "behavior"
+    },
+    {
+      "name": "stats + regex stats \u2014 EXR (header suppressed)",
+      "category": "behavior"
+    },
+    {
+      "name": "verbose \u2014 float TIFF with NaNs",
+      "category": "behavior"
+    },
+    {
+      "name": "verbose + stats \u2014 EXR grid-small",
+      "category": "behavior"
+    },
+    {
+      "name": "verbose + all subimages + stats \u2014 MIP .tx",
+      "category": "behavior"
+    },
+    {
+      "name": "regex filter \u2014 POSIX [[:alpha:]] class",
+      "category": "behavior"
+    },
+    {
+      "name": "regex filter \u2014 POSIX [[:digit:]] class with sha-1 gate",
+      "category": "behavior"
+    },
+    {
+      "name": "verbose + hash \u2014 TIFF unpremult",
+      "category": "behavior"
+    },
+    {
+      "name": "hash \u2014 bare LZW TIFF tahoe-small",
+      "category": "behavior"
+    },
+    {
+      "name": "regex filter \u2014 UnassociatedAlpha|channel",
+      "category": "behavior"
+    },
+    {
+      "name": "deep \u2014 header line (deep float)",
+      "category": "behavior"
+    },
+    {
+      "name": "deep \u2014 SHA-1 hash (samples + data)",
+      "category": "behavior"
+    },
+    {
+      "name": "deep \u2014 stats (depth histogram)",
+      "category": "behavior"
+    },
+    {
+      "name": "verbose \u2014 pixel data origin (tiny-az.exr)",
+      "category": "behavior"
+    },
+    {
+      "name": "sum sizes \u2014 sub-MB total prints in KB",
+      "category": "behavior"
+    },
+    {
+      "name": "multi-subimage \u2014 header suffix (N subimages)",
+      "category": "behavior"
+    },
+    {
+      "name": "multi-subimage \u2014 verbose [u8,u8,u8] summary",
+      "category": "behavior"
+    },
+    {
+      "name": "multi-subimage \u2014 verbose -a with subimage headers",
+      "category": "behavior"
+    },
+    {
+      "name": "multi-subimage \u2014 stats -a no separators",
+      "category": "behavior"
+    },
+    {
+      "name": "MIP tif \u2014 stats -a (6-space indent per level)",
+      "category": "behavior"
+    },
+    {
+      "name": "MIP tif \u2014 verbose (2-level MIP-map line)",
+      "category": "behavior"
+    },
+    {
+      "name": "filename prefix \u2014 verbose tiny-az.exr",
+      "category": "behavior"
+    },
+    {
+      "name": "filename prefix \u2014 stats tiny-az.exr (join first line)",
+      "category": "behavior"
+    },
+    {
+      "name": "filename prefix \u2014 stats MIP tif",
+      "category": "behavior"
+    },
+    {
+      "name": "column padding \u2014 40-char cap with long filename",
+      "category": "behavior"
+    },
+    {
+      "name": "regex filter \u2014 resolution on MIP .tx",
+      "category": "behavior"
+    },
+    {
+      "name": "regex filter \u2014 DateTime on multi-subimage TIFF (summary only)",
+      "category": "behavior"
+    },
+    {
+      "name": "all subimages + hash \u2014 3-subimage TIFF (3 SHA-1 lines)",
+      "category": "behavior"
+    },
+    {
+      "name": "header line \u2014 EXR mixed channel formats (half/half/half/float)",
+      "category": "behavior"
+    },
+    {
+      "name": "verbose \u2014 EXR mixed channel formats (channel list with types)",
+      "category": "behavior"
+    },
+    {
+      "name": "verbose \u2014 multi-part EXR ([h,h,h,h] brief format)",
+      "category": "behavior"
+    },
+    {
+      "name": "sum sizes \u2014 1-byte PNG (Total: 1 B)",
+      "category": "behavior"
+    },
+    {
+      "name": "regex filter \u2014 tile suppressed on tiled .tx (empty stdout)",
+      "category": "behavior"
+    },
+    {
+      "name": "regex filter \u2014 depth on PNG (header + <unknown> fallback)",
+      "category": "behavior"
+    },
+    {
+      "name": "regex filter \u2014 resolution on multi-subimage (3 sections fire)",
+      "category": "behavior"
+    },
+    {
+      "name": "verbose + all subimages \u2014 multi-part EXR",
+      "category": "behavior"
+    },
+    {
+      "name": "verbose \u2014 multiview EXR (string-array attribute)",
+      "category": "behavior"
+    },
+    {
+      "name": "verbose + all subimages + hash \u2014 3-subimage TIFF",
+      "category": "behavior"
+    },
+    {
+      "name": "sum sizes \u2014 multi-part EXR (only subimage 0 counted)",
+      "category": "behavior"
+    },
+    {
+      "name": "hash \u2014 multi-subimage TIFF (only one hash printed)",
+      "category": "behavior"
+    },
+    {
+      "name": "verbose \u2014 heterogeneous 3-subimage TIFF (mixed brief codes)",
+      "category": "behavior"
+    },
+    {
+      "name": "filename prefix \u2014 verbose -m channels on multi-subimage",
+      "category": "behavior"
+    },
+    {
+      "name": "stats \u2014 1\u00d71 PNG (FiniteCount 1, Constant Yes, Constant Color)",
+      "category": "behavior"
+    },
+    {
+      "name": "verbose + all subimages \u2014 heterogeneous 3-subimage TIFF",
+      "category": "behavior"
+    },
+    {
+      "name": "all subimages + hash \u2014 MIP TIFF (1 hash, +mipmap header)",
+      "category": "behavior"
+    },
+    {
+      "name": "stats + all subimages \u2014 multi-part half EXR (float footers)",
+      "category": "behavior"
+    },
+    {
+      "name": "rational attr \u2014 captureRate N/M (decimal) format",
+      "category": "behavior"
+    },
+    {
+      "name": "smpte timecode \u2014 hh:mm:ss:ff formatting",
+      "category": "behavior"
+    },
+    {
+      "name": "matrix attr \u2014 4x4 worldToCamera with {:g}",
+      "category": "behavior"
+    },
+    {
+      "name": "stats \u2014 int16 TIFF (of 32767) footer",
+      "category": "behavior"
+    },
+    {
+      "name": "stats \u2014 uint32 TIFF signed-overflow negative values",
+      "category": "behavior"
+    },
+    {
+      "name": "verbose + stats + regex stats \u2014 <unknown> before stats block",
+      "category": "behavior"
+    },
+    {
+      "name": "verbose \u2014 int16 brief format [i16]",
+      "category": "behavior"
+    },
+    {
+      "name": "verbose \u2014 double TIFF (header 'double', brief [f64,f64,f64])",
+      "category": "behavior"
+    },
+    {
+      "name": "ICCProfile array \u2014 16-element truncation with [N x uint8] suffix",
+      "category": "behavior"
+    },
+    {
+      "name": "verbose \u2014 two-tier sort (non-namespaced before namespaced)",
+      "category": "behavior"
+    },
+    {
+      "name": "header line \u2014 uint4 TIFF (BitsPerSample=4 over uint8 storage)",
+      "category": "behavior"
+    },
+    {
+      "name": "float array attr \u2014 chromaticities with {:g}",
+      "category": "behavior"
+    },
+    {
+      "name": "stats \u2014 int8 TIFF (of 127) monochrome yes",
+      "category": "behavior"
+    },
+    {
+      "name": "stats \u2014 double TIFF prints (float) footer not (double)",
+      "category": "behavior"
+    },
+    {
+      "name": "deep stats \u2014 depth histogram with power-of-2 binning",
+      "category": "behavior"
+    },
+    {
+      "name": "deep \u2014 mixed channel formats (deep half/float + matrix {:g})",
+      "category": "behavior"
+    },
+    {
+      "name": "scalar float attr \u2014 ExposureTime 0.02 ({:g} no trailing zeros)",
+      "category": "behavior"
+    },
+    {
+      "name": "verbose \u2014 JPEG blender-render (uint8 jpeg + jpeg:subsampling)",
+      "category": "behavior"
+    },
+    {
+      "name": "sum sizes \u2014 uint4 image (0.00 MB / Total: 128 B)",
+      "category": "behavior"
+    },
+    {
+      "name": "stats \u2014 float EXR ({:f} 6-decimal, (float) footer)",
+      "category": "behavior"
+    },
+    {
+      "name": "stats \u2014 all-infinity EXR (Stats Min 0, Constant Color inf)",
+      "category": "behavior"
+    },
+    {
+      "name": "MIP tif \u2014 stats without -a (header only on level 0)",
+      "category": "behavior"
+    },
+    {
+      "name": "verbose \u2014 display_window EXR (full/display size + origin 0,0)",
+      "category": "behavior"
+    },
+    {
+      "name": "verbose \u2014 origin_only EXR (full/display dims == data dims)",
+      "category": "behavior"
+    },
+    {
+      "name": "verbose \u2014 y_offset EXR (pixel data origin x=0, y=4)",
+      "category": "behavior"
+    },
+    {
+      "name": "verbose \u2014 offset_window EXR (origin + full/display together)",
+      "category": "behavior"
+    },
+    {
+      "name": "regex filter \u2014 depth|display shows only full/display lines",
+      "category": "behavior"
+    },
+    {
+      "name": "filename prefix \u2014 verbose offset_window (all 3 special lines)",
+      "category": "behavior"
+    },
+    {
+      "name": "sum sizes \u2014 same file twice (6 B total, no dedup)",
+      "category": "behavior"
+    },
+    {
+      "name": "hash + regex channels \u2014 SHA-1 suppressed (negative gate match)",
+      "category": "behavior"
+    },
+    {
+      "name": "regex filter \u2014 channels suppresses full/display lines",
+      "category": "behavior"
+    },
+    {
+      "name": "stats + regex channels \u2014 stats suppressed (negative gate match)",
+      "category": "behavior"
+    },
+    {
+      "name": "stats \u2014 multi-subimage TIFF without -a (suffix + 1 stats block)",
+      "category": "behavior"
+    },
+    {
+      "name": "verbose + stats \u2014 all-infinity EXR (Y channel + inf constant)",
+      "category": "behavior"
+    },
+    {
+      "name": "hash \u2014 all-infinity EXR (uppercase hex of 0x7F800000 bytes)",
+      "category": "behavior"
+    },
+    {
+      "name": "sum sizes \u2014 exactly 1024-byte EXR (Total: 1 KB)",
+      "category": "behavior"
+    },
+    {
+      "name": "stats \u2014 uint8 half_gray PNG (Min/Max int, Avg/StdDev 127.50)",
+      "category": "behavior"
+    },
+    {
+      "name": "verbose + stats \u2014 multi-subimage TIFF without -a (summary + 1 stats)",
+      "category": "behavior"
+    },
+    {
+      "name": "error \u2014 dash as filename (two-sentence OIIO error)",
+      "category": "behavior"
+    },
+    {
+      "name": "header line \u2014 PPM (pnm plugin identifier)",
+      "category": "behavior"
+    },
+    {
+      "name": "verbose \u2014 PPM (pnm:binary + oiio:ColorSpace)",
+      "category": "behavior"
+    },
+    {
+      "name": "header line \u2014 TGA (targa plugin identifier)",
+      "category": "behavior"
+    },
+    {
+      "name": "verbose \u2014 TGA (targa:version attribute)",
+      "category": "behavior"
+    }
+  ]
+}

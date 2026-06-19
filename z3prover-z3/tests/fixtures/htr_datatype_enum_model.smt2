@@ -1,0 +1,5 @@
+(declare-datatypes ((Color 0)) (((red) (green) (blue))))
+(declare-const c Color)
+(assert (not (= c red)))
+(check-sat)
+(get-model)

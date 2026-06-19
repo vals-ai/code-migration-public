@@ -1,0 +1,4 @@
+c DIMACS edge case: empty clause (trivially unsat)
+p cnf 2 2
+1 -1 0
+0

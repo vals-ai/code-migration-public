@@ -1,0 +1,10 @@
+; Parser/Command-Context: set-info :status with get-info :status
+(set-logic QF_LIA)
+(set-info :status sat)
+(get-info :status)
+(declare-const x Int)
+(assert (> x 0))
+(check-sat)
+(get-info :status)
+(set-info :status unsat)
+(get-info :status)

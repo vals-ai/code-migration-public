@@ -1,0 +1,5 @@
+(set-logic QF_NRA)
+(declare-const x Real)
+(assert (and (> x 0) (= (* x x) 2)))
+(check-sat)
+(get-value (x))

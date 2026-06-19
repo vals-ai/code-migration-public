@@ -1,0 +1,11 @@
+; Model gen: get-consequences to find implied variable values
+(set-logic QF_LIA)
+(set-option :produce-models true)
+(declare-const x Int)
+(declare-const y Int)
+(declare-const z Int)
+(assert (= x 3))
+(assert (= y (+ x 1)))
+(assert (= z (* y 2)))
+(check-sat)
+(get-consequences () (x y z))

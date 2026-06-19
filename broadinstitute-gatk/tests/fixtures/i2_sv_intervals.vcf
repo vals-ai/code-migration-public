@@ -1,0 +1,6 @@
+##fileformat=VCFv4.2
+##contig=<ID=1,length=1000>
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO
+1	100	left	A	G	50	PASS	.
+1	105	mid	A	C	50	PASS	.
+1	106	right	A	T	50	PASS	.

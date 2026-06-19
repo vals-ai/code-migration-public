@@ -1,0 +1,8 @@
+##fileformat=VCFv4.2
+##FILTER=<ID=PASS,Description="All filters passed">
+##INFO=<ID=AC,Number=A,Type=Integer,Description="Allele count">
+##INFO=<ID=AF,Number=A,Type=Float,Description="Allele frequency">
+##contig=<ID=1,length=249250621>
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO
+1	1000	rs1	G	A,C	469.32	PASS	AC=1,3;AF=0.0033,0.0099
+1	2000	rs2	C	A	1006.38	PASS	AC=2;AF=0.0065

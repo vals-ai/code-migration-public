@@ -1,0 +1,6 @@
+(define-funs-rec ((even ((n Int)) Bool) (odd ((n Int)) Bool))
+  ((if (= n 0) true (odd (- n 1)))
+   (if (= n 0) false (even (- n 1)))))
+(check-sat)
+(eval (even 4))
+(eval (odd 3))

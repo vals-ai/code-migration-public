@@ -1,0 +1,10 @@
+; Edge case: mixing Int and Real with to_real / to_int coercions
+(set-logic QF_LIRA)
+(set-option :produce-models true)
+(declare-const i Int)
+(declare-const r Real)
+(assert (= (to_real i) r))
+(assert (= i 3))
+(assert (> r 2.5))
+(check-sat)
+(get-value (i r (to_int r) (to_real i)))

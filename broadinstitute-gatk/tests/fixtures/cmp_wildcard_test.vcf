@@ -1,0 +1,8 @@
+##fileformat=VCFv4.2
+##FILTER=<ID=PASS,Description="All filters passed">
+##contig=<ID=1,length=249250621>
+##INFO=<ID=func_1,Number=1,Type=String,Description="Function annotation 1">
+##INFO=<ID=func_2,Number=1,Type=String,Description="Function annotation 2">
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO
+1	10000	.	A	T	50.0	PASS	func_1=missense;func_2=missense
+1	20000	.	G	C	30.0	PASS	func_1=missense;func_2=silent

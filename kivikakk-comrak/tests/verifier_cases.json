@@ -1,0 +1,1231 @@
+{
+  "reference_command": "__eval_comrak-rust",
+  "test_command": "__eval_comrak-{target}",
+  "timeout": 30,
+  "tests": [
+    {
+      "name": "GFM table with column alignment (left/center/right)",
+      "args": [
+        "--extension",
+        "table",
+        "/tmp/table.md"
+      ]
+    },
+    {
+      "name": "footnotes extension: numbering and backreference unicode arrow",
+      "args": [
+        "--extension",
+        "footnotes",
+        "/tmp/footnotes.md"
+      ]
+    },
+    {
+      "name": "smart punctuation: curly quotes, em-dash, ellipsis",
+      "args": [
+        "--smart",
+        "/tmp/smart_punct.md"
+      ]
+    },
+    {
+      "name": "GFM full mode: strikethrough + tasklist + autolink + table",
+      "args": [
+        "--gfm",
+        "/tmp/gfm_mixed.md"
+      ]
+    },
+    {
+      "name": "github-pre-lang changes code block tag structure",
+      "args": [
+        "--github-pre-lang",
+        "--syntax-highlighting",
+        "none",
+        "/tmp/code_blocks.md"
+      ]
+    },
+    {
+      "name": "CommonMark output format preserves structure",
+      "args": [
+        "--to",
+        "commonmark",
+        "/tmp/nested_structures.md"
+      ]
+    },
+    {
+      "name": "XML output format with full document tree",
+      "args": [
+        "--to",
+        "xml",
+        "/tmp/sourcepos_test.md"
+      ]
+    },
+    {
+      "name": "sourcepos attributes in HTML output",
+      "args": [
+        "--sourcepos",
+        "/tmp/sourcepos_test.md"
+      ]
+    },
+    {
+      "name": "unsafe flag allows raw HTML passthrough",
+      "args": [
+        "--unsafe",
+        "/tmp/raw_html.md"
+      ]
+    },
+    {
+      "name": "front-matter-delimiter strips YAML front matter",
+      "args": [
+        "--front-matter-delimiter",
+        "---",
+        "/tmp/front_matter.md"
+      ]
+    },
+    {
+      "name": "header-id-prefix generates prefixed anchor IDs",
+      "args": [
+        "--header-id-prefix",
+        "user-content-",
+        "/tmp/sourcepos_test.md"
+      ]
+    },
+    {
+      "name": "unicode content: CJK, Arabic, emoji round-trip",
+      "args": [
+        "/tmp/unicode_content.md"
+      ]
+    },
+    {
+      "name": "description-lists extension",
+      "args": [
+        "--extension",
+        "description-lists",
+        "/tmp/nested_structures.md"
+      ]
+    },
+    {
+      "name": "multiple extensions via comma separation",
+      "args": [
+        "--extension",
+        "strikethrough,superscript,footnotes",
+        "/tmp/gfm_mixed.md"
+      ]
+    },
+    {
+      "name": "full-info-string includes extra words as data-meta attribute",
+      "args": [
+        "--full-info-string",
+        "--syntax-highlighting",
+        "none",
+        "/tmp/full_info_string.md"
+      ]
+    },
+    {
+      "name": "spoiler extension: ||text|| wraps in span.spoiler",
+      "args": [
+        "--extension",
+        "spoiler",
+        "/tmp/spoiler.md"
+      ]
+    },
+    {
+      "name": "subtext extension: -# text produces sub element",
+      "args": [
+        "--extension",
+        "subtext",
+        "/tmp/subtext.md"
+      ]
+    },
+    {
+      "name": "highlight extension: ==text== wraps in mark element",
+      "args": [
+        "--extension",
+        "highlight",
+        "/tmp/highlight.md"
+      ]
+    },
+    {
+      "name": "insert extension: ++text++ wraps in ins element",
+      "args": [
+        "--extension",
+        "insert",
+        "/tmp/insert.md"
+      ]
+    },
+    {
+      "name": "math-dollars: inline $expr$ and display $$expr$$ with currency heuristic",
+      "args": [
+        "--extension",
+        "math-dollars",
+        "/tmp/math_dollars.md"
+      ]
+    },
+    {
+      "name": "math-code: $`expr`$ inline and ```math block",
+      "args": [
+        "--extension",
+        "math-code",
+        "/tmp/math_code.md"
+      ]
+    },
+    {
+      "name": "multiline-block-quotes: >>> opens/closes blockquote spanning paragraphs",
+      "args": [
+        "--extension",
+        "multiline-block-quotes",
+        "/tmp/multiline_blockquote.md"
+      ]
+    },
+    {
+      "name": "wikilinks-title-after-pipe: [[url|label]] href and data-wikilink attribute",
+      "args": [
+        "--extension",
+        "wikilinks-title-after-pipe",
+        "/tmp/wikilink_after.md"
+      ]
+    },
+    {
+      "name": "wikilinks-title-before-pipe: [[label|url]] href and data-wikilink attribute",
+      "args": [
+        "--extension",
+        "wikilinks-title-before-pipe",
+        "/tmp/wikilink_before.md"
+      ]
+    },
+    {
+      "name": "underline extension repurposes _ delimiter to u element",
+      "args": [
+        "--extension",
+        "underline",
+        "/tmp/underline.md"
+      ]
+    },
+    {
+      "name": "subscript extension: ~text~ produces sub element",
+      "args": [
+        "--extension",
+        "subscript",
+        "/tmp/subscript.md"
+      ]
+    },
+    {
+      "name": "cjk-friendly-emphasis: ** emphasis adjacent to CJK characters",
+      "args": [
+        "--extension",
+        "cjk-friendly-emphasis",
+        "/tmp/cjk_emphasis.md"
+      ]
+    },
+    {
+      "name": "inline-footnotes combined with block footnotes: ^[...] syntax",
+      "args": [
+        "--extension",
+        "footnotes,inline-footnotes",
+        "/tmp/inline_footnote.md"
+      ]
+    },
+    {
+      "name": "alerts extension: GitHub-style > [!TYPE] blocks with class names",
+      "args": [
+        "--extension",
+        "alerts",
+        "/tmp/alert_types.md"
+      ]
+    },
+    {
+      "name": "block-directive extension: :::class blocks produce div.class",
+      "args": [
+        "--extension",
+        "block-directive",
+        "/tmp/block_directive.md"
+      ]
+    },
+    {
+      "name": "greentext extension with hardbreaks: > lines become blockquotes",
+      "args": [
+        "--extension",
+        "greentext",
+        "--hardbreaks",
+        "/tmp/greentext.md"
+      ]
+    },
+    {
+      "name": "compact mode removes newlines between block-level HTML elements",
+      "args": [
+        "--compact",
+        "/tmp/compact.md"
+      ]
+    },
+    {
+      "name": "tasklist with tasklist-classes: adds contains-task-list and task-list-item classes",
+      "args": [
+        "--extension",
+        "tasklist",
+        "--tasklist-classes",
+        "/tmp/tasklist_classes.md"
+      ]
+    },
+    {
+      "name": "tasklist with relaxed-tasklist-character: any char inside [] marks as checked",
+      "args": [
+        "--extension",
+        "tasklist",
+        "--relaxed-tasklist-character",
+        "/tmp/tasklist_relaxed.md"
+      ]
+    },
+    {
+      "name": "escaped-char-spans wraps backslash-escaped chars in span[data-escaped-char]",
+      "args": [
+        "--escaped-char-spans",
+        "/tmp/escaped_char_spans.md"
+      ]
+    },
+    {
+      "name": "tagfilter with unsafe: specific tags filtered even with --unsafe",
+      "args": [
+        "--unsafe",
+        "--extension",
+        "tagfilter",
+        "/tmp/tagfilter.md"
+      ]
+    },
+    {
+      "name": "gfm-quirks: suppresses nested strong tags for GFM compatibility",
+      "args": [
+        "--gfm-quirks",
+        "/tmp/gfm_quirks.md"
+      ]
+    },
+    {
+      "name": "gemoji: :name: shortcodes converted to Unicode emoji",
+      "args": [
+        "--gemoji",
+        "/tmp/gemoji.md"
+      ]
+    },
+    {
+      "name": "commonmark list-style plus: output uses + bullets",
+      "args": [
+        "--to",
+        "commonmark",
+        "--list-style",
+        "plus",
+        "/tmp/list_style.md"
+      ]
+    },
+    {
+      "name": "commonmark list-style star: output uses * bullets",
+      "args": [
+        "--to",
+        "commonmark",
+        "--list-style",
+        "star",
+        "/tmp/list_style.md"
+      ]
+    },
+    {
+      "name": "commonmark width 40: long lines wrapped at column boundary",
+      "args": [
+        "--to",
+        "commonmark",
+        "--width",
+        "40",
+        "/tmp/width.md"
+      ]
+    },
+    {
+      "name": "ignore-setext: setext-style headings treated as paragraphs",
+      "args": [
+        "--ignore-setext",
+        "/tmp/setext.md"
+      ]
+    },
+    {
+      "name": "ignore-empty-links: [text]() not parsed as link",
+      "args": [
+        "--ignore-empty-links",
+        "/tmp/ignore_empty_links.md"
+      ]
+    },
+    {
+      "name": "relaxed-autolinks: bare localhost URL with no TLD becomes link",
+      "args": [
+        "--extension",
+        "autolink",
+        "--relaxed-autolinks",
+        "/tmp/relaxed_autolink.md"
+      ]
+    },
+    {
+      "name": "default-info-string applies language class to unlabeled fenced blocks",
+      "args": [
+        "--default-info-string",
+        "text",
+        "--syntax-highlighting",
+        "none",
+        "/tmp/default_info.md"
+      ]
+    },
+    {
+      "name": "sourcepos-chars reports Unicode character offsets not byte offsets",
+      "args": [
+        "--sourcepos",
+        "--sourcepos-chars",
+        "/tmp/sourcepos_chars.md"
+      ]
+    },
+    {
+      "name": "header-id-prefix-in-href applies prefix to both id and href anchor",
+      "args": [
+        "--header-id-prefix",
+        "user-content-",
+        "--header-id-prefix-in-href",
+        "/tmp/header_ids.md"
+      ]
+    },
+    {
+      "name": "multiple file args concatenated at string level before parsing",
+      "args": [
+        "/tmp/file1.md",
+        "/tmp/file2.md",
+        "/tmp/file3.md"
+      ]
+    },
+    {
+      "name": "hardbreaks only applies within paragraphs, not across block boundaries",
+      "args": [
+        "--hardbreaks",
+        "/tmp/hardbreak_blockquote.md"
+      ]
+    },
+    {
+      "name": "hardbreaks inserts br in list item continuation lines",
+      "args": [
+        "--hardbreaks",
+        "/tmp/hardbreak_list.md"
+      ]
+    },
+    {
+      "name": "commonmark output normalizes all thematic break styles to five dashes",
+      "args": [
+        "--to",
+        "commonmark",
+        "/tmp/thematic_break.md"
+      ]
+    },
+    {
+      "name": "commonmark output renumbers ordered lists sequentially from 1",
+      "args": [
+        "--to",
+        "commonmark",
+        "/tmp/ordered_list_cm.md"
+      ]
+    },
+    {
+      "name": "escape flag takes precedence over unsafe flag",
+      "args": [
+        "--escape",
+        "--unsafe",
+        "/tmp/escape_test.md"
+      ]
+    },
+    {
+      "name": "gfm-quirks suppresses nested strong tags in double-strong input",
+      "args": [
+        "--gfm-quirks",
+        "/tmp/nested_strong.md"
+      ]
+    },
+    {
+      "name": "xml table uses table_row and table_cell node names",
+      "args": [
+        "--to",
+        "xml",
+        "--extension",
+        "table",
+        "/tmp/table_xml.md"
+      ]
+    },
+    {
+      "name": "xml alert includes lowercase type attribute from [!NOTE] syntax",
+      "args": [
+        "--to",
+        "xml",
+        "--extension",
+        "alerts",
+        "/tmp/alert_xml.md"
+      ]
+    },
+    {
+      "name": "xml footnote uses label attribute on footnote_reference and footnote_definition",
+      "args": [
+        "--to",
+        "xml",
+        "--extension",
+        "footnotes",
+        "/tmp/footnote_xml.md"
+      ]
+    },
+    {
+      "name": "xml block-directive has info attribute with class string",
+      "args": [
+        "--to",
+        "xml",
+        "--extension",
+        "block-directive",
+        "/tmp/blockdir_xml.md"
+      ]
+    },
+    {
+      "name": "xml wikilinks uses wikilink element with destination attribute",
+      "args": [
+        "--to",
+        "xml",
+        "--extension",
+        "wikilinks-title-before-pipe",
+        "/tmp/wikilink_xml.md"
+      ]
+    },
+    {
+      "name": "xml with sourcepos includes sourcepos attribute on document and all nodes",
+      "args": [
+        "--to",
+        "xml",
+        "--sourcepos",
+        "/tmp/sourcepos_xml.md"
+      ]
+    },
+    {
+      "name": "xml math-dollars: math_style attribute distinguishes inline vs display",
+      "args": [
+        "--to",
+        "xml",
+        "--extension",
+        "math-dollars",
+        "/tmp/multimath_xml.md"
+      ]
+    },
+    {
+      "name": "xml six inline extensions produce exact node names: strikethrough superscript subscript highlight insert spoiler",
+      "args": [
+        "--to",
+        "xml",
+        "--extension",
+        "strikethrough,superscript,subscript,highlight,insert,spoiler",
+        "/tmp/all_inline_ext.md"
+      ]
+    },
+    {
+      "name": "math-dollars + strikethrough + footnotes work together without interference",
+      "args": [
+        "--extension",
+        "math-dollars,strikethrough,footnotes",
+        "/tmp/triple_ext.md"
+      ]
+    },
+    {
+      "name": "autolink extension converts plain URLs and emails to anchor tags",
+      "args": [
+        "--extension",
+        "autolink",
+        "/tmp/url_autolink.md"
+      ]
+    },
+    {
+      "name": "autolink in commonmark output uses angle-bracket notation",
+      "args": [
+        "--to",
+        "commonmark",
+        "--extension",
+        "autolink",
+        "/tmp/url_autolink.md"
+      ]
+    },
+    {
+      "name": "commonmark table output preserves alignment markers",
+      "args": [
+        "--to",
+        "commonmark",
+        "--extension",
+        "table",
+        "/tmp/table_cm.md"
+      ]
+    },
+    {
+      "name": "commonmark alerts output preserves [!TYPE] block quote syntax",
+      "args": [
+        "--to",
+        "commonmark",
+        "--extension",
+        "alerts",
+        "/tmp/alert_cm.md"
+      ]
+    },
+    {
+      "name": "commonmark strikethrough and footnotes preserved in output",
+      "args": [
+        "--to",
+        "commonmark",
+        "--extension",
+        "strikethrough,footnotes",
+        "/tmp/ext_cm.md"
+      ]
+    },
+    {
+      "name": "experimental-minimize-commonmark reduces redundant backslash escapes",
+      "args": [
+        "--to",
+        "commonmark",
+        "--experimental-minimize-commonmark",
+        "/tmp/minimize_cm.md"
+      ]
+    },
+    {
+      "name": "sourcepos byte offsets: Chinese chars use UTF-8 byte count not character count",
+      "args": [
+        "--sourcepos",
+        "/tmp/sourcepos_unicode.md"
+      ]
+    },
+    {
+      "name": "sourcepos on table and footnote extension elements",
+      "args": [
+        "--sourcepos",
+        "--extension",
+        "table,footnotes",
+        "/tmp/sourcepos_ext.md"
+      ]
+    },
+    {
+      "name": "special html characters encoded as entities in HTML output",
+      "args": [
+        "/tmp/special_chars.md"
+      ]
+    },
+    {
+      "name": "phoenix-heex extension passes through dot-component syntax",
+      "args": [
+        "--extension",
+        "phoenix-heex",
+        "--unsafe",
+        "/tmp/phoenix_test.md"
+      ]
+    },
+    {
+      "name": "xml output preserves unicode CJK arabic emoji content verbatim",
+      "args": [
+        "--to",
+        "xml",
+        "/tmp/unicode_content.md"
+      ]
+    },
+    {
+      "name": "xml output on deeply nested block structures",
+      "args": [
+        "--to",
+        "xml",
+        "/tmp/nested_structures.md"
+      ]
+    },
+    {
+      "name": "xml --unsafe lets raw HTML through as html_block / html_inline nodes",
+      "args": [
+        "--to",
+        "xml",
+        "--unsafe",
+        "/tmp/raw_html.md"
+      ]
+    },
+    {
+      "name": "xml alerts combined with multiline-block-quotes extension",
+      "args": [
+        "--to",
+        "xml",
+        "--extension",
+        "alerts,multiline-block-quotes",
+        "/tmp/alert_types.md"
+      ]
+    },
+    {
+      "name": "xml table with full-info-string preserves alignment and meta",
+      "args": [
+        "--to",
+        "xml",
+        "--extension",
+        "table",
+        "--full-info-string",
+        "/tmp/table.md"
+      ]
+    },
+    {
+      "name": "xml with sourcepos and alerts extension emits sourcepos on alert nodes",
+      "args": [
+        "--to",
+        "xml",
+        "--sourcepos",
+        "--extension",
+        "alerts",
+        "/tmp/alert_types.md"
+      ]
+    },
+    {
+      "name": "xml mega combo: 15 extensions + sourcepos + smart + hardbreaks + tasklist-classes",
+      "args": [
+        "--extension",
+        "strikethrough,table,autolink,tasklist,superscript,footnotes,description-lists,math-dollars,wikilinks-title-after-pipe,underline,subscript,spoiler,alerts,highlight,insert",
+        "--smart",
+        "--hardbreaks",
+        "--github-pre-lang",
+        "--full-info-string",
+        "--sourcepos",
+        "--escaped-char-spans",
+        "--tasklist-classes",
+        "--relaxed-autolinks",
+        "--to",
+        "xml",
+        "/tmp/all_inline_ext.md"
+      ]
+    },
+    {
+      "name": "commonmark list-style dash: bullets normalized to -",
+      "args": [
+        "--to",
+        "commonmark",
+        "--list-style",
+        "dash",
+        "/tmp/list_style.md"
+      ]
+    },
+    {
+      "name": "commonmark width 0 disables wrapping (long lines stay intact)",
+      "args": [
+        "--to",
+        "commonmark",
+        "--width",
+        "0",
+        "/tmp/width.md"
+      ]
+    },
+    {
+      "name": "commonmark output on deeply nested block structures",
+      "args": [
+        "--to",
+        "commonmark",
+        "/tmp/nested_structures.md"
+      ]
+    },
+    {
+      "name": "commonmark width 50 with strikethrough+superscript inline extensions",
+      "args": [
+        "--to",
+        "commonmark",
+        "--width",
+        "50",
+        "--extension",
+        "strikethrough,superscript",
+        "/tmp/triple_ext.md"
+      ]
+    },
+    {
+      "name": "math-dollars and math-code extensions enabled together",
+      "args": [
+        "--extension",
+        "math-dollars,math-code",
+        "/tmp/math_dollars.md"
+      ]
+    },
+    {
+      "name": "gfm + tasklist-classes + full-info-string flag combo",
+      "args": [
+        "--gfm",
+        "--tasklist-classes",
+        "--full-info-string",
+        "/tmp/tasklist_classes.md"
+      ]
+    },
+    {
+      "name": "wikilinks both modes simultaneously: last-specified mode wins",
+      "args": [
+        "--extension",
+        "wikilinks-title-after-pipe,wikilinks-title-before-pipe",
+        "/tmp/wikilink_after.md"
+      ]
+    },
+    {
+      "name": "html mega combo: 8 inline/block extensions interact without breakage",
+      "args": [
+        "--extension",
+        "strikethrough,table,superscript,subscript,footnotes,inline-footnotes,highlight,insert",
+        "/tmp/all_inline_ext.md"
+      ]
+    },
+    {
+      "name": "commonmark serializer: footnote definition indent and blank-line layout",
+      "args": [
+        "--to",
+        "commonmark",
+        "--extension",
+        "footnotes",
+        "/tmp/footnote_cm.md"
+      ]
+    },
+    {
+      "name": "commonmark serializer: description-list term/definition blank line",
+      "args": [
+        "--to",
+        "commonmark",
+        "--extension",
+        "description-lists",
+        "/tmp/desc_list_cm.md"
+      ]
+    },
+    {
+      "name": "commonmark serializer: multiline-block-quotes preserves >>> fences",
+      "args": [
+        "--to",
+        "commonmark",
+        "--extension",
+        "multiline-block-quotes",
+        "/tmp/multi_bq_cm.md"
+      ]
+    },
+    {
+      "name": "commonmark serializer: block-directive preserves ::: fences",
+      "args": [
+        "--to",
+        "commonmark",
+        "--extension",
+        "block-directive",
+        "/tmp/blockdir_cm.md"
+      ]
+    },
+    {
+      "name": "commonmark serializer: fenced code block preserves indented body lines",
+      "args": [
+        "--to",
+        "commonmark",
+        "/tmp/code_indent.md"
+      ]
+    },
+    {
+      "name": "commonmark serializer: link title with embedded escaped quotes",
+      "args": [
+        "--to",
+        "commonmark",
+        "/tmp/link_title.md"
+      ]
+    },
+    {
+      "name": "commonmark serializer: blockquote internal blank-line markers preserved",
+      "args": [
+        "--to",
+        "commonmark",
+        "/tmp/blockquote_cm.md"
+      ]
+    },
+    {
+      "name": "math-code,math-dollars precedence: math-code wins on $...$ when both enabled",
+      "args": [
+        "--extension",
+        "math-code,math-dollars",
+        "/tmp/math_prec.md"
+      ]
+    },
+    {
+      "name": "sourcepos attribute applied to strikethrough <del> inline element",
+      "args": [
+        "--sourcepos",
+        "--extension",
+        "strikethrough",
+        "/tmp/strike_sourcepos.md"
+      ]
+    },
+    {
+      "name": "null bytes in input are replaced with U+FFFD replacement char",
+      "args": [
+        "/tmp/null_byte.md"
+      ]
+    },
+    {
+      "name": "dangerous url scanner: javascript:, vbscript:, data:text/html blocked, data:image/* allowed",
+      "args": [
+        "/tmp/dangerous_urls.md"
+      ]
+    },
+    {
+      "name": "commonmark width-wrap: CJK chars count as 2 columns, emoji measured by display width",
+      "args": [
+        "--to",
+        "commonmark",
+        "--width",
+        "20",
+        "/tmp/unicode_width.md"
+      ]
+    },
+    {
+      "name": "url ampersand escaping: & \u2192 &amp; in href and src attributes including refs and images",
+      "args": [
+        "/tmp/url_special.md"
+      ]
+    },
+    {
+      "name": "html entity decoding: named, numeric decimal, and hex entities decoded to unicode",
+      "args": [
+        "/tmp/entities.md"
+      ]
+    },
+    {
+      "name": "header-id-prefix on empty/non-alphanumeric heading slugs",
+      "args": [
+        "--header-id-prefix",
+        "user-content-",
+        "/tmp/empty_heading.md"
+      ]
+    },
+    {
+      "name": "footnote rendering: same footnote referenced 3 times gets superscript backrefs \u21a9\u00b2\u21a9\u00b3",
+      "args": [
+        "--extension",
+        "footnotes",
+        "/tmp/triple_footnote.md"
+      ]
+    },
+    {
+      "name": "multi-file: inline emphasis construct spans across file boundary",
+      "args": [
+        "/tmp/multi_span_a.md",
+        "/tmp/multi_span_b.md"
+      ]
+    },
+    {
+      "name": "lazy continuation in list items: unindented continuation lines stay in item",
+      "args": [
+        "/tmp/lazy_list.md"
+      ]
+    },
+    {
+      "name": "lazy continuation in blockquote: line without > continues paragraph",
+      "args": [
+        "/tmp/lazy_quote.md"
+      ]
+    },
+    {
+      "name": "lazy continuation in nested blockquotes",
+      "args": [
+        "/tmp/lazy_nested_bq.md"
+      ]
+    },
+    {
+      "name": "lazy continuation in blockquote containing a list",
+      "args": [
+        "/tmp/lazy_bq_list.md"
+      ]
+    },
+    {
+      "name": "tab-indented code block: default syntax-highlighting wraps in span",
+      "args": [
+        "/tmp/tabs_code.md"
+      ]
+    },
+    {
+      "name": "ordered list: 9-digit start ok, 10-digit overflow rejected per CommonMark",
+      "args": [
+        "/tmp/ordered_billion.md"
+      ]
+    },
+    {
+      "name": "commonmark serializer: blank lines between list-item paragraphs preserved",
+      "args": [
+        "--to",
+        "commonmark",
+        "/tmp/list_multi_para.md"
+      ]
+    },
+    {
+      "name": "list item with blank line before code block: text wrapped in <p>",
+      "args": [
+        "/tmp/list_code_blank.md"
+      ]
+    },
+    {
+      "name": "image alt text strips inline markdown to plain text",
+      "args": [
+        "/tmp/image_alt_md.md"
+      ]
+    },
+    {
+      "name": "commonmark serializer: trailing-2-space hard break round-trips as backslash",
+      "args": [
+        "--to",
+        "commonmark",
+        "/tmp/hard_break.md"
+      ]
+    },
+    {
+      "name": "[[foo]]: bar is a paragraph not a link reference definition",
+      "args": [
+        "/tmp/double_bracket_ref.md"
+      ]
+    },
+    {
+      "name": "reference link matching: unicode case folding (German \u00df\u2194\u1e9e, Greek \u03a3, Turkish \u0130)",
+      "args": [
+        "/tmp/ref_case_unicode.md"
+      ]
+    },
+    {
+      "name": "shortcut [foo], collapsed [foo][], full [foo][bar] reference forms",
+      "args": [
+        "/tmp/shortcut_collapsed_ref.md"
+      ]
+    },
+    {
+      "name": "autolink: localhost without port-style TLD requires --relaxed-autolinks",
+      "args": [
+        "--extension",
+        "autolink",
+        "/tmp/autolink_localhost.md"
+      ]
+    },
+    {
+      "name": "autolink bracket-form schemes: irc://, xmpp:, news:, ftp:// inside <...>",
+      "args": [
+        "/tmp/autolink_schemes.md"
+      ]
+    },
+    {
+      "name": "footnotes: unreferenced [^name]: definitions omitted from output",
+      "args": [
+        "--extension",
+        "footnotes",
+        "/tmp/unused_footnote.md"
+      ]
+    },
+    {
+      "name": "underscore intraword does not emphasize: foo_bar_baz, 5_6_7",
+      "args": [
+        "/tmp/underscore_intraword.md"
+      ]
+    },
+    {
+      "name": "setext heading: 0-3 leading spaces accepted, 4 spaces becomes code block",
+      "args": [
+        "/tmp/setext_indent.md"
+      ]
+    },
+    {
+      "name": "atx heading: trailing closing # requires preceding space to be stripped",
+      "args": [
+        "/tmp/atx_close.md"
+      ]
+    },
+    {
+      "name": "thematic break recognized with tab-separated markers (*\\t*\\t*)",
+      "args": [
+        "/tmp/thematic_tabs.md"
+      ]
+    },
+    {
+      "name": "code span: one space stripped each end, internal multi-space preserved, newline\u2192space",
+      "args": [
+        "/tmp/code_span_space.md"
+      ]
+    },
+    {
+      "name": "commonmark serializer: defensively escapes leading # to prevent re-parse as heading",
+      "args": [
+        "--to",
+        "commonmark",
+        "/tmp/cm_escape_hash.md"
+      ]
+    },
+    {
+      "name": "xml output: ordered list delim attribute distinguishes period vs paren",
+      "args": [
+        "--to",
+        "xml",
+        "/tmp/xml_list_delim.md"
+      ]
+    },
+    {
+      "name": "numeric entity overflow: above U+10FFFF clamps to U+FFFD; null \u2192 U+FFFD",
+      "args": [
+        "/tmp/entity_overflow.md"
+      ]
+    },
+    {
+      "name": "named entity matching is case-insensitive: &lt; == &LT; == &Lt;",
+      "args": [
+        "/tmp/entity_case.md"
+      ]
+    },
+    {
+      "name": "list looseness: a single blank line between items makes the entire list loose",
+      "args": [
+        "/tmp/list_loose.md"
+      ]
+    },
+    {
+      "name": "fenced code: closing fence requires >= opening backtick count, not ==",
+      "args": [
+        "/tmp/fence_close_len.md"
+      ]
+    },
+    {
+      "name": "fenced and indented code: tabs preserved verbatim, paragraph tabs expanded",
+      "args": [
+        "/tmp/fence_tabs.md"
+      ]
+    },
+    {
+      "name": "info string with unicode/emoji unescaped in HTML class attribute",
+      "args": [
+        "/tmp/info_unicode.md"
+      ]
+    },
+    {
+      "name": "link text whitespace: newlines preserved verbatim, tabs converted to spaces",
+      "args": [
+        "/tmp/link_text_ws.md"
+      ]
+    },
+    {
+      "name": "url apostrophe encoded as hex &#x27; (not &apos; or &#39;) in href",
+      "args": [
+        "/tmp/url_apostrophe.md"
+      ]
+    },
+    {
+      "name": "emphasis left-flanking: letter+punct boundaries fail intra-word emphasis",
+      "args": [
+        "/tmp/emph_flanking.md"
+      ]
+    },
+    {
+      "name": "reference label whitespace collapses (multi-space, newline, tab \u2192 single space)",
+      "args": [
+        "/tmp/ref_label_ws.md"
+      ]
+    },
+    {
+      "name": "angle bracket URL: first > closes, no escape mechanism inside",
+      "args": [
+        "/tmp/angle_url.md"
+      ]
+    },
+    {
+      "name": "autolink extension produces mailto: links for plain email and explicit scheme",
+      "args": [
+        "--extension",
+        "autolink",
+        "/tmp/mailto_autolink.md"
+      ]
+    },
+    {
+      "name": "commonmark serializer: table alignment markers minimum length (:--)",
+      "args": [
+        "--to",
+        "commonmark",
+        "--extension",
+        "table",
+        "/tmp/table_align_cm.md"
+      ]
+    },
+    {
+      "name": "setext heading rejected when underline is tab-prefixed (not 0-3 spaces)",
+      "args": [
+        "/tmp/setext_tab.md"
+      ]
+    },
+    {
+      "name": "emphasis delimiter mismatch *a**b* and asymmetric ** runs",
+      "args": [
+        "/tmp/emphasis_mismatch.md"
+      ]
+    },
+    {
+      "name": "xml tasklist node naming and completed attribute (case-insensitive [x]/[X])",
+      "args": [
+        "--to",
+        "xml",
+        "--extension",
+        "tasklist",
+        "/tmp/tasklist_xml.md"
+      ]
+    },
+    {
+      "name": "thematic break vs setext underline interaction with paragraphs",
+      "args": [
+        "/tmp/setext_hr.md"
+      ]
+    },
+    {
+      "name": "nested links rejected: [outer [inner](u)](u) does not produce nested <a>",
+      "args": [
+        "/tmp/nested_links.md"
+      ]
+    },
+    {
+      "name": "strikethrough requires double tilde: ~text~ literal, ~~text~~ struck",
+      "args": [
+        "--extension",
+        "strikethrough",
+        "/tmp/single_tilde_strike.md"
+      ]
+    },
+    {
+      "name": "header-id-prefix with cyrillic, CJK, emoji: lowercased and emoji stripped",
+      "args": [
+        "--header-id-prefix",
+        "id-",
+        "/tmp/unicode_emoji_header.md"
+      ]
+    },
+    {
+      "name": "url percent-encoding lookahead: %GG \u2192 %25GG, %2 \u2192 %252, %20 preserved",
+      "args": [
+        "/tmp/percent_lookahead.md"
+      ]
+    },
+    {
+      "name": "data:image/ scheme allowlist: png/gif/webp/jpeg/svg pass, bmp blocked",
+      "args": [
+        "/tmp/data_image_case.md"
+      ]
+    },
+    {
+      "name": "numeric entity digit limits: 7 decimal max, 6 hex max",
+      "args": [
+        "/tmp/entity_digit_limits.md"
+      ]
+    },
+    {
+      "name": "IPv6 brackets in URL: http/https preserve, ftp/ws encode brackets",
+      "args": [
+        "/tmp/ipv6_url.md"
+      ]
+    },
+    {
+      "name": "commonmark serializer: tilde fences ~~~ converted to backtick fences",
+      "args": [
+        "--to",
+        "commonmark",
+        "/tmp/tilde_fence.md"
+      ]
+    },
+    {
+      "name": "heading id collision: duplicates get -1, -2 suffixes",
+      "args": [
+        "/tmp/heading_collision.md"
+      ]
+    },
+    {
+      "name": "commonmark backslash escape: ASCII punctuation escaped, non-ASCII left literal",
+      "args": [
+        "--to",
+        "commonmark",
+        "/tmp/escape_ascii.md"
+      ]
+    }
+  ]
+}

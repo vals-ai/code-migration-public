@@ -1,0 +1,3 @@
+c DIMACS edge case: single tautological clause (x or -x) - trivially sat
+p cnf 1 1
+1 -1 0

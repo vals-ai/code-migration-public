@@ -1,0 +1,929 @@
+{
+  "timeout": 240,
+  "tests": [
+    {
+      "name": "ViewSam dumps SAM header and records",
+      "category": "behavior"
+    },
+    {
+      "name": "CountReads count on tiny indexed BAM",
+      "category": "behavior"
+    },
+    {
+      "name": "CountBases count on tiny indexed BAM",
+      "category": "behavior"
+    },
+    {
+      "name": "CountVariants count on multi-record VCF",
+      "category": "behavior"
+    },
+    {
+      "name": "IndexFeatureFile produces deterministic .idx",
+      "category": "behavior"
+    },
+    {
+      "name": "IndexFeatureFile on header-only VCF",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants keep only SNPs",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants keep only INDELs",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants restricted to interval contig 1",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants exclude-non-variants on all-variant input",
+      "category": "behavior"
+    },
+    {
+      "name": "VariantsToTable basic CHROM POS REF ALT",
+      "category": "behavior"
+    },
+    {
+      "name": "VariantsToTable with QUAL column",
+      "category": "behavior"
+    },
+    {
+      "name": "VariantsToTable with TYPE column",
+      "category": "behavior"
+    },
+    {
+      "name": "missing required input flag fails",
+      "category": "behavior"
+    },
+    {
+      "name": "unknown tool name fails",
+      "category": "behavior"
+    },
+    {
+      "name": "FlagStat full counter output with percentages",
+      "category": "behavior"
+    },
+    {
+      "name": "FlagStat writes summary to file via -O",
+      "category": "behavior"
+    },
+    {
+      "name": "ViewSam ALIGNMENT_STATUS Aligned filters to mapped reads",
+      "category": "behavior"
+    },
+    {
+      "name": "ViewSam ALIGNMENT_STATUS Unaligned produces only header",
+      "category": "behavior"
+    },
+    {
+      "name": "ViewSam PF_STATUS NonPassing on all-passing BAM",
+      "category": "behavior"
+    },
+    {
+      "name": "ViewSam HEADER_ONLY emits only header lines",
+      "category": "behavior"
+    },
+    {
+      "name": "ViewSam RECORDS_ONLY emits only records",
+      "category": "behavior"
+    },
+    {
+      "name": "ViewSam with interval -L 1 keeps only chr1 records",
+      "category": "behavior"
+    },
+    {
+      "name": "CountReads with -L 1 counts only chr1 reads",
+      "category": "behavior"
+    },
+    {
+      "name": "CountBases with -L 1 counts only chr1 bases",
+      "category": "behavior"
+    },
+    {
+      "name": "CountVariants on header-only VCF returns 0",
+      "category": "behavior"
+    },
+    {
+      "name": "CountVariants with -L 1 interval filter",
+      "category": "behavior"
+    },
+    {
+      "name": "CountVariants with -XL 1 excludes chr1",
+      "category": "behavior"
+    },
+    {
+      "name": "CountVariants counts filtered records too",
+      "category": "behavior"
+    },
+    {
+      "name": "CountVariants on single-record VCF returns 1",
+      "category": "behavior"
+    },
+    {
+      "name": "CountVariants -O writes count to file",
+      "category": "behavior"
+    },
+    {
+      "name": "CountBases -O writes count to file",
+      "category": "behavior"
+    },
+    {
+      "name": "CountReads with MappedReadFilter",
+      "category": "behavior"
+    },
+    {
+      "name": "CountReads with NotDuplicateReadFilter disabled",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants upgrades VCFv4.1 input to VCFv4.2 output",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants select-type-to-exclude SNP keeps only INDELs",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants restrict-alleles-to BIALLELIC",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants restrict-alleles-to MULTIALLELIC",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants max-indel-size 2 excludes 3+ bp indels",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants min-indel-size 3 keeps only 3+ bp indels and SNPs",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants exclude-filtered keeps only PASS",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants keep-ids retains only specified rsIDs",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants exclude-ids removes specified rsIDs",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants JEXL filter QUAL > 100",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants invert-select reverses JEXL result",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants sample-name SAMPLE2 recalculates AC/AF/AN",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants keep-original-ac annotates AC_Orig/AF_Orig/AN_Orig",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants -DA drops AC and AF INFO annotations",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants contradictory include/exclude same type yields empty",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants on header-only VCF preserves header",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants max-nocall-number 1 excludes high-nocall sites",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants set-filtered-gt-to-nocall on filtered genotypes",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants drop-info-annotation DP",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants sample-name with remove-unused-alternates",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants sample-name with preserve-alleles",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants interval contig 2 only",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants JEXL QD > 10 on INFO field",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants combined SNP type and chr1 interval",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants with -XL 1 excludes chr1",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants with range interval 1:100-300",
+      "category": "behavior"
+    },
+    {
+      "name": "VariantsToTable AC multi-allele INFO field",
+      "category": "behavior"
+    },
+    {
+      "name": "VariantsToTable TRANSITION field on biallelic vs INDEL",
+      "category": "behavior"
+    },
+    {
+      "name": "VariantsToTable EVENTLENGTH preserves sign",
+      "category": "behavior"
+    },
+    {
+      "name": "VariantsToTable MULTI-ALLELIC lowercase boolean",
+      "category": "behavior"
+    },
+    {
+      "name": "VariantsToTable FILTER comma-joined with show-filtered",
+      "category": "behavior"
+    },
+    {
+      "name": "VariantsToTable missing field outputs NA",
+      "category": "behavior"
+    },
+    {
+      "name": "VariantsToTable moltenize long-format output",
+      "category": "behavior"
+    },
+    {
+      "name": "VariantsToTable split-multi-allelic emits one row per ALT",
+      "category": "behavior"
+    },
+    {
+      "name": "VariantsToTable -GF GT decoded as allele bases",
+      "category": "behavior"
+    },
+    {
+      "name": "VariantsToTable -GF AD with no brackets or spaces",
+      "category": "behavior"
+    },
+    {
+      "name": "VariantsToTable genotype count fields HET HOM-REF HOM-VAR NO-CALL",
+      "category": "behavior"
+    },
+    {
+      "name": "VariantsToTable extract ID field",
+      "category": "behavior"
+    },
+    {
+      "name": "VariantsToTable -GF GQ genotype field",
+      "category": "behavior"
+    },
+    {
+      "name": "VariantsToTable AC/AF/AN INFO triple",
+      "category": "behavior"
+    },
+    {
+      "name": "VariantsToTable missing DP field on all records emits NA",
+      "category": "behavior"
+    },
+    {
+      "name": "VariantsToTable default excludes filtered records",
+      "category": "behavior"
+    },
+    {
+      "name": "VariantsToTable TRANSITION on sites_only",
+      "category": "behavior"
+    },
+    {
+      "name": "VariantsToTable EVENTLENGTH on sites_only",
+      "category": "behavior"
+    },
+    {
+      "name": "VariantsToTable genotype counts on nocall.vcf",
+      "category": "behavior"
+    },
+    {
+      "name": "VariantsToTable NSAMPLES and NCALLED on nocall.vcf",
+      "category": "behavior"
+    },
+    {
+      "name": "VariantsToTable moltenize on single-record VCF",
+      "category": "behavior"
+    },
+    {
+      "name": "MergeVcfs merges two non-overlapping VCFs in coordinate order",
+      "category": "behavior"
+    },
+    {
+      "name": "SortVcf sorts records in an out-of-order VCF",
+      "category": "behavior"
+    },
+    {
+      "name": "RenameSampleInVcf renames sample column",
+      "category": "behavior"
+    },
+    {
+      "name": "IndexFeatureFile on multi-sample VCF exits 0",
+      "category": "behavior"
+    },
+    {
+      "name": "IndexFeatureFile auto-names index from input path",
+      "category": "behavior"
+    },
+    {
+      "name": "IndexFeatureFile on .g.vcf uses linear index strategy",
+      "category": "behavior"
+    },
+    {
+      "name": "IndexFeatureFile on filtered VCF produces deterministic index",
+      "category": "behavior"
+    },
+    {
+      "name": "IndexFeatureFile fails on missing input",
+      "category": "behavior"
+    },
+    {
+      "name": "ValidateSamFile exits 4 on Picard non-zero return",
+      "category": "behavior"
+    },
+    {
+      "name": "ValidateSamFile WARNING/ERROR line format",
+      "category": "behavior"
+    },
+    {
+      "name": "BamIndexStats formats per-contig stats",
+      "category": "behavior"
+    },
+    {
+      "name": "GetSampleName extracts SM tag from BAM RG header",
+      "category": "behavior"
+    },
+    {
+      "name": "DumpTabixIndex rejects non-.tbi file",
+      "category": "behavior"
+    },
+    {
+      "name": "near-miss tool name yields Did you mean suggestion",
+      "category": "behavior"
+    },
+    {
+      "name": "CountReads with unknown read-filter name fails",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants INFO field alpha order in output",
+      "category": "behavior"
+    },
+    {
+      "name": "VariantsToTable SAMPLE_NAME returns first genotype sample",
+      "category": "behavior"
+    },
+    {
+      "name": "VariantsToTable EVENTLENGTH max-abs on multi-allelic",
+      "category": "behavior"
+    },
+    {
+      "name": "VariantsToTable wildcard AS_* field",
+      "category": "behavior"
+    },
+    {
+      "name": "VariantsToTable without -F flags emits all header fields",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants JEXL != operator",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants JEXL >= boundary inclusive",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants JEXL <= boundary inclusive",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants JEXL && AND semantics",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants JEXL || OR semantics",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants multiple --select flags act as OR",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants multiple -L flags union",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants -L single position chr:pos",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants -L include + -XL exclude subtraction",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants round-trip preserves variant count",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants round-trip preserves Float INFO values",
+      "category": "behavior"
+    },
+    {
+      "name": "IndexFeatureFile two runs produce identical .idx",
+      "category": "behavior"
+    },
+    {
+      "name": "SortVcf uses contig dictionary order not lexicographic",
+      "category": "behavior"
+    },
+    {
+      "name": "SortVcf idempotent on already-sorted input",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants --select-genotype-expressions OR over samples",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants --sample-expressions regex matches and recalculates",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants --keep-original-dp saves DP_Orig",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants JEXL vc.isSNP method call",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants JEXL vc.getGenotype isHet chained call",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants type INDEL with min-indel-size 4",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants exclude-filtered with QUAL JEXL",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants keep-ids AND type-include SNP",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants sample-name AND restrict-alleles BIALLELIC",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants max-nocall-fraction 0.5",
+      "category": "behavior"
+    },
+    {
+      "name": "MergeVcfs VCFv4.1 + VCFv4.2 upgrades to VCFv4.2",
+      "category": "behavior"
+    },
+    {
+      "name": "VariantsToTable -GF columns sorted alphabetically by sample",
+      "category": "behavior"
+    },
+    {
+      "name": "VariantsToTable missing QUAL renders as -10.0 sentinel",
+      "category": "behavior"
+    },
+    {
+      "name": "VariantsToTable QUAL keeps Java Double.toString precision",
+      "category": "behavior"
+    },
+    {
+      "name": "VariantsToTable untyped INFO preserves trailing zeros",
+      "category": "behavior"
+    },
+    {
+      "name": "VariantsToTable Float INFO preserves trailing zeros",
+      "category": "behavior"
+    },
+    {
+      "name": "VariantsToTable wildcard collects equal values into a TreeSet",
+      "category": "behavior"
+    },
+    {
+      "name": "VariantsToTable header ignores trailing tab on",
+      "category": "behavior"
+    },
+    {
+      "name": "VariantsToTable Flag INFO emits lowercase true",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants JEXL != without spaces parses correctly",
+      "category": "behavior"
+    },
+    {
+      "name": "VariantsToTable SAMPLE_NAME on sites-only VCF fails",
+      "category": "behavior"
+    },
+    {
+      "name": "VariantsToTable --arguments_file expands extra -F flags",
+      "category": "behavior"
+    },
+    {
+      "name": "MergeVcfs preserves quotes on simple Description values",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants strips trailing-tab phantom from",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants --max-filtered-genotypes excludes high-FT records",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants --drop-genotypes is rejected by argument parser",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants malformed interval positions fail validation",
+      "category": "behavior"
+    },
+    {
+      "name": "VariantFiltration applies named filter expression",
+      "category": "behavior"
+    },
+    {
+      "name": "ValidateVariants exits 0 on a well-formed VCF",
+      "category": "behavior"
+    },
+    {
+      "name": "VcfToIntervalList converts VCF to interval list",
+      "category": "behavior"
+    },
+    {
+      "name": "VCFComparator on identical inputs exits 0",
+      "category": "behavior"
+    },
+    {
+      "name": "VariantFiltration basic filter labels failing records",
+      "category": "behavior"
+    },
+    {
+      "name": "VariantFiltration invert-filter-expression flips PASS membership",
+      "category": "behavior"
+    },
+    {
+      "name": "VariantFiltration missing-values-evaluate-as-failing",
+      "category": "behavior"
+    },
+    {
+      "name": "VariantFiltration genotype-filter-expression writes FT field",
+      "category": "behavior"
+    },
+    {
+      "name": "VariantFiltration set-filtered-genotype-to-no-call rewrites GT",
+      "category": "behavior"
+    },
+    {
+      "name": "VariantFiltration invalidate-previous-filters clears prior FILTER",
+      "category": "behavior"
+    },
+    {
+      "name": "VariantFiltration multiple filter-expression pairs join with semicolon",
+      "category": "behavior"
+    },
+    {
+      "name": "VariantFiltration cluster-size and cluster-window-size detect SnpCluster",
+      "category": "behavior"
+    },
+    {
+      "name": "ValidateVariants validation-type-to-exclude ALL succeeds on any VCF",
+      "category": "behavior"
+    },
+    {
+      "name": "ValidateVariants validation-type-to-exclude REF on multi-sample VCF",
+      "category": "behavior"
+    },
+    {
+      "name": "ValidateVariants validate-GVCF on g.vcf",
+      "category": "behavior"
+    },
+    {
+      "name": "ValidateVariants warn-on-errors downgrades failures",
+      "category": "behavior"
+    },
+    {
+      "name": "ValidateVariants do-not-validate-filtered-records",
+      "category": "behavior"
+    },
+    {
+      "name": "VcfToIntervalList writes Picard interval list with SQ header",
+      "category": "behavior"
+    },
+    {
+      "name": "VcfToIntervalList INCLUDE_FILTERED retains filtered records",
+      "category": "behavior"
+    },
+    {
+      "name": "SplitVcfs partitions records into SNP and INDEL outputs",
+      "category": "behavior"
+    },
+    {
+      "name": "Pileup over chr1 produces tab-separated rows",
+      "category": "behavior"
+    },
+    {
+      "name": "PrintReadsHeader prints just the SAM header to stdout",
+      "category": "behavior"
+    },
+    {
+      "name": "CompareIntervalLists identical inputs exits 0",
+      "category": "behavior"
+    },
+    {
+      "name": "UpdateVCFSequenceDictionary replace contigs from BAM dictionary",
+      "category": "behavior"
+    },
+    {
+      "name": "LeftAlignAndTrimVariants without reference fails",
+      "category": "behavior"
+    },
+    {
+      "name": "VCFComparator with named V:actual V:expected inputs",
+      "category": "behavior"
+    },
+    {
+      "name": "VariantsToTable phased GT decoded as allele bases",
+      "category": "behavior"
+    },
+    {
+      "name": "VariantsToTable EVENTLENGTH on symbolic DEL is signed",
+      "category": "behavior"
+    },
+    {
+      "name": "VariantsToTable genotype FT renders unfiltered as NA",
+      "category": "behavior"
+    },
+    {
+      "name": "VariantsToTable split-multi-allelic EVENTLENGTH per ALT",
+      "category": "behavior"
+    },
+    {
+      "name": "VariantsToTable split-multi-allelic TRANSITION per ALT",
+      "category": "behavior"
+    },
+    {
+      "name": "VariantsToTable EMD aborts on missing FT data",
+      "category": "behavior"
+    },
+    {
+      "name": "VariantsToTable -GF GT on sites-only VCF fails",
+      "category": "behavior"
+    },
+    {
+      "name": "VariantsToTable split-multi-allelic GT keeps allele bases",
+      "category": "behavior"
+    },
+    {
+      "name": "VariantsToTable -ASGF AD split-multi-allelic pairs ref with each alt",
+      "category": "behavior"
+    },
+    {
+      "name": "VariantsToTable -ASF wildcard pattern emits literal column with NA",
+      "category": "behavior"
+    },
+    {
+      "name": "CountReads point interval -L 1:250-250 counts overlaps",
+      "category": "behavior"
+    },
+    {
+      "name": "CountBases point interval -L 1:250-250 counts overlap bases",
+      "category": "behavior"
+    },
+    {
+      "name": "CountVariants --interval-padding on dictless VCF fails",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants sample include + exclude recomputes AC/AF/AN",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants --max-nocall-fraction 0.0 strict",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants --max-filtered-genotypes 0 excludes all FT",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants set-filtered-gt-to-nocall on FT-tagged GTs",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants remove-unused-alternates trims ALT and recomputes INFO",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants JEXL vc.isSymbolic matches only symbolic records",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants --exclude-sample-name on multi-sample VCF",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants --select-random-fraction 1.0 keeps all records",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants multiple --sample-name flags keep all listed",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants JEXL vc.hasAttribute counts DP-bearing records",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants --discordance no-sample site-only ignores ALT",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants --concordance no-sample site-only accepts ALT diffs",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants --concordance with -sn genotype-level filter",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants --discordance with -sn keeps genotype-diff records",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants --remove-fraction-genotypes noop without subsetting",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants --remove-fraction-genotypes 1.0 after sample subset",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants remove-fraction + exclude-non-variants drops site",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants --interval-set-rule INTERSECTION",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants empty interval intersection raises user error",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants --interval-padding 1 expands inclusion",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants --interval-exclusion-padding 1 widens XL",
+      "category": "behavior"
+    },
+    {
+      "name": "SelectVariants --lenient JEXL on undeclared INFO",
+      "category": "behavior"
+    },
+    {
+      "name": "MergeVcfs coordinate-sorts interleaved inputs",
+      "category": "behavior"
+    },
+    {
+      "name": "MergeVcfs preserves ALT Description quotes",
+      "category": "behavior"
+    },
+    {
+      "name": "RenameSampleInVcf duplicate target rejected",
+      "category": "behavior"
+    },
+    {
+      "name": "MergeVcfs across mismatched-schema inputs keeps sample columns",
+      "category": "behavior"
+    },
+    {
+      "name": "SortVcf across mismatched-schema inputs keeps sample columns",
+      "category": "behavior"
+    },
+    {
+      "name": "RenameSampleInVcf onto existing sample rejected",
+      "category": "behavior"
+    },
+    {
+      "name": "IndexFeatureFile deterministic bytes on sites_only.vcf",
+      "category": "behavior"
+    },
+    {
+      "name": "VariantFiltration QUAL expression on symbolic VCF",
+      "category": "behavior"
+    },
+    {
+      "name": "VariantFiltration genotype-filter cascades onto pre-filtered FT",
+      "category": "behavior"
+    },
+    {
+      "name": "VariantFiltration --mask tags only exact overlaps",
+      "category": "behavior"
+    },
+    {
+      "name": "VariantFiltration --mask-extension 2 widens to neighbours",
+      "category": "behavior"
+    },
+    {
+      "name": "VariantFiltration --filter-not-in-mask inverts mask logic",
+      "category": "behavior"
+    },
+    {
+      "name": "VariantFiltration --invert-genotype-filter-expression writes PASS",
+      "category": "behavior"
+    },
+    {
+      "name": "VariantFiltration missing-values genotype-level",
+      "category": "behavior"
+    },
+    {
+      "name": "SplitVcfs --STRICT true partitions mixed variants",
+      "category": "behavior"
+    },
+    {
+      "name": "PrintReadsHeader emits exact HD VN line",
+      "category": "behavior"
+    },
+    {
+      "name": "VcfToIntervalList on symbolic VCF emits intervals",
+      "category": "behavior"
+    },
+    {
+      "name": "UpdateVCFSequenceDictionary refuses without --replace",
+      "category": "behavior"
+    },
+    {
+      "name": "UpdateVCFSequenceDictionary per-record length check still runs",
+      "category": "behavior"
+    },
+    {
+      "name": "VCFComparator --positions-only ignores ALT mismatches",
+      "category": "behavior"
+    },
+    {
+      "name": "VCFComparator default flags genotype DP mismatch exit 2",
+      "category": "behavior"
+    },
+    {
+      "name": "VCFComparator --ignore-genotype-annotations suppresses DP diff",
+      "category": "behavior"
+    },
+    {
+      "name": "DumpTabixIndex renders tabix binned and linear sections",
+      "category": "behavior"
+    },
+    {
+      "name": "CompareBaseQualities identical inputs exit 0",
+      "category": "behavior"
+    },
+    {
+      "name": "CompareBaseQualities differing quals exit 0 without throw",
+      "category": "behavior"
+    },
+    {
+      "name": "CompareBaseQualities --throw-on-diff raises on quality mismatch",
+      "category": "behavior"
+    },
+    {
+      "name": "CompareBaseQualities read-order mismatch reports r1 vs r2",
+      "category": "behavior"
+    },
+    {
+      "name": "CompareBaseQualities read-count mismatch",
+      "category": "behavior"
+    }
+  ]
+}

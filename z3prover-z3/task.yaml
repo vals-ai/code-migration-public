@@ -1,0 +1,7 @@
+repository: https://github.com/Z3Prover/z3
+commit: ce07160d644f93e09166b81e07522e1c2a1fcf9f
+target_languages:
+- Python
+- Java
+- Kotlin
+- Rust

@@ -1,0 +1,7 @@
+repository: https://github.com/broadinstitute/gatk
+commit: e8c49f600b06c658e0fa9bf67256340ebb46bc48
+target_languages:
+- Python
+- Kotlin
+- C++
+- Rust

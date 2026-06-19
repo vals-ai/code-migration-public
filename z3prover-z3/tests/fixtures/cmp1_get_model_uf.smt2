@@ -1,0 +1,5 @@
+(declare-fun f (Int Int) Int)
+(assert (= (f 1 2) 3))
+(assert (= (f 2 3) 5))
+(check-sat)
+(get-model)

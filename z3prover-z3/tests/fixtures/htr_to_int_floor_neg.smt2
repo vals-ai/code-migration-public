@@ -1,0 +1,6 @@
+(declare-const x Real)
+(declare-const y Int)
+(assert (= y (to_int x)))
+(assert (= x (- 3.7)))
+(check-sat)
+(get-model)

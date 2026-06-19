@@ -1,0 +1,5 @@
+(declare-const x String)
+(assert (= (str.len x) 1))
+(assert (= (str.to_code x) 10))
+(check-sat)
+(get-model)

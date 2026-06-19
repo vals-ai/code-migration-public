@@ -1,0 +1,7 @@
+(set-logic QF_LIA)
+(declare-const x Int)
+(declare-const y Int)
+(assert (or (= x 1) (= x 2)))
+(assert (or (= y 1) (= y 2)))
+(assert (not (= x y)))
+(check-sat)

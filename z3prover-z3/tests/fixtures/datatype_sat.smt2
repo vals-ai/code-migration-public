@@ -1,0 +1,7 @@
+(declare-datatypes ((IntList 0)) (((mt) (cell (hd Int) (tl IntList)))))
+(declare-const l IntList)
+(assert ((_ is cell) l))
+(assert (= (hd l) 7))
+(assert (= (tl l) (cell 8 mt)))
+(check-sat)
+(get-value (l))

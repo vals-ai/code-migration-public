@@ -1,0 +1,8 @@
+(set-logic QF_FP)
+(set-option :produce-models true)
+(declare-const x Float32)
+(declare-const y Float32)
+(assert (= x (fp #b0 #x80 #b00000000000000000000000)))
+(assert (= y (fp.add roundNearestTiesToEven x x)))
+(check-sat)
+(get-value (y))

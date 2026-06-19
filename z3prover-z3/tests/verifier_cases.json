@@ -1,0 +1,1303 @@
+{
+  "reference_command": "__eval_z3-cpp",
+  "test_command": "__eval_z3-rust",
+  "timeout": 60,
+  "tests": [
+    {
+      "name": "QF_BV simple sat",
+      "args": [
+        "/tmp/sat_simple.smt2"
+      ]
+    },
+    {
+      "name": "QF_LIA simple unsat",
+      "args": [
+        "/tmp/unsat_simple.smt2"
+      ]
+    },
+    {
+      "name": "QF_AUFBV array+UF unsat (extensionality)",
+      "args": [
+        "/tmp/array_unsat.smt2"
+      ]
+    },
+    {
+      "name": "QF_UF uninterpreted functions unsat (functional consistency)",
+      "args": [
+        "/tmp/uf_unsat.smt2"
+      ]
+    },
+    {
+      "name": "UF quantifier sat",
+      "args": [
+        "/tmp/quantifier_sat.smt2"
+      ]
+    },
+    {
+      "name": "push/pop with multiple check-sat",
+      "args": [
+        "/tmp/push_pop.smt2"
+      ]
+    },
+    {
+      "name": "get-model on QF_LIA sat",
+      "args": [
+        "/tmp/get_model_int.smt2"
+      ]
+    },
+    {
+      "name": "get-value of bit-vectors",
+      "args": [
+        "/tmp/get_value_bv.smt2"
+      ]
+    },
+    {
+      "name": "declare-datatypes List with head/tail accessors",
+      "args": [
+        "/tmp/datatype_sat.smt2"
+      ]
+    },
+    {
+      "name": "get-unsat-core on labeled assertions",
+      "args": [
+        "/tmp/unsat_core.smt2"
+      ]
+    },
+    {
+      "name": "QF_FP get-value floating-point triples",
+      "args": [
+        "/tmp/fp_simple.smt2"
+      ]
+    },
+    {
+      "name": "eval and simplify after check-sat",
+      "args": [
+        "/tmp/simplify_eval.smt2"
+      ]
+    },
+    {
+      "name": "parser error inside (error ...) on stdout",
+      "args": [
+        "/tmp/parse_error.smt2"
+      ]
+    },
+    {
+      "name": "DIMACS CNF unsat",
+      "args": [
+        "-dimacs",
+        "/tmp/example.cnf"
+      ]
+    },
+    {
+      "name": "DIMACS CNF sat",
+      "args": [
+        "-dimacs",
+        "/tmp/sat_cnf.cnf"
+      ]
+    },
+    {
+      "name": "get-info :error-behavior continued-execution",
+      "args": [
+        "/tmp/htr_get_info_error_behavior.smt2"
+      ]
+    },
+    {
+      "name": "set-info+get-info :status round-trip",
+      "args": [
+        "/tmp/htr_get_info_status_set.smt2"
+      ]
+    },
+    {
+      "name": "get-info :assertion-stack-levels tracks push depth",
+      "args": [
+        "/tmp/htr_get_info_stack_levels.smt2"
+      ]
+    },
+    {
+      "name": "set-info :status with invalid value (column 19 error)",
+      "args": [
+        "/tmp/htr_set_info_invalid_status.smt2"
+      ]
+    },
+    {
+      "name": "get-info multiple keys (name version authors status stack-levels)",
+      "args": [
+        "/tmp/sub_get_info.smt2"
+      ]
+    },
+    {
+      "name": "get-info :error-behavior (alt fixture)",
+      "args": [
+        "/tmp/cmp1_get_info_error_behavior.smt2"
+      ]
+    },
+    {
+      "name": "get-info :parameters produces empty output",
+      "args": [
+        "/tmp/cmp1_get_info_parameters.smt2"
+      ]
+    },
+    {
+      "name": "get-info :assertion-stack-levels (alt fixture)",
+      "args": [
+        "/tmp/cmp1_get_info_assertion_stack.smt2"
+      ]
+    },
+    {
+      "name": "get-info :reason-unknown after unsat is empty string",
+      "args": [
+        "/tmp/cmp1_get_info_reason_unknown.smt2"
+      ]
+    },
+    {
+      "name": "get-info :status before check-sat is unknown",
+      "args": [
+        "/tmp/cmp2_get_info_status.smt2"
+      ]
+    },
+    {
+      "name": ":print-success true emits success per accepted command",
+      "args": [
+        "/tmp/htr_print_success.smt2"
+      ]
+    },
+    {
+      "name": "echo with :smtlib2-compliant true wraps in double quotes",
+      "args": [
+        "/tmp/htr_echo_smtlib2_compliant.smt2"
+      ]
+    },
+    {
+      "name": "echo escapes embedded double-quotes as \"\"",
+      "args": [
+        "/tmp/htr_echo_quote_escape.smt2"
+      ]
+    },
+    {
+      "name": "set-option/get-option round-trip",
+      "args": [
+        "/tmp/sub_set_get_option.smt2"
+      ]
+    },
+    {
+      "name": "echo and display commands",
+      "args": [
+        "/tmp/sub_echo_display.smt2"
+      ]
+    },
+    {
+      "name": "echo without smtlib2-compliant (no wrapping quotes)",
+      "args": [
+        "/tmp/sub_smtlib2_compliant_echo.smt2"
+      ]
+    },
+    {
+      "name": "reset-assertions retains declarations",
+      "args": [
+        "/tmp/sub_reset_assertions.smt2"
+      ]
+    },
+    {
+      "name": "set-info :status round-trip (alt fixture)",
+      "args": [
+        "/tmp/sub_set_info_status.smt2"
+      ]
+    },
+    {
+      "name": "unknown :option in set-option produces structured error",
+      "args": [
+        "/tmp/sub_unknown_option_error.smt2"
+      ]
+    },
+    {
+      "name": "get-option :produce-models returns raw value",
+      "args": [
+        "/tmp/cmp1_get_option_produce_models.smt2"
+      ]
+    },
+    {
+      "name": "get-option :verbosity numeric value",
+      "args": [
+        "/tmp/cmp1_get_option_verbosity.smt2"
+      ]
+    },
+    {
+      "name": "pp.decimal true \u2192 0.3333333333? for 1/3",
+      "args": [
+        "/tmp/cmp1_pp_decimal.smt2"
+      ]
+    },
+    {
+      "name": "pp.decimal ? sentinel for inexact decimal expansion",
+      "args": [
+        "/tmp/htr_pp_decimal.smt2"
+      ]
+    },
+    {
+      "name": ":smtlib2-compliant true emits success per command",
+      "args": [
+        "/tmp/cmp1_smtlib2_compliant.smt2"
+      ]
+    },
+    {
+      "name": ":dump-models true displays model automatically",
+      "args": [
+        "/tmp/cmp1_dump_models_option.smt2"
+      ]
+    },
+    {
+      "name": "unknown set-option key emits (error ...) and exits 1",
+      "args": [
+        "/tmp/cmp1_unknown_option.smt2"
+      ]
+    },
+    {
+      "name": "set-option :produce-proofs true silently accepted",
+      "args": [
+        "/tmp/cmp2_set_option_produce_proofs.smt2"
+      ]
+    },
+    {
+      "name": ":produce-unsat-cores then get-unsat-core",
+      "args": [
+        "/tmp/cmp2_set_option_unsat_core.smt2"
+      ]
+    },
+    {
+      "name": ":produce-assignments then get-assignment",
+      "args": [
+        "/tmp/cmp2_set_option_produce_assignments.smt2"
+      ]
+    },
+    {
+      "name": ":interactive-mode true + get-assertions",
+      "args": [
+        "/tmp/cmp2_set_option_interactive_assertions.smt2"
+      ]
+    },
+    {
+      "name": ":smtlib2-compliant true outputs success success success sat",
+      "args": [
+        "/tmp/cmp2_set_option_smtlib2_compliant.smt2"
+      ]
+    },
+    {
+      "name": ":verbosity 10 silently accepted",
+      "args": [
+        "/tmp/cmp2_set_option_verbosity.smt2"
+      ]
+    },
+    {
+      "name": "negative integer model uses (- N) prefix",
+      "args": [
+        "/tmp/htr_negative_int_model.smt2"
+      ]
+    },
+    {
+      "name": "real ratio printed as (/ N.0 D.0)",
+      "args": [
+        "/tmp/htr_real_ratio_model.smt2"
+      ]
+    },
+    {
+      "name": "negative non-integral real uses (- (/ N.0 D.0))",
+      "args": [
+        "/tmp/htr_negative_real_model.smt2"
+      ]
+    },
+    {
+      "name": "BitVec width 12 prints as #xNNN hex",
+      "args": [
+        "/tmp/htr_bv_hex_model.smt2"
+      ]
+    },
+    {
+      "name": "BitVec width 5 prints as #bNNNNN binary",
+      "args": [
+        "/tmp/htr_bv_binary_model.smt2"
+      ]
+    },
+    {
+      "name": "Float32 NaN prints as (_ NaN 8 24)",
+      "args": [
+        "/tmp/htr_fp_nan_model.smt2"
+      ]
+    },
+    {
+      "name": "Float32 +inf prints as (_ +oo 8 24)",
+      "args": [
+        "/tmp/htr_fp_pinf_model.smt2"
+      ]
+    },
+    {
+      "name": "Float64 -zero prints as (_ -zero 11 53)",
+      "args": [
+        "/tmp/htr_fp_nzero_model.smt2"
+      ]
+    },
+    {
+      "name": "Float32 (fp #b0 #x.. #b..) mixed-base bit-encoding",
+      "args": [
+        "/tmp/htr_fp_bitvec_composite.smt2"
+      ]
+    },
+    {
+      "name": "uninterpreted sort model: universe comments + cardinality forall",
+      "args": [
+        "/tmp/htr_uninterp_sort_model.smt2"
+      ]
+    },
+    {
+      "name": "uninterpreted sort model (alt fixture)",
+      "args": [
+        "/tmp/cmp1_uninterp_sort_model.smt2"
+      ]
+    },
+    {
+      "name": "array model with single value: (as const ...)",
+      "args": [
+        "/tmp/htr_array_const_model.smt2"
+      ]
+    },
+    {
+      "name": "array model with two points: nested store/as const",
+      "args": [
+        "/tmp/htr_array_store_model.smt2"
+      ]
+    },
+    {
+      "name": "partial real division /0 function in model",
+      "args": [
+        "/tmp/htr_partial_div_model.smt2"
+      ]
+    },
+    {
+      "name": "algebraic real sqrt(2) as (root-obj (+ (^ x 2) (- 2)) 2)",
+      "args": [
+        "/tmp/htr_root_obj_algebraic.smt2"
+      ]
+    },
+    {
+      "name": "string char code 10 encoded as \\u{a}",
+      "args": [
+        "/tmp/htr_string_unicode_escape.smt2"
+      ]
+    },
+    {
+      "name": "embedded double-quote in string model as \"\"",
+      "args": [
+        "/tmp/htr_string_dquote_model.smt2"
+      ]
+    },
+    {
+      "name": "UF model: ite chain with x!0 parameter name",
+      "args": [
+        "/tmp/htr_uf_model_ite.smt2"
+      ]
+    },
+    {
+      "name": "enum datatype model prints bare constructor name",
+      "args": [
+        "/tmp/htr_datatype_enum_model.smt2"
+      ]
+    },
+    {
+      "name": "recursive datatype model: nested constructor application",
+      "args": [
+        "/tmp/htr_datatype_recursive_model.smt2"
+      ]
+    },
+    {
+      "name": "to_int(-3.7) = -4 via floor; real printed as fraction",
+      "args": [
+        "/tmp/htr_to_int_floor_neg.smt2"
+      ]
+    },
+    {
+      "name": "get-model with uninterpreted function ite definition",
+      "args": [
+        "/tmp/cmp1_get_model_uf.smt2"
+      ]
+    },
+    {
+      "name": "get-model UF with x!0/x!1 parameters (alt fixture)",
+      "args": [
+        "/tmp/sub_get_model_uf.smt2"
+      ]
+    },
+    {
+      "name": "real model fraction formatting",
+      "args": [
+        "/tmp/cmp1_real_model.smt2"
+      ]
+    },
+    {
+      "name": "BV zero value printed as #x00 (not boolean false)",
+      "args": [
+        "/tmp/cmp1_bv_false_bug.smt2"
+      ]
+    },
+    {
+      "name": "algebraic Tree datatype with constructor/accessor",
+      "args": [
+        "/tmp/sub_dt_tree.smt2"
+      ]
+    },
+    {
+      "name": "mutually recursive datatypes EvenList/OddList",
+      "args": [
+        "/tmp/sub_dt_mutual_rec.smt2"
+      ]
+    },
+    {
+      "name": "parametric (generic) pair datatype",
+      "args": [
+        "/tmp/sub_dt_generic.smt2"
+      ]
+    },
+    {
+      "name": "enum datatype (zero-field constructors)",
+      "args": [
+        "/tmp/sub_dt_enum.smt2"
+      ]
+    },
+    {
+      "name": "forall over integers (negation of tautology) is unsat",
+      "args": [
+        "/tmp/sub_quantifier_forall.smt2"
+      ]
+    },
+    {
+      "name": "exists with Pythagorean witness is sat",
+      "args": [
+        "/tmp/sub_quantifier_exists.smt2"
+      ]
+    },
+    {
+      "name": "nested alternating forall/exists quantifiers",
+      "args": [
+        "/tmp/sub_quantifier_nested.smt2"
+      ]
+    },
+    {
+      "name": "forall with :pattern trigger annotation",
+      "args": [
+        "/tmp/sub_quantifier_pattern.smt2"
+      ]
+    },
+    {
+      "name": "QF_NIA pythagorean triple sat+model",
+      "args": [
+        "/tmp/sub_qf_nia_sat.smt2"
+      ]
+    },
+    {
+      "name": "QF_LRA linear real arithmetic with exact fractions",
+      "args": [
+        "/tmp/sub_qf_lra_sat.smt2"
+      ]
+    },
+    {
+      "name": "QF_LIA div/mod Euclidean semantics",
+      "args": [
+        "/tmp/sub_qf_lia_div_mod.smt2"
+      ]
+    },
+    {
+      "name": "deep div/mod of negative operands (Euclidean, not C truncation)",
+      "args": [
+        "/tmp/sub_deep_neg_int_div.smt2"
+      ]
+    },
+    {
+      "name": "very large integer literal beyond 64-bit",
+      "args": [
+        "/tmp/sub_large_int_literal.smt2"
+      ]
+    },
+    {
+      "name": "QF_LIRA mixed int/real with to_real/to_int coercions",
+      "args": [
+        "/tmp/sub_int_real_mixed.smt2"
+      ]
+    },
+    {
+      "name": "integer equality combination x+y=10, x=3 \u2192 y=7",
+      "args": [
+        "/tmp/cmp2_int_equality_combo.smt2"
+      ]
+    },
+    {
+      "name": "QF_LIA distinct with bounded domain is sat",
+      "args": [
+        "/tmp/cmp1_lia_distinct.smt2"
+      ]
+    },
+    {
+      "name": "QF_BV arithmetic: shifts, concat, extract",
+      "args": [
+        "/tmp/sub_qf_bv_arith.smt2"
+      ]
+    },
+    {
+      "name": "QF_BV bvugt of self is trivially unsat",
+      "args": [
+        "/tmp/sub_qf_bv_unsat.smt2"
+      ]
+    },
+    {
+      "name": "QF_BV signed (#xff = -1) vs unsigned (#xff = 255) compare",
+      "args": [
+        "/tmp/sub_bv_signed_comparison.smt2"
+      ]
+    },
+    {
+      "name": "QF_BV zero-extend and sign-extend on 4-bit -1",
+      "args": [
+        "/tmp/sub_bv_zero_extend.smt2"
+      ]
+    },
+    {
+      "name": "BV bvudiv/bvurem by zero: bvudiv=#xff bvurem=x",
+      "args": [
+        "/tmp/sub_deep_bv_div.smt2"
+      ]
+    },
+    {
+      "name": "BV extract(7,4, concat(hi,lo)) = hi round-trip",
+      "args": [
+        "/tmp/sub_deep_bv_concat_extract.smt2"
+      ]
+    },
+    {
+      "name": "QF_BV32 equality x = #x0000000a",
+      "args": [
+        "/tmp/cmp2_bv32_equality.smt2"
+      ]
+    },
+    {
+      "name": "BV bvugt x #x00 model (solver picks #xff)",
+      "args": [
+        "/tmp/cmp2_bv_gt_model.smt2"
+      ]
+    },
+    {
+      "name": "QF_ALIA array store/select with integer indices",
+      "args": [
+        "/tmp/sub_qf_ax_store_select.smt2"
+      ]
+    },
+    {
+      "name": "(as const (Array Int Int)) 0 all-zeros array",
+      "args": [
+        "/tmp/sub_deep_array_lambda.smt2"
+      ]
+    },
+    {
+      "name": "QF_S string concatenation and length",
+      "args": [
+        "/tmp/sub_qf_s_str.smt2"
+      ]
+    },
+    {
+      "name": "QF_S regex membership with re.++ / re.*",
+      "args": [
+        "/tmp/sub_qf_s_regex.smt2"
+      ]
+    },
+    {
+      "name": "string str.from_int / str.to.int round-trip",
+      "args": [
+        "/tmp/sub_deep_str_to_int.smt2"
+      ]
+    },
+    {
+      "name": "string unsat: contains \"abc\" with length < 3",
+      "args": [
+        "/tmp/sub_deep_str_unsat.smt2"
+      ]
+    },
+    {
+      "name": "recursive function (factorial) via define-fun-rec",
+      "args": [
+        "/tmp/sub_recfun_sat.smt2"
+      ]
+    },
+    {
+      "name": "define-fun macro expansion with get-value",
+      "args": [
+        "/tmp/sub_define_fun_macro.smt2"
+      ]
+    },
+    {
+      "name": "EUF congruence closure chain: f(a)=f(b), a=b in model",
+      "args": [
+        "/tmp/sub_deep_uf_congruence.smt2"
+      ]
+    },
+    {
+      "name": "EUF unsat: f(f(f(a)))=a \u2227 f(f(a))=a \u2227 f(a)\u2260a",
+      "args": [
+        "/tmp/sub_deep_qf_uf_euf_unsat.smt2"
+      ]
+    },
+    {
+      "name": "FP NaN: fp.eq NaN NaN is false",
+      "args": [
+        "/tmp/sub_deep_fp_ops.smt2"
+      ]
+    },
+    {
+      "name": "FP division with different rounding modes",
+      "args": [
+        "/tmp/sub_deep_fp_rounding.smt2"
+      ]
+    },
+    {
+      "name": "quoted symbol |with spaces|",
+      "args": [
+        "/tmp/sub_quoted_symbol.smt2"
+      ]
+    },
+    {
+      "name": "deeply nested let bindings",
+      "args": [
+        "/tmp/sub_nested_let.smt2"
+      ]
+    },
+    {
+      "name": "check-sat-assuming returns sat for consistent assumption",
+      "args": [
+        "/tmp/htr_check_sat_assuming.smt2"
+      ]
+    },
+    {
+      "name": "get-unsat-assumptions returns minimal conflicting assumption",
+      "args": [
+        "/tmp/htr_get_unsat_assumptions.smt2"
+      ]
+    },
+    {
+      "name": "get-unsat-assumptions (alt fixture)",
+      "args": [
+        "/tmp/sub_get_unsat_assumptions.smt2"
+      ]
+    },
+    {
+      "name": "check-sat-assuming with boolean literal list",
+      "args": [
+        "/tmp/sub_check_sat_assuming.smt2"
+      ]
+    },
+    {
+      "name": "check-sat-assuming sat (alt fixture)",
+      "args": [
+        "/tmp/cmp2_check_sat_assuming.smt2"
+      ]
+    },
+    {
+      "name": "get-unsat-core with two named contradictory assertions",
+      "args": [
+        "/tmp/cmp1_unsat_core_empty.smt2"
+      ]
+    },
+    {
+      "name": "get-proof for (assert false) emits (asserted false)",
+      "args": [
+        "/tmp/htr_proof_simple.smt2"
+      ]
+    },
+    {
+      "name": "get-proof for QF_LIA unsat",
+      "args": [
+        "/tmp/sub_get_proof.smt2"
+      ]
+    },
+    {
+      "name": "get-proof without :produce-proofs emits remediation error",
+      "args": [
+        "/tmp/sub_proof_disabled_error.smt2"
+      ]
+    },
+    {
+      "name": "get-proof when state is sat (no proof) is unsupported",
+      "args": [
+        "/tmp/cmp2_get_proof_sat.smt2"
+      ]
+    },
+    {
+      "name": "get-proof produces full proof tree for unsat QF_LIA",
+      "args": [
+        "/tmp/cmp1_proof_unsat.smt2"
+      ]
+    },
+    {
+      "name": "get-assertions with :produce-assertions list format",
+      "args": [
+        "/tmp/htr_get_assertions_opt.smt2"
+      ]
+    },
+    {
+      "name": "get-assertions in interactive mode",
+      "args": [
+        "/tmp/sub_get_assertions.smt2"
+      ]
+    },
+    {
+      "name": "get-assertions with single assertion (alt fixture)",
+      "args": [
+        "/tmp/cmp1_get_assertions.smt2"
+      ]
+    },
+    {
+      "name": "get-assertions without interactive mode emits error + exit 1",
+      "args": [
+        "/tmp/cmp2_get_assertions_no_interactive.smt2"
+      ]
+    },
+    {
+      "name": "get-assignment on Boolean define-fun macros",
+      "args": [
+        "/tmp/sub_get_assignment.smt2"
+      ]
+    },
+    {
+      "name": "get-consequences output format (sat + blank + (=> true (= var val)))",
+      "args": [
+        "/tmp/htr_get_consequences.smt2"
+      ]
+    },
+    {
+      "name": "get-consequences (alt fixture)",
+      "args": [
+        "/tmp/sub_get_consequences.smt2"
+      ]
+    },
+    {
+      "name": "get-value of Real fractions: exact (/ 1.0 3.0)",
+      "args": [
+        "/tmp/sub_get_value_real.smt2"
+      ]
+    },
+    {
+      "name": "get-model after unsat emits (error \"model is not available\")",
+      "args": [
+        "/tmp/sub_get_model_error.smt2"
+      ]
+    },
+    {
+      "name": "define-fun omitted/echoed in get-model output",
+      "args": [
+        "/tmp/cmp2_defined_fun_model.smt2"
+      ]
+    },
+    {
+      "name": "real optimization strict lower bound \u2192 (+ 5.0 epsilon)",
+      "args": [
+        "/tmp/htr_opt_real_epsilon.smt2"
+      ]
+    },
+    {
+      "name": "unbounded real maximize \u2192 oo symbol",
+      "args": [
+        "/tmp/htr_opt_real_oo.smt2"
+      ]
+    },
+    {
+      "name": "real maximize strict upper bound \u2192 (+ (- 5.0) (* (- 1.0) epsilon))",
+      "args": [
+        "/tmp/htr_opt_real_neg_epsilon.smt2"
+      ]
+    },
+    {
+      "name": "optimization soft constraints",
+      "args": [
+        "/tmp/htr_opt_softconstraints.smt2"
+      ]
+    },
+    {
+      "name": "minimize integer objective",
+      "args": [
+        "/tmp/sub_opt_minimize.smt2"
+      ]
+    },
+    {
+      "name": "maximize integer objective with inequality constraints",
+      "args": [
+        "/tmp/sub_opt_maximize.smt2"
+      ]
+    },
+    {
+      "name": "MaxSAT assert-soft with weights and get-objectives",
+      "args": [
+        "/tmp/sub_opt_soft_maxsat.smt2"
+      ]
+    },
+    {
+      "name": "optimization on unsat hard constraints prints just unsat",
+      "args": [
+        "/tmp/sub_opt_unsat.smt2"
+      ]
+    },
+    {
+      "name": "minimize real-valued objective (exact rational)",
+      "args": [
+        "/tmp/sub_opt_real_minimize.smt2"
+      ]
+    },
+    {
+      "name": "assert-soft with :id group partitioning",
+      "args": [
+        "/tmp/sub_opt_soft_grouped.smt2"
+      ]
+    },
+    {
+      "name": "maximize then get-objectives output format",
+      "args": [
+        "/tmp/cmp2_maximize_objectives.smt2"
+      ]
+    },
+    {
+      "name": "minimize command on integer with positive bound",
+      "args": [
+        "/tmp/cmp1_minimize_test.smt2"
+      ]
+    },
+    {
+      "name": "DIMACS unit-propagation chain forces UNSAT",
+      "args": [
+        "-dimacs",
+        "/tmp/sub_unit_propagation.cnf"
+      ]
+    },
+    {
+      "name": "DIMACS unsat core via sat.dimacs.core=true",
+      "args": "-dimacs /tmp/sub_dimacs_core.cnf sat.dimacs.core=true"
+    },
+    {
+      "name": "DIMACS core (alt fixture)",
+      "args": "-dimacs /tmp/htr_dimacs_core.cnf sat.dimacs.core=true"
+    },
+    {
+      "name": "DIMACS empty clause \u2192 trivially UNSAT",
+      "args": [
+        "-dimacs",
+        "/tmp/sub_dimacs_empty_clause.cnf"
+      ]
+    },
+    {
+      "name": "apply simplify outputs (goals (goal \u2026 :precision precise :depth 1))",
+      "args": [
+        "/tmp/htr_apply_tactic_goals.smt2"
+      ]
+    },
+    {
+      "name": "simplify arithmetic identity laws and constant folding",
+      "args": [
+        "/tmp/sub_simplify_arith.smt2"
+      ]
+    },
+    {
+      "name": "simplify BV identity laws",
+      "args": [
+        "/tmp/sub_simplify_bv.smt2"
+      ]
+    },
+    {
+      "name": "apply propagate-values then check-sat",
+      "args": [
+        "/tmp/sub_apply_tactic_propagate.smt2"
+      ]
+    },
+    {
+      "name": "check-sat-using (then simplify solve-eqs lra)",
+      "args": [
+        "/tmp/sub_check_sat_using.smt2"
+      ]
+    },
+    {
+      "name": "apply quantifier elimination tactic",
+      "args": [
+        "/tmp/sub_apply_tactic_elim_quant.smt2"
+      ]
+    },
+    {
+      "name": "display expr command emits the expression",
+      "args": [
+        "/tmp/cmp1_display_test.smt2"
+      ]
+    },
+    {
+      "name": "apply simplify on (= x 5)",
+      "args": [
+        "/tmp/cmp1_apply_tactic.smt2"
+      ]
+    },
+    {
+      "name": "check-sat-using simplify returns unknown",
+      "args": [
+        "/tmp/cmp1_check_sat_using.smt2"
+      ]
+    },
+    {
+      "name": "multi-level push/pop with nested scopes",
+      "args": [
+        "/tmp/sub_deep_lia_push_pop_multi.smt2"
+      ]
+    },
+    {
+      "name": "monotone incremental assertion accumulation",
+      "args": [
+        "/tmp/sub_deep_lia_incremental.smt2"
+      ]
+    },
+    {
+      "name": "global-decls false: declarations revoked on pop",
+      "args": [
+        "/tmp/sub_deep_lia_global_decls.smt2"
+      ]
+    },
+    {
+      "name": "pop beyond current stack depth: (error ... invalid pop ...)",
+      "args": [
+        "/tmp/htr_pop_beyond_depth.smt2"
+      ]
+    },
+    {
+      "name": "push/pop with unconstrained variable defaults",
+      "args": [
+        "/tmp/cmp2_push_pop_unconstrained.smt2"
+      ]
+    },
+    {
+      "name": "reset command is silently accepted",
+      "args": [
+        "/tmp/cmp2_reset_test.smt2"
+      ]
+    },
+    {
+      "name": "unsupported logic: 'unsupported' + ;-comment + continued execution",
+      "args": [
+        "/tmp/htr_unsupported_logic.smt2"
+      ]
+    },
+    {
+      "name": "define-funs-rec mutually recursive functions",
+      "args": [
+        "/tmp/htr_funs_rec.smt2"
+      ]
+    },
+    {
+      "name": "regex membership model",
+      "args": [
+        "/tmp/htr_regex_model.smt2"
+      ]
+    },
+    {
+      "name": "define-sort as type alias, solves correctly",
+      "args": [
+        "/tmp/cmp2_define_sort.smt2"
+      ]
+    },
+    {
+      "name": "-model CLI flag auto-displays model after sat",
+      "args": [
+        "-model",
+        "/tmp/cmp1_model_flag_test.smt2"
+      ]
+    },
+    {
+      "name": "BV bvnand #x0f #xff = #xf0 (constant check)",
+      "args": [
+        "/tmp/z3i_bv_bvnand_nor_xnor.smt2"
+      ]
+    },
+    {
+      "name": "BV bvnor #x0f #xf0 = #x00 (constant check)",
+      "args": [
+        "/tmp/z3i_bv_bvnor_const.smt2"
+      ]
+    },
+    {
+      "name": "BV bvxnor #x0f #x0f = #xff (constant check)",
+      "args": [
+        "/tmp/z3i_bv_bvxnor_const.smt2"
+      ]
+    },
+    {
+      "name": "BV bvcomp #x0f #x0f = #b1",
+      "args": [
+        "/tmp/z3i_bv_bvcomp.smt2"
+      ]
+    },
+    {
+      "name": "BV bvashr #xff #x03 = #xff (sign-preserved arithmetic shift)",
+      "args": [
+        "/tmp/z3i_bv_bvashr_forced.smt2"
+      ]
+    },
+    {
+      "name": "BV bvsdiv #xfd #x02 = #xff (signed division)",
+      "args": [
+        "/tmp/z3i_bv_bvsdiv.smt2"
+      ]
+    },
+    {
+      "name": "BV bvsmod #xfd #x02 = #x01",
+      "args": [
+        "/tmp/z3i_bv_bvsmod_bvsrem.smt2"
+      ]
+    },
+    {
+      "name": "BV bvsrem #xfd #x03 = #x00",
+      "args": [
+        "/tmp/z3i_bv_bvsrem2.smt2"
+      ]
+    },
+    {
+      "name": "BV bvsrem #xff x = #xfd forces unique solution",
+      "args": [
+        "/tmp/z3i_bv_bvsrem_forced.smt2"
+      ]
+    },
+    {
+      "name": "BV bvuge #xff #x01 (unsigned comparison)",
+      "args": [
+        "/tmp/z3i_bv_bvuge_const.smt2"
+      ]
+    },
+    {
+      "name": "BV rotate_left 2 x = #x01 forces x = #x40",
+      "args": [
+        "/tmp/z3i_bv_rotate_left_forced.smt2"
+      ]
+    },
+    {
+      "name": "BV rotate_left 3 x = #xb8 forces x = #x17",
+      "args": [
+        "/tmp/z3i_bv_rotate_left_b8.smt2"
+      ]
+    },
+    {
+      "name": "BV rotate_right 2 x = #x0f forces x = #x3c",
+      "args": [
+        "/tmp/z3i_bv_rotate_right_0f.smt2"
+      ]
+    },
+    {
+      "name": "BV rotate_right 2 of #b00001111 = #b11000011 (constant check)",
+      "args": [
+        "/tmp/z3i_bv_rotr_c0.smt2"
+      ]
+    },
+    {
+      "name": "BV rotate_left 2 x = #x03 forces x = #xc0",
+      "args": [
+        "/tmp/z3i_bv_rotl_check.smt2"
+      ]
+    },
+    {
+      "name": "BV rotate_right 2 x = #x40 forces x = #x01",
+      "args": [
+        "/tmp/z3i_bv_rotr_40.smt2"
+      ]
+    },
+    {
+      "name": "BV (_ repeat 2) x = #xaa forces x = #xa",
+      "args": [
+        "/tmp/z3i_bv_repeat_aa.smt2"
+      ]
+    },
+    {
+      "name": "BV (_ sign_extend 4) x = #xf8 forces x = #xf",
+      "args": [
+        "/tmp/z3i_bv_sign_extend_f8.smt2"
+      ]
+    },
+    {
+      "name": "BV (_ zero_extend 4) x = bv170 unsat (170 has high nibble set)",
+      "args": [
+        "/tmp/z3i_bv_zero_ext_unsat.smt2"
+      ]
+    },
+    {
+      "name": "int2bv 8 x = #x0a with 0 <= x <= 255 forces x = 10",
+      "args": [
+        "/tmp/z3i_bv_int2bv_check.smt2"
+      ]
+    },
+    {
+      "name": "get-value of bvnot, bvadd over BV constant",
+      "args": [
+        "/tmp/z3i_get_value_complex.smt2"
+      ]
+    },
+    {
+      "name": "FP fp.abs and fp.neg identities (x = -1.0 forced)",
+      "args": [
+        "/tmp/z3i_fp_abs_neg.smt2"
+      ]
+    },
+    {
+      "name": "FP fp.min and fp.max on 1.0 / 2.0",
+      "args": [
+        "/tmp/z3i_fp_min_max.smt2"
+      ]
+    },
+    {
+      "name": "FP fp.mul 2.5 * 3.0 = 7.5 model",
+      "args": [
+        "/tmp/z3i_fp_mul_value.smt2"
+      ]
+    },
+    {
+      "name": "FP fp.sqrt(4.0) = 2.0 forced",
+      "args": [
+        "/tmp/z3i_fp_sqrt.smt2"
+      ]
+    },
+    {
+      "name": "FP fp.add x+x with x=2.0 via get-value",
+      "args": [
+        "/tmp/z3i_fp_add.smt2"
+      ]
+    },
+    {
+      "name": "FP fp.isNaN model selects (_ NaN 8 24)",
+      "args": [
+        "/tmp/z3i_fp_isnan_model.smt2"
+      ]
+    },
+    {
+      "name": "FP fp triple (fp #b1 #x7f #b10..0) negative literal model",
+      "args": [
+        "/tmp/z3i_fp_basic.smt2"
+      ]
+    },
+    {
+      "name": "FP fp triple (fp #b0 #x7f #b0..0) = +1.0 simple model",
+      "args": [
+        "/tmp/z3i_fp_simple_pos.smt2"
+      ]
+    },
+    {
+      "name": "str.contains \"hello\" with length 5 forces x = \"hello\"",
+      "args": [
+        "/tmp/z3i_str_contains.smt2"
+      ]
+    },
+    {
+      "name": "str.substr \"hello world\" 6 5 = \"world\"",
+      "args": [
+        "/tmp/z3i_str_substr.smt2"
+      ]
+    },
+    {
+      "name": "str.indexof \"hello world\" \"world\" 0 = 6",
+      "args": [
+        "/tmp/z3i_str_indexof.smt2"
+      ]
+    },
+    {
+      "name": "Seq Int with seq.len=3, seq.nth 0/1/2 = 10/20/30",
+      "args": [
+        "/tmp/z3i_seq_ops.smt2"
+      ]
+    },
+    {
+      "name": "opt.priority box: maximize x then y independently",
+      "args": [
+        "/tmp/z3i_opt_box.smt2"
+      ]
+    },
+    {
+      "name": "opt.priority lex: lexicographic maximize (x=10, y=0)",
+      "args": [
+        "/tmp/z3i_opt_lex.smt2"
+      ]
+    },
+    {
+      "name": "opt.priority pareto with bound 10: full pareto front",
+      "args": [
+        "/tmp/z3i_opt_pareto_10.smt2"
+      ]
+    },
+    {
+      "name": "maximize x,y with bound 5 (default opt strategy)",
+      "args": [
+        "/tmp/z3i_opt_pareto.smt2"
+      ]
+    },
+    {
+      "name": "single objective maximize x <= 5 \u2192 (x 5)",
+      "args": [
+        "/tmp/z3i_opt_simple_max.smt2"
+      ]
+    },
+    {
+      "name": "WCNF MaxSAT: 3-variable optimum",
+      "args": [
+        "-wcnf",
+        "/tmp/z3i_wcnf_simple.wcnf"
+      ]
+    },
+    {
+      "name": "WCNF 2-variable weighted MaxSAT",
+      "args": [
+        "-wcnf",
+        "/tmp/z3i_wcnf_weighted.wcnf"
+      ]
+    },
+    {
+      "name": "TPTP fof axiom+conjecture emits SZS status Theorem",
+      "args": [
+        "-tptp",
+        "/tmp/z3i_tptp_simple.tptp"
+      ]
+    },
+    {
+      "name": "pseudo-Boolean (-pbo) input format",
+      "args": [
+        "-pbo",
+        "/tmp/scope_pbo_minimal.opb"
+      ]
+    },
+    {
+      "name": "CPLEX LP subset (-lp) input format",
+      "args": [
+        "-lp",
+        "/tmp/scope_lp_minimal.lp"
+      ]
+    },
+    {
+      "name": "SMT-LIB HORN logic invokes fixedpoint engine",
+      "args": [
+        "/tmp/scope_horn_fixedpoint.smt2"
+      ]
+    },
+    {
+      "name": "finite Set theory via Array Int Bool encoding",
+      "args": [
+        "/tmp/scope_set_theory.smt2"
+      ]
+    },
+    {
+      "name": "QF_NRA sqrt(2) printed as (root-obj ...)",
+      "args": [
+        "/tmp/scope_nra_root_obj.smt2"
+      ]
+    },
+    {
+      "name": "model.completion fills free variable with default",
+      "args": [
+        "/tmp/scope_model_completion.smt2"
+      ]
+    },
+    {
+      "name": "pp.bv-literals false prints (_ bvN k) form",
+      "args": [
+        "/tmp/scope_pp_bv_literals.smt2"
+      ]
+    }
+  ]
+}

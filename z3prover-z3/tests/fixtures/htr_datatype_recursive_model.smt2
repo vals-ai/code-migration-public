@@ -1,0 +1,7 @@
+(declare-datatypes ((Tree 0)) (((leaf (val Int)) (node (left Tree) (right Tree)))))
+(declare-const t Tree)
+(assert ((_ is node) t))
+(assert ((_ is leaf) (left t)))
+(assert (= (val (left t)) 5))
+(check-sat)
+(get-model)

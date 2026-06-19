@@ -1,0 +1,5 @@
+(set-option :produce-assignments true)
+(declare-const x Bool)
+(assert (! x :named a1))
+(check-sat)
+(get-assignment)

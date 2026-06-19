@@ -1,0 +1,681 @@
+{
+  "timeout": 60,
+  "tests": [
+    {
+      "name": "TTF table listing",
+      "category": "behavior"
+    },
+    {
+      "name": "OTF table listing",
+      "category": "behavior"
+    },
+    {
+      "name": "WOFF table listing",
+      "category": "behavior"
+    },
+    {
+      "name": "variable font table listing",
+      "category": "behavior"
+    },
+    {
+      "name": "head table dump TTF",
+      "category": "behavior"
+    },
+    {
+      "name": "hhea table dump TTF",
+      "category": "behavior"
+    },
+    {
+      "name": "cmap table dump TTF",
+      "category": "behavior"
+    },
+    {
+      "name": "post table dump TTF",
+      "category": "behavior"
+    },
+    {
+      "name": "glyf table dump TTF with assembly instructions",
+      "category": "behavior"
+    },
+    {
+      "name": "CFF table dump OTF",
+      "category": "behavior"
+    },
+    {
+      "name": "OS/2 table dump with bit fields",
+      "category": "behavior"
+    },
+    {
+      "name": "name table dump platformID encoding",
+      "category": "behavior"
+    },
+    {
+      "name": "fvar table dump variable font axes and instances",
+      "category": "behavior"
+    },
+    {
+      "name": "CFF table dump IBM Plex Sans subset",
+      "category": "behavior"
+    },
+    {
+      "name": "GSUB table dump with script/feature/lookup structure",
+      "category": "behavior"
+    },
+    {
+      "name": "maxp table dump TrueType numGlyphs and program sizes",
+      "category": "behavior"
+    },
+    {
+      "name": "maxp table dump CFF minimal",
+      "category": "behavior"
+    },
+    {
+      "name": "multiple table selection head hhea maxp",
+      "category": "behavior"
+    },
+    {
+      "name": "table exclusion strips named tables from full dump",
+      "category": "behavior"
+    },
+    {
+      "name": "hmtx table dump advance widths and LSBs",
+      "category": "behavior"
+    },
+    {
+      "name": "cvt table dump control value table",
+      "category": "behavior"
+    },
+    {
+      "name": "gasp table grayscale rendering ranges",
+      "category": "behavior"
+    },
+    {
+      "name": "glyf hex bytecode mode with -i flag",
+      "category": "behavior"
+    },
+    {
+      "name": "STAT table dump style attributes variable font",
+      "category": "behavior"
+    },
+    {
+      "name": "avar table dump axis variations",
+      "category": "behavior"
+    },
+    {
+      "name": "GPOS table dump kerning positioning",
+      "category": "behavior"
+    },
+    {
+      "name": "GDEF table dump glyph class definition",
+      "category": "behavior"
+    },
+    {
+      "name": "prep table font pre-program assembly",
+      "category": "behavior"
+    },
+    {
+      "name": "fpgm table function program assembly",
+      "category": "behavior"
+    },
+    {
+      "name": "DSIG table digital signature stub",
+      "category": "behavior"
+    },
+    {
+      "name": "HVAR table variable horizontal metrics",
+      "category": "behavior"
+    },
+    {
+      "name": "GlyphOrder explicit table dump",
+      "category": "behavior"
+    },
+    {
+      "name": "LinLibertine table listing with FFTM GDEF GPOS GSUB",
+      "category": "behavior"
+    },
+    {
+      "name": "LinLibertine GSUB with real lookup types",
+      "category": "behavior"
+    },
+    {
+      "name": "LinLibertine GDEF with mark glyph classes",
+      "category": "behavior"
+    },
+    {
+      "name": "LinLibertine name table Windows LCID langID",
+      "category": "behavior"
+    },
+    {
+      "name": "LinLibertine OS/2 Unicode range bitfields",
+      "category": "behavior"
+    },
+    {
+      "name": "full TTF dump GlyphOrder first",
+      "category": "behavior"
+    },
+    {
+      "name": "full OTF dump OTTO sfntVersion GlyphOrder first",
+      "category": "behavior"
+    },
+    {
+      "name": "TTC list font 0 with -y flag",
+      "category": "behavior"
+    },
+    {
+      "name": "TTC dump font 0 head table",
+      "category": "behavior"
+    },
+    {
+      "name": "TTC full dump font 0",
+      "category": "behavior"
+    },
+    {
+      "name": "TTC -y out-of-range font index error",
+      "category": "behavior"
+    },
+    {
+      "name": "exclude multiple tables glyf and CFF",
+      "category": "behavior"
+    },
+    {
+      "name": "exclude non-existent table is no-op",
+      "category": "behavior"
+    },
+    {
+      "name": "exclude DSIG and gasp",
+      "category": "behavior"
+    },
+    {
+      "name": "prep hex bytecode mode with -i flag",
+      "category": "behavior"
+    },
+    {
+      "name": "fpgm hex bytecode mode with -i flag",
+      "category": "behavior"
+    },
+    {
+      "name": "I.ttf prep hex bytecode with -i flag",
+      "category": "behavior"
+    },
+    {
+      "name": "gvar table dump variable font glyph variations",
+      "category": "behavior"
+    },
+    {
+      "name": "loca table compiler-only comment",
+      "category": "behavior"
+    },
+    {
+      "name": "LinLibertine head table dump",
+      "category": "behavior"
+    },
+    {
+      "name": "LinLibertine cmap with Unicode comments",
+      "category": "behavior"
+    },
+    {
+      "name": "LinLibertine GPOS layout",
+      "category": "behavior"
+    },
+    {
+      "name": "newline CR writes carriage-return line endings",
+      "category": "behavior"
+    },
+    {
+      "name": "newline CRLF writes Windows line endings",
+      "category": "behavior"
+    },
+    {
+      "name": "newline LF writes Unix line endings",
+      "category": "behavior"
+    },
+    {
+      "name": "stdin processing with - argument",
+      "category": "behavior"
+    },
+    {
+      "name": "-d directory output writes split per-table file",
+      "category": "behavior"
+    },
+    {
+      "name": "-s split-tables writes companion files alongside output",
+      "category": "behavior"
+    },
+    {
+      "name": "-g split-glyphs flag dump succeeds",
+      "category": "behavior"
+    },
+    {
+      "name": "post table dump variable font I.ttf format 3.0",
+      "category": "behavior"
+    },
+    {
+      "name": "FFTM table dump FontForge timestamp",
+      "category": "behavior"
+    },
+    {
+      "name": "MVAR table dump metric variations variable font",
+      "category": "behavior"
+    },
+    {
+      "name": "Amstelvar variable font table listing",
+      "category": "behavior"
+    },
+    {
+      "name": "TTC list font 1 with -y flag",
+      "category": "behavior"
+    },
+    {
+      "name": "TTC dump font 1 head table",
+      "category": "behavior"
+    },
+    {
+      "name": "TTC -y negative index error",
+      "category": "behavior"
+    },
+    {
+      "name": "GSUB Lookup index count LinLibertine",
+      "category": "behavior"
+    },
+    {
+      "name": "GSUB FeatureRecord count LinLibertine",
+      "category": "behavior"
+    },
+    {
+      "name": "GSUB Ligature components count LinLibertine",
+      "category": "behavior"
+    },
+    {
+      "name": "GSUB AlternateSet count LinLibertine",
+      "category": "behavior"
+    },
+    {
+      "name": "GPOS Lookup index count LinLibertine",
+      "category": "behavior"
+    },
+    {
+      "name": "GDEF MarkAttachClass occurrence count LinLibertine",
+      "category": "behavior"
+    },
+    {
+      "name": "cmap map entry count LinLibertine",
+      "category": "behavior"
+    },
+    {
+      "name": "name namerecord count LinLibertine",
+      "category": "behavior"
+    },
+    {
+      "name": "fvar Axis element count I.ttf",
+      "category": "behavior"
+    },
+    {
+      "name": "fvar NamedInstance count I.ttf",
+      "category": "behavior"
+    },
+    {
+      "name": "gvar tuple count I.ttf",
+      "category": "behavior"
+    },
+    {
+      "name": "HVAR VarRegion count I.ttf",
+      "category": "behavior"
+    },
+    {
+      "name": "STAT AxisValue count I.ttf",
+      "category": "behavior"
+    },
+    {
+      "name": "avar segment count I.ttf",
+      "category": "behavior"
+    },
+    {
+      "name": "MVAR ValueRecord count Amstelvar",
+      "category": "behavior"
+    },
+    {
+      "name": "GSUB FeatureList section md5 LinLibertine",
+      "category": "behavior"
+    },
+    {
+      "name": "GSUB LookupList section md5 LinLibertine",
+      "category": "behavior"
+    },
+    {
+      "name": "cmap format_4 section md5 LinLibertine",
+      "category": "behavior"
+    },
+    {
+      "name": "glyf first 40 lines md5 TestTTF",
+      "category": "behavior"
+    },
+    {
+      "name": "gvar first 30 lines md5 I.ttf",
+      "category": "behavior"
+    },
+    {
+      "name": "TTC subfont 1 hhea byte count with -y flag",
+      "category": "behavior"
+    },
+    {
+      "name": "prep -i hex bytecode byte count TestTTF",
+      "category": "behavior"
+    },
+    {
+      "name": "CFF Private DICT StdHW field LinLibertine",
+      "category": "behavior"
+    },
+    {
+      "name": "CFF Private DICT StdVW field LinLibertine",
+      "category": "behavior"
+    },
+    {
+      "name": "CFF Private DICT StemSnapH field LinLibertine",
+      "category": "behavior"
+    },
+    {
+      "name": "CFF Private DICT StemSnapV field LinLibertine",
+      "category": "behavior"
+    },
+    {
+      "name": "CFF Top DICT Copyright field IBMPlexSans",
+      "category": "behavior"
+    },
+    {
+      "name": "CFF hintmask 16-bit decoding LinLibertine",
+      "category": "behavior"
+    },
+    {
+      "name": "CFF T2 real-number compact format 49.9 LinLibertine",
+      "category": "behavior"
+    },
+    {
+      "name": "GlyphOrder duplicate-name disambiguation LinLibertine",
+      "category": "behavior"
+    },
+    {
+      "name": "hmtx duplicate-name disambiguation LinLibertine",
+      "category": "behavior"
+    },
+    {
+      "name": "head fontRevision shortest-decimal Amstelvar",
+      "category": "behavior"
+    },
+    {
+      "name": "head fontRevision shortest-decimal IBMPlexSans",
+      "category": "behavior"
+    },
+    {
+      "name": "glyf empty instructions element count Amstelvar",
+      "category": "behavior"
+    },
+    {
+      "name": "cmap format 0 byte-array decoded with Unicode comments",
+      "category": "behavior"
+    },
+    {
+      "name": "cmap format 6 trimmed-table dump",
+      "category": "behavior"
+    },
+    {
+      "name": "cmap format 12 nGroups attribute and high-plane codepoints",
+      "category": "behavior"
+    },
+    {
+      "name": "cmap format 14 uv/uvs variation-selector attributes",
+      "category": "behavior"
+    },
+    {
+      "name": "cmap format 8 dumphex raw fallback",
+      "category": "behavior"
+    },
+    {
+      "name": "glyf cubic=1 attribute on off-curve points",
+      "category": "behavior"
+    },
+    {
+      "name": "glyf composite component flags hex serialization",
+      "category": "behavior"
+    },
+    {
+      "name": "glyf cubic attribute occurrence count",
+      "category": "behavior"
+    },
+    {
+      "name": "CFF2 blend operator with delta values",
+      "category": "behavior"
+    },
+    {
+      "name": "CFF2 blend element count I.otf",
+      "category": "behavior"
+    },
+    {
+      "name": "CFF Encoding StandardEncoding sentinel Lobster",
+      "category": "behavior"
+    },
+    {
+      "name": "VARC VarComponent count varc-ac00-ac01",
+      "category": "behavior"
+    },
+    {
+      "name": "VARC table md5 varc-ac00-ac01",
+      "category": "behavior"
+    },
+    {
+      "name": "meta table dlng/slng text element TestVGID",
+      "category": "behavior"
+    },
+    {
+      "name": "post format 1.0 no psNames section",
+      "category": "behavior"
+    },
+    {
+      "name": "post format 2.0 psNames embedded comment block",
+      "category": "behavior"
+    },
+    {
+      "name": "post format 2.0 psNames comment line count",
+      "category": "behavior"
+    },
+    {
+      "name": "Silf Graphite engine table md5",
+      "category": "behavior"
+    },
+    {
+      "name": "Feat Graphite features fid mixed int/4-char tag",
+      "category": "behavior"
+    },
+    {
+      "name": "Sill Graphite language settings fid 4-char tag",
+      "category": "behavior"
+    },
+    {
+      "name": "Glat Graphite glyph attributes table md5",
+      "category": "behavior"
+    },
+    {
+      "name": "TTX compile OTX to binary then list tables",
+      "category": "behavior"
+    },
+    {
+      "name": "TTX compile OTX exit code",
+      "category": "behavior"
+    },
+    {
+      "name": "WOFF head sfntVersion from flavor field",
+      "category": "behavior"
+    },
+    {
+      "name": "WOFF top-level sfntVersion attribute",
+      "category": "behavior"
+    },
+    {
+      "name": "DSIG SignatureRecord present in issue2824",
+      "category": "behavior"
+    },
+    {
+      "name": "fvar Amstelvar parsed XML md5",
+      "category": "behavior"
+    },
+    {
+      "name": "avar v2 Amstelvar parsed XML md5",
+      "category": "behavior"
+    },
+    {
+      "name": "STAT Amstelvar parsed XML md5",
+      "category": "behavior"
+    },
+    {
+      "name": "GDEF Amstelvar with VarStore md5",
+      "category": "behavior"
+    },
+    {
+      "name": "HVAR Amstelvar parsed XML md5",
+      "category": "behavior"
+    },
+    {
+      "name": "GPOS Lobster CFF PairPos parsed XML md5",
+      "category": "behavior"
+    },
+    {
+      "name": "head fontRevision shortest-decimal I.ttf",
+      "category": "behavior"
+    },
+    {
+      "name": "cmap format 10 raw-hex fallback",
+      "category": "behavior"
+    },
+    {
+      "name": "cmap10_font1 table listing checksums",
+      "category": "behavior"
+    },
+    {
+      "name": "GSUB TestVGID 37-lookup parsed md5",
+      "category": "behavior"
+    },
+    {
+      "name": "GSUB ignoreMarks inline comment count TestVGID",
+      "category": "behavior"
+    },
+    {
+      "name": "GSUB UINameID cross-table name lookup comment",
+      "category": "behavior"
+    },
+    {
+      "name": "GSUB MultipleSubst comma-joined out count",
+      "category": "behavior"
+    },
+    {
+      "name": "GPOS TestVGID CursivePos MarkBase MarkMark md5",
+      "category": "behavior"
+    },
+    {
+      "name": "GPOS CursivePos open-tag count TestVGID",
+      "category": "behavior"
+    },
+    {
+      "name": "GDEF TestVGID v1.2 MarkGlyphSetsDef LigCaretList md5",
+      "category": "behavior"
+    },
+    {
+      "name": "name TestVGID extended nameIDs Arabic langID md5",
+      "category": "behavior"
+    },
+    {
+      "name": "STAT ElidableAxisValueName inline comment count I.ttf",
+      "category": "behavior"
+    },
+    {
+      "name": "STAT AxisValue Format 3 LinkedValue I.ttf",
+      "category": "behavior"
+    },
+    {
+      "name": "glyf cubic NotoSans-VF md5",
+      "category": "behavior"
+    },
+    {
+      "name": "glyf cubic attribute count NotoSans-VF",
+      "category": "behavior"
+    },
+    {
+      "name": "CFF inside WOFF flavor md5",
+      "category": "behavior"
+    },
+    {
+      "name": "glyf varc-ac00-ac01 empty-glyph + outlines md5",
+      "category": "behavior"
+    },
+    {
+      "name": "ERROR Unknown file type on non-TTX text input",
+      "category": "behavior"
+    },
+    {
+      "name": "GPOS NotoSansArabic empty FeatureList LookupList md5",
+      "category": "behavior"
+    },
+    {
+      "name": "HVAR I.ttf full parsed md5",
+      "category": "behavior"
+    },
+    {
+      "name": "kern format-0 pair dump synthetic",
+      "category": "behavior"
+    },
+    {
+      "name": "LTSH yPel sorted by glyph name",
+      "category": "behavior"
+    },
+    {
+      "name": "VDMX inline comment recs startsz endsz",
+      "category": "behavior"
+    },
+    {
+      "name": "vhea table with caretOffset field",
+      "category": "behavior"
+    },
+    {
+      "name": "vmtx mtx element height tsb attributes",
+      "category": "behavior"
+    },
+    {
+      "name": "hdmx Vera fixed-width tabular md5",
+      "category": "behavior"
+    },
+    {
+      "name": "PCLT Vera DefaultTable raw=True hexdata",
+      "category": "behavior"
+    },
+    {
+      "name": "TSIV asciiTable verbatim source block md5",
+      "category": "behavior"
+    },
+    {
+      "name": "Gloc Graphite parsed attributes element",
+      "category": "behavior"
+    },
+    {
+      "name": "ERROR --with-zopfli requires --flavor woff",
+      "category": "behavior"
+    },
+    {
+      "name": "VARC varc-6868 MultiVarStore md5",
+      "category": "behavior"
+    },
+    {
+      "name": "VARC varc-6868 VarComponent count",
+      "category": "behavior"
+    },
+    {
+      "name": "VARC varc-ac01-conditional HAVE_CONDITION path md5",
+      "category": "behavior"
+    },
+    {
+      "name": "VARC varc-ac01-conditional conditionIndex element",
+      "category": "behavior"
+    },
+    {
+      "name": "TTX compile --flavor woff produces wOFF magic",
+      "category": "behavior"
+    }
+  ]
+}

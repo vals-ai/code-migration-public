@@ -1,0 +1,7 @@
+- [ ] unchecked
+- [x] checked lowercase
+- [X] checked uppercase
+- [ ] another unchecked
+  - [x] nested checked
+  - [ ] nested unchecked
+- [.] unconventional marker (with --relaxed-tasklist-character)

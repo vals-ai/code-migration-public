@@ -1,0 +1,10 @@
+; QF_LRA: linear real arithmetic with get-value
+(set-logic QF_LRA)
+(set-option :produce-models true)
+(declare-const x Real)
+(declare-const y Real)
+(assert (> x 1.5))
+(assert (< y 3.0))
+(assert (= (+ x y) 4.0))
+(check-sat)
+(get-value (x y (+ x y)))

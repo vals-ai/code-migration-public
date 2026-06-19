@@ -1,0 +1,8 @@
+(set-logic QF_BV)
+(set-option :produce-models true)
+(declare-const x (_ BitVec 8))
+(declare-const y (_ BitVec 8))
+(assert (= (bvadd x y) #x10))
+(assert (= x #x07))
+(check-sat)
+(get-value (x y (bvand x y)))

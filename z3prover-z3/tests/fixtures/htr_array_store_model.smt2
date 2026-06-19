@@ -1,0 +1,6 @@
+(set-option :produce-models true)
+(declare-const a (Array Int Int))
+(assert (= (select a 0) 42))
+(assert (= (select a 1) 100))
+(check-sat)
+(get-model)

@@ -1,0 +1,10 @@
+; QF_ALIA: array store/select with integer indices
+(set-logic QF_ALIA)
+(set-option :produce-models true)
+(declare-const a (Array Int Int))
+(declare-const b (Array Int Int))
+(declare-const i Int)
+(assert (= (store a i 42) b))
+(assert (= i 5))
+(check-sat)
+(get-value ((select b 5) (select b 6)))

@@ -1,0 +1,7 @@
+repository: https://github.com/digital-preservation/droid
+commit: 1badcb38b5910c33b925cc11884a65321a5e5a38
+target_languages:
+- Python
+- Kotlin
+- C++
+- Rust

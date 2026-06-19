@@ -1,0 +1,12 @@
+; Tactic: apply propagate-values tactic then check-sat
+(set-logic QF_LIA)
+(set-option :produce-models true)
+(declare-const x Int)
+(declare-const y Int)
+(declare-const z Int)
+(assert (= x 3))
+(assert (= y (+ x 2)))
+(assert (= z (* y 2)))
+(apply propagate-values)
+(check-sat)
+(get-value (x y z))

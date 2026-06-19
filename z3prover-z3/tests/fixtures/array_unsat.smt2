@@ -1,0 +1,7 @@
+(set-logic QF_AUFBV)
+(declare-fun a () (Array (_ BitVec 4) (_ BitVec 8)))
+(declare-fun i () (_ BitVec 4))
+(declare-fun v () (_ BitVec 8))
+(assert (= (select (store a i v) i) v))
+(assert (not (= (select (store a i v) i) v)))
+(check-sat)

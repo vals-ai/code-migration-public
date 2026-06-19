@@ -1,0 +1,637 @@
+{
+  "timeout": 120,
+  "tests": [
+    {
+      "name": "identify PNG file CSV",
+      "category": "behavior"
+    },
+    {
+      "name": "identify PDF file CSV",
+      "category": "behavior"
+    },
+    {
+      "name": "identify ZIP file CSV",
+      "category": "behavior"
+    },
+    {
+      "name": "identify CSV file CSV",
+      "category": "behavior"
+    },
+    {
+      "name": "identify XML file CSV",
+      "category": "behavior"
+    },
+    {
+      "name": "identify text file CSV",
+      "category": "behavior"
+    },
+    {
+      "name": "identify GIF file CSV",
+      "category": "behavior"
+    },
+    {
+      "name": "identify BMP file CSV",
+      "category": "behavior"
+    },
+    {
+      "name": "identify HTML file CSV",
+      "category": "behavior"
+    },
+    {
+      "name": "identify PNG content with JPG extension",
+      "category": "behavior"
+    },
+    {
+      "name": "identify file with no extension CSV",
+      "category": "behavior"
+    },
+    {
+      "name": "identify unrecognized bytes CSV",
+      "category": "behavior"
+    },
+    {
+      "name": "identify unrecognized bytes JSON",
+      "category": "behavior"
+    },
+    {
+      "name": "identify empty file",
+      "category": "behavior"
+    },
+    {
+      "name": "identify PNG file JSON",
+      "category": "behavior"
+    },
+    {
+      "name": "identify PDF file JSON",
+      "category": "behavior"
+    },
+    {
+      "name": "identify ZIP file JSON",
+      "category": "behavior"
+    },
+    {
+      "name": "identify GIF file JSON",
+      "category": "behavior"
+    },
+    {
+      "name": "identify BMP file JSON",
+      "category": "behavior"
+    },
+    {
+      "name": "recursive directory walk JSON sorted",
+      "category": "behavior"
+    },
+    {
+      "name": "recursive directory walk CSV sorted",
+      "category": "behavior"
+    },
+    {
+      "name": "testdir non-recursive scan",
+      "category": "behavior"
+    },
+    {
+      "name": "testdir recursive scan CSV sorted",
+      "category": "behavior"
+    },
+    {
+      "name": "testdir recursive scan JSON sorted",
+      "category": "behavior"
+    },
+    {
+      "name": "multiple input paths JSON sorted",
+      "category": "behavior"
+    },
+    {
+      "name": "multiple distinct file types CSV sorted",
+      "category": "behavior"
+    },
+    {
+      "name": "recursive scan extension filter txt",
+      "category": "behavior"
+    },
+    {
+      "name": "recursive scan extension filter multi bmp gif",
+      "category": "behavior"
+    },
+    {
+      "name": "extension filter gif JSON sorted",
+      "category": "behavior"
+    },
+    {
+      "name": "ZIP unexpanded by default CSV",
+      "category": "behavior"
+    },
+    {
+      "name": "ZIP expanded with -A JSON",
+      "category": "behavior"
+    },
+    {
+      "name": "ZIP selective -At ZIP JSON",
+      "category": "behavior"
+    },
+    {
+      "name": "TAR unexpanded by default CSV",
+      "category": "behavior"
+    },
+    {
+      "name": "TAR expanded with -A JSON",
+      "category": "behavior"
+    },
+    {
+      "name": "GZIP expanded with -A JSON",
+      "category": "behavior"
+    },
+    {
+      "name": "BZIP2 expanded with -A JSON",
+      "category": "behavior"
+    },
+    {
+      "name": "7-Zip expanded with -A JSON",
+      "category": "behavior"
+    },
+    {
+      "name": "RAR expanded with -A JSON sorted",
+      "category": "behavior"
+    },
+    {
+      "name": "WARC expanded with -Wt warc JSON sorted",
+      "category": "behavior"
+    },
+    {
+      "name": "ARC expanded with -Wt arc JSON sorted",
+      "category": "behavior"
+    },
+    {
+      "name": "custom binary and container signature files",
+      "category": "behavior"
+    },
+    {
+      "name": "custom binary signature only (default container)",
+      "category": "behavior"
+    },
+    {
+      "name": "DQL filter file_ext equals txt",
+      "category": "behavior"
+    },
+    {
+      "name": "DQL filter file_ext equals PNG case insensitive",
+      "category": "behavior"
+    },
+    {
+      "name": "DQL filter file_size greater than 30",
+      "category": "behavior"
+    },
+    {
+      "name": "DQL filter file_size GTE 50 single file",
+      "category": "behavior"
+    },
+    {
+      "name": "DQL filter file_name starts image",
+      "category": "behavior"
+    },
+    {
+      "name": "DQL filter file_ext any multi-value",
+      "category": "behavior"
+    },
+    {
+      "name": "DQL filter not contains excludes matched",
+      "category": "behavior"
+    },
+    {
+      "name": "DQL filter none operator excludes",
+      "category": "behavior"
+    },
+    {
+      "name": "DQL filter combined with JSON output",
+      "category": "behavior"
+    },
+    {
+      "name": "explicit -o stdout sentinel",
+      "category": "behavior"
+    },
+    {
+      "name": "-co silently ignored in no-profile mode",
+      "category": "behavior"
+    },
+    {
+      "name": "-co with invalid column in no-profile mode",
+      "category": "behavior"
+    },
+    {
+      "name": "-co silently ignored in no-profile JSON mode",
+      "category": "behavior"
+    },
+    {
+      "name": "-qc no-op in no-profile mode",
+      "category": "behavior"
+    },
+    {
+      "name": "export missing profiles flag",
+      "category": "behavior"
+    },
+    {
+      "name": "export-format missing profiles flag",
+      "category": "behavior"
+    },
+    {
+      "name": "report missing profiles flag",
+      "category": "behavior"
+    },
+    {
+      "name": "no-profile-resource missing argument",
+      "category": "behavior"
+    },
+    {
+      "name": "nonexistent path in no-profile mode",
+      "category": "behavior"
+    },
+    {
+      "name": "profile and no-profile mutually exclusive",
+      "category": "behavior"
+    },
+    {
+      "name": "invalid DQL operator",
+      "category": "behavior"
+    },
+    {
+      "name": "DQL empty single-value bug literal format string",
+      "category": "behavior"
+    },
+    {
+      "name": "no actionable command line options",
+      "category": "behavior"
+    },
+    {
+      "name": "profile export CSV restricted columns",
+      "category": "behavior"
+    },
+    {
+      "name": "profile export CSV quote-commas flag",
+      "category": "behavior"
+    },
+    {
+      "name": "profile export CSV column reorder to schema order",
+      "category": "behavior"
+    },
+    {
+      "name": "profile export JSON honors requested column order",
+      "category": "behavior"
+    },
+    {
+      "name": "profile export UTF-8 BOM with -B",
+      "category": "behavior"
+    },
+    {
+      "name": "profile export -e one-row-per-file form",
+      "category": "behavior"
+    },
+    {
+      "name": "profile export HASH column renamed MD5_HASH",
+      "category": "behavior"
+    },
+    {
+      "name": "profile export results filter format_count",
+      "category": "behavior"
+    },
+    {
+      "name": "profile export full 18-column header order",
+      "category": "behavior"
+    },
+    {
+      "name": "profile export case-insensitive format_name filter",
+      "category": "behavior"
+    },
+    {
+      "name": "report missing name error",
+      "category": "behavior"
+    },
+    {
+      "name": "report invalid name error",
+      "category": "behavior"
+    },
+    {
+      "name": "report DROID XML format prolog",
+      "category": "behavior"
+    },
+    {
+      "name": "report Web page format XHTML prolog",
+      "category": "behavior"
+    },
+    {
+      "name": "DQL boolean alias yes",
+      "category": "behavior"
+    },
+    {
+      "name": "DQL boolean alias no",
+      "category": "behavior"
+    },
+    {
+      "name": "DQL operator LTE",
+      "category": "behavior"
+    },
+    {
+      "name": "DQL operator NE",
+      "category": "behavior"
+    },
+    {
+      "name": "DQL ends suffix match case-insensitive",
+      "category": "behavior"
+    },
+    {
+      "name": "DQL not starts prefix exclude",
+      "category": "behavior"
+    },
+    {
+      "name": "DQL not ends suffix exclude",
+      "category": "behavior"
+    },
+    {
+      "name": "DQL contains case-insensitive substring",
+      "category": "behavior"
+    },
+    {
+      "name": "DQL single-quoted value case-insensitive match",
+      "category": "behavior"
+    },
+    {
+      "name": "DQL multi-value none operator",
+      "category": "behavior"
+    },
+    {
+      "name": "DQL multiple -FF flags use OR semantics",
+      "category": "behavior"
+    },
+    {
+      "name": "CSV empty result zero bytes",
+      "category": "behavior"
+    },
+    {
+      "name": "JSON empty result lone close bracket",
+      "category": "behavior"
+    },
+    {
+      "name": "-At zip lowercase normalized to Zip",
+      "category": "behavior"
+    },
+    {
+      "name": "-At zip mismatched against TAR silently no-op",
+      "category": "behavior"
+    },
+    {
+      "name": "profile multi -p values error",
+      "category": "behavior"
+    },
+    {
+      "name": "export nonexistent profile no prefix error",
+      "category": "behavior"
+    },
+    {
+      "name": "explicit --csv flag GIF",
+      "category": "behavior"
+    },
+    {
+      "name": "explicit --csv flag BMP",
+      "category": "behavior"
+    },
+    {
+      "name": "--csv and --json combined",
+      "category": "behavior"
+    },
+    {
+      "name": "-Nr output to file CSV",
+      "category": "behavior"
+    },
+    {
+      "name": "-Nr output to file JSON",
+      "category": "behavior"
+    },
+    {
+      "name": "-ri row per format with -A ZIP JSON sorted",
+      "category": "behavior"
+    },
+    {
+      "name": "-ri row per format with -A ZIP CSV sorted",
+      "category": "behavior"
+    },
+    {
+      "name": "WARC with -W universal flag JSON sorted",
+      "category": "behavior"
+    },
+    {
+      "name": "ARC with -W universal flag JSON sorted",
+      "category": "behavior"
+    },
+    {
+      "name": "DQL filter puid case-sensitive match",
+      "category": "behavior"
+    },
+    {
+      "name": "DQL filter mime_type case-sensitive with slash",
+      "category": "behavior"
+    },
+    {
+      "name": "DQL filter format_count equals 1 in -Nr mode",
+      "category": "behavior"
+    },
+    {
+      "name": "DQL filter format_count equals 0 in -Nr mode",
+      "category": "behavior"
+    },
+    {
+      "name": "DQL filter puid starts prefix case-sensitive",
+      "category": "behavior"
+    },
+    {
+      "name": "DQL filter mime_type any multi-value with slashes",
+      "category": "behavior"
+    },
+    {
+      "name": "bare positional file argument no top-level command",
+      "category": "behavior"
+    },
+    {
+      "name": "DQL last_modified before 2030 accepts file",
+      "category": "behavior"
+    },
+    {
+      "name": "ZIP single-letter -Az expansion JSON",
+      "category": "behavior"
+    },
+    {
+      "name": "GZIP single-letter -Ag expansion JSON",
+      "category": "behavior"
+    },
+    {
+      "name": "BZIP2 single-letter -Ab expansion JSON",
+      "category": "behavior"
+    },
+    {
+      "name": "RAR single-letter -Ar expansion JSON sorted",
+      "category": "behavior"
+    },
+    {
+      "name": "7-Zip single-letter -A7 expansion JSON",
+      "category": "behavior"
+    },
+    {
+      "name": "WARC single-letter -Wa expansion JSON sorted",
+      "category": "behavior"
+    },
+    {
+      "name": "GZIP expanded with -A CSV",
+      "category": "behavior"
+    },
+    {
+      "name": "BZIP2 expanded with -A CSV",
+      "category": "behavior"
+    },
+    {
+      "name": "RAR expanded with -A CSV sorted",
+      "category": "behavior"
+    },
+    {
+      "name": "ARC expanded with -Wt arc CSV sorted",
+      "category": "behavior"
+    },
+    {
+      "name": "ARC expanded with -W universal flag CSV sorted",
+      "category": "behavior"
+    },
+    {
+      "name": "WARC expanded with -Wt warc CSV sorted",
+      "category": "behavior"
+    },
+    {
+      "name": "-At TAR uppercase normalized to Tar JSON sorted",
+      "category": "behavior"
+    },
+    {
+      "name": "-At Tar mixed-case normalized JSON sorted",
+      "category": "behavior"
+    },
+    {
+      "name": "-Nh hash flag rejected in -Nr mode md5",
+      "category": "behavior"
+    },
+    {
+      "name": "-Nh hash flag rejected in -Nr mode sha256 JSON",
+      "category": "behavior"
+    },
+    {
+      "name": "DQL filter file_ext gif against multi-file input sorted",
+      "category": "behavior"
+    },
+    {
+      "name": "DQL filter file_ext bmp against multi-file input sorted",
+      "category": "behavior"
+    },
+    {
+      "name": "ZIP -A with DQL file_ext txt no match JSON",
+      "category": "behavior"
+    },
+    {
+      "name": "ZIP -A with DQL file_ext zip container only JSON sorted",
+      "category": "behavior"
+    },
+    {
+      "name": "profile export results filter format_count GT 0",
+      "category": "behavior"
+    },
+    {
+      "name": "profile export CSV METHOD column",
+      "category": "behavior"
+    },
+    {
+      "name": "profile export CSV STATUS column",
+      "category": "behavior"
+    },
+    {
+      "name": "profile export CSV METHOD PUID combined with hash profile",
+      "category": "behavior"
+    },
+    {
+      "name": "DQL compound AND returns empty result",
+      "category": "behavior"
+    },
+    {
+      "name": "DQL compound OR returns empty result",
+      "category": "behavior"
+    },
+    {
+      "name": "DQL parenthesized single expression returns empty",
+      "category": "behavior"
+    },
+    {
+      "name": "DQL not any multi-value puid",
+      "category": "behavior"
+    },
+    {
+      "name": "DQL filter file combined with inline -FF OR",
+      "category": "behavior"
+    },
+    {
+      "name": "nested ZIP-in-ZIP recursive expansion JSON sorted",
+      "category": "behavior"
+    },
+    {
+      "name": "nested ZIP-in-ZIP selective -At ZIP recursive JSON sorted",
+      "category": "behavior"
+    },
+    {
+      "name": "TAR containing ZIP recursive expansion JSON sorted",
+      "category": "behavior"
+    },
+    {
+      "name": "tar.gz nested expansion gzip then tar JSON sorted",
+      "category": "behavior"
+    },
+    {
+      "name": "bundle tgz gzip-wrapped tar expansion JSON sorted",
+      "category": "behavior"
+    },
+    {
+      "name": "bundle tbz2 bzip2-wrapped tar expansion JSON sorted",
+      "category": "behavior"
+    },
+    {
+      "name": "gzipped ZIP recursive descent JSON sorted",
+      "category": "behavior"
+    },
+    {
+      "name": "ARC with combined -W -A flags expansion JSON sorted",
+      "category": "behavior"
+    },
+    {
+      "name": "WARC -W with DQL file_ext filter JSON",
+      "category": "behavior"
+    },
+    {
+      "name": "WARC -W -ri row per format JSON sorted",
+      "category": "behavior"
+    },
+    {
+      "name": "ARC -W -ri row per format JSON sorted",
+      "category": "behavior"
+    },
+    {
+      "name": "empty ZIP no-expand PUID",
+      "category": "behavior"
+    },
+    {
+      "name": "profile export results filter puid equals",
+      "category": "behavior"
+    },
+    {
+      "name": "profile export results filter mime_type equals",
+      "category": "behavior"
+    },
+    {
+      "name": "profile export results filter method Binary Signature error path",
+      "category": "behavior"
+    },
+    {
+      "name": "profile export lowercase column name file_path",
+      "category": "behavior"
+    }
+  ]
+}

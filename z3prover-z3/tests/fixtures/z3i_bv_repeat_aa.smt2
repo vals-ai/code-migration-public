@@ -1,0 +1,6 @@
+(set-logic QF_BV)
+(set-option :produce-models true)
+(declare-const x (_ BitVec 4))
+(assert (= ((_ repeat 2) x) #xaa))
+(check-sat)
+(get-model)

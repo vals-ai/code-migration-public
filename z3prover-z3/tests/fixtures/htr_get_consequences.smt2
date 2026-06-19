@@ -1,0 +1,5 @@
+(declare-const x Int)
+(declare-const y Int)
+(assert (= x 0))
+(assert (= y 1))
+(get-consequences () (x y))

@@ -1,0 +1,7 @@
+(declare-const x Int)
+(declare-const y Int)
+(assert (>= x 0))
+(assert (= (+ x y) 5))
+(maximize (+ x y))
+(check-sat)
+(get-objectives)

@@ -1,0 +1,13 @@
+; Model gen: get-unsat-assumptions from check-sat-assuming
+(set-logic QF_LIA)
+(set-option :produce-unsat-assumptions true)
+(declare-const x Int)
+(declare-const p Bool)
+(declare-const q Bool)
+(declare-const r Bool)
+(assert (=> p (> x 10)))
+(assert (=> q (< x 5)))
+(assert (=> r (= x 7)))
+; p ∧ q is unsat (x>10 and x<5)
+(check-sat-assuming (p q r))
+(get-unsat-assumptions)

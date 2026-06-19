@@ -1,0 +1,1 @@
+Paragraph in file A with an *unterminated emphasis

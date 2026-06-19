@@ -1,0 +1,5 @@
+(set-option :produce-assertions true)
+(declare-const x Int)
+(assert (> x 0))
+(assert (< x 10))
+(get-assertions)

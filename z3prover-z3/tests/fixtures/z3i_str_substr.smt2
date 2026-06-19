@@ -1,0 +1,6 @@
+(set-logic QF_S)
+(declare-const s String)
+(assert (= s "hello world"))
+(assert (= (str.substr s 6 5) "world"))
+(check-sat)
+(get-model)

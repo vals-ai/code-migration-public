@@ -1,0 +1,6 @@
+(set-logic QF_BV)
+(set-option :produce-models true)
+(declare-const x (_ BitVec 8))
+(assert (= ((_ rotate_right 2) x) #x40))
+(check-sat)
+(get-model)
