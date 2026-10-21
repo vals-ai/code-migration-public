@@ -64,6 +64,8 @@ RUN JOBS="$(nproc)" \
     && cmake --build build --target z3 -j"$JOBS"
 
 FROM debian:trixie-slim
+# Pick up distro ca-certificates updates (e.g. the eMudhra intermediate CA distrust) before base images refresh.
+RUN apt-get update && apt-get install -y --no-install-recommends --only-upgrade ca-certificates && rm -rf /var/lib/apt/lists/*
 RUN apt-get update && apt-get install -y --no-install-recommends \
         libstdc++6 \
     && rm -rf /var/lib/apt/lists/*

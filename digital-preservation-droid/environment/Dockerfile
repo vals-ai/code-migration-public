@@ -32,6 +32,8 @@ RUN find droid-command-line/target -maxdepth 1 -name 'droid-command-line-*.jar' 
 
 # Stage 2: lean JRE-only runtime image.
 FROM eclipse-temurin:21-jre-jammy
+# Pick up distro ca-certificates updates (e.g. the eMudhra intermediate CA distrust) before base images refresh.
+RUN apt-get update && apt-get install -y --no-install-recommends --only-upgrade ca-certificates && rm -rf /var/lib/apt/lists/*
 RUN apt-get update && apt-get install -y --no-install-recommends jq && rm -rf /var/lib/apt/lists/*
 COPY --from=builder /droid-command-line.jar /opt/droid/droid-command-line.jar
 COPY --from=builder /lib/ /opt/droid/lib/
