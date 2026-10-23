@@ -64,8 +64,6 @@ RUN ls -la build/libs/ && \
 # invokes `java -jar` directly (no spark-submit, no gcloud) when GATK_LOCAL_JAR
 # is set.
 FROM eclipse-temurin:17-jre-jammy
-# Pick up distro ca-certificates updates (e.g. the eMudhra intermediate CA distrust) before base images refresh.
-RUN apt-get update && apt-get install -y --no-install-recommends --only-upgrade ca-certificates && rm -rf /var/lib/apt/lists/*
 
 ARG GATK_VERSION=4.6.1.0
 
